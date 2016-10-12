@@ -1,3 +1,6 @@
+[![Build Status][bs-img]][bs-lnk]
+
+
 #Description:
 The repo contains a python web-scraping application to minimum number of links between 2 given wiki pages
 
@@ -20,3 +23,7 @@ Feel free to contact me to discuss any issues, questions, or comments.
 
 #License
 See the LICENSE file for license rights and limitations (MIT).
+
+
+[bs-lnk]: https://travis-ci.org/tranlyvu/findLink
+[bs-image]: https://travis-ci.org/tranlyvu/findLink.svg?branch=master
