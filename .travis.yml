@@ -1,17 +1,15 @@
 language: python
 python:
-  - "2.6"
   - "2.7"
-  - "3.2"
-  - "3.3"
-  - "3.4"
 
 install:
   - pip install -r requirements.txt
   - pip install coveralls
+  - pip install python-coveralls
 
 script:
   - make test
+  - py.test coveralls/tests.py --doctest-modules --pep8 coveralls -v --cov coveralls --cov-report term-missing
 
 after_success:
   - coveralls
