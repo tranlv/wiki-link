@@ -4,7 +4,7 @@ from settings import my_user,my_password,my_host
 from searchEngine.searcher import searcher
 import MySQLdb	
 
-class my_findLink:
+class findLink:
 	def __init__(self,starting_url,ending_url,limit=6):
 		""" Main class of the application
 			
