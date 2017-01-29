@@ -19,7 +19,7 @@ if cur.rowcount!=0:
 #global variable to store pages that already existed in database to avoid checking duplication
 existed_url	=	set() 
 
-class dataHandle:
+class DataHandle:
 	def __init__(self): return
 	
 	def	update_pages_table(self,url):

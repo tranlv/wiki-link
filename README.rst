@@ -7,16 +7,15 @@ findLink is a python web-scraping application to minimum number of links between
 *   Downloading a [release](https://github.com/tranlyvu/find-link)
 
 *	Quickstart
-	1.	Initializing class 'findLink""
+	1.	Initializing class 'find-link""
 	2.	Calling "search" method
 	
 *	Sample
 	*	[sample](https://github.com/tranlyvu/findLink/sample.py)
 	
 #Contribution
-*  Join our [gitter] ( gitter.im/find-link) and Maillist
-*  [Release management](https://launchpad.net/findlink)    
-*  For any feature recommendation please register a [Blueprint](https://blueprints.launchpad.net/findlink)
+*  Join our [gitter] ( gitter.im/find-link) and maillist   
+*  For any feature recommendation please register a [blueprint](https://blueprints.launchpad.net/findlink)
 *  For bug reports or requests please submit an [issue](https://github.com/tranlyvu/find-link/issues)
 
 #Frequently Asked Questions

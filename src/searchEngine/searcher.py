@@ -10,7 +10,7 @@ cur.execute(""" show databases like '%s'""" %('findLink'))
 if cur.rowcount!=0:
 	cur.execute("""USE %s""" %('findLink') )
 
-class searcher:
+class Searcher:
 
 	def __init__(self,starting_page,ending_page):
 		self.starting_page=starting_page
