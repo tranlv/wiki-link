@@ -1,26 +1,28 @@
 ========
-find-link:
+find-link
 ========
-findLink is a python web-scraping application to minimum number of links between 2 given wiki pages
+find-link is a python web-scraping application to find the minimum number of links between 2 given wiki pages
 
 .. image:: https://travis-ci.org/tranlyvu/find-link.svg?branch=master
     :target: https://travis-ci.org/tranlyvu/find-link
 
-Using findLink:
+Using findLink
 ===============
-Downloading a [release](https://github.com/tranlyvu/find-link)
+Downloading a release_
+.. _release: https://github.com/tranlyvu/find-link
 
 Quickstart
 1.	Initializing class 'FindLink"
 2.	Calling "search" method
 	
 Sample
--  [sample](https://github.com/tranlyvu/findLink/sample.py)
+-  sample_
+.. _sample: https://github.com/tranlyvu/findLink/sample.py
 	
 Contribution
 ============
 -  Join our gitter_ and maillist
-.. _gitter: gitter.im/find-link
+.. _gitter: https://gitter.im/find-link
 -  For any feature recommendation please register a blueprint_
 .. _blueprint: https://blueprints.launchpad.net/findlink
 -  For bug reports or requests please submit an issue_
@@ -28,8 +30,8 @@ Contribution
 
 Frequently Asked Questions
 ==========================
-The FAQs can be found on the project's Wiki page_. Feel free to submit more questions to be answered and added to the page.
-.. _page: https://github.com/tranlyvu/find-link/wiki
+The FAQs can be found on the project's Wiki_ page. Feel free to submit more questions to be answered and added to the page.
+.. _wiki: https://github.com/tranlyvu/find-link/wiki
 
 License
 =======
