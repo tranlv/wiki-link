@@ -17,6 +17,7 @@ Quickstart
 	
 Sample
 -  sample_.
+
 .. _sample: https://github.com/tranlyvu/find-Link/sample.py
 	
 Contribution
@@ -36,4 +37,5 @@ Frequently Asked Questions
 License
 =======
 See the LICENSE_ file for license rights and limitations (Apache License 2.0).
+
 .. _LICENSE: https://github.com/tranlyvu/find-link/blob/master/LICENSE
