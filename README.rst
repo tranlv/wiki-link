@@ -17,7 +17,7 @@ Quickstart
 	
 Sample
 -  sample_.
-.. _sample: https://github.com/tranlyvu/find-Link/sample.py/
+.. _sample: https://github.com/tranlyvu/find-Link/sample.py
 	
 Contribution
 ============
@@ -30,11 +30,10 @@ Contribution
 
 Frequently Asked Questions
 ==========================
--  The FAQs can be found on the project's Wiki_
-
+-  The FAQs can be found on the project's Wiki_ page. Feel free to submit more questions to be answered and added to the page.
 .. _Wiki: https://github.com/tranlyvu/find-link/wiki
 
 License
 =======
 See the LICENSE_ file for license rights and limitations (Apache License 2.0).
-.. _LICENSE: https://github.com/tranlyvu/find-link/blob/master/LICENSE/
+.. _LICENSE: https://github.com/tranlyvu/find-link/blob/master/LICENSE
