@@ -8,7 +8,7 @@ find-link is a python web-scraping application to find the minimum number of lin
 
 Using findLink
 ===============
-Downloading a release_
+Downloading a release_ .
 .. _release: https://github.com/tranlyvu/find-link
 
 Quickstart
@@ -21,17 +21,17 @@ Sample
 	
 Contribution
 ============
--  Join our gitter_ and maillist
+-  Join our gitter_ and maillist.
 .. _gitter: https://gitter.im/find-link
--  For any feature recommendation please register a blueprint_
+-  For any feature recommendation please register a blueprint_.
 .. _blueprint: https://blueprints.launchpad.net/findlink
--  For bug reports or requests please submit an issue_
+-  For bug reports or requests please submit an issue_.
 .. _issue: https://github.com/tranlyvu/find-link/issues
 
 Frequently Asked Questions
 ==========================
 The FAQs can be found on the project's Wiki_ page. Feel free to submit more questions to be answered and added to the page.
-.. _wiki: https://github.com/tranlyvu/find-link/wiki
+.. _Wiki: https://github.com/tranlyvu/find-link/wiki
 
 License
 =======
