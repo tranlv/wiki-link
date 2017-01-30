@@ -30,8 +30,8 @@ Contribution
 
 Frequently Asked Questions
 ==========================
-The FAQs can be found on the project's Wiki_ page. Feel free to submit more questions to be answered and added to the page.
-.. _Wiki: https://github.com/tranlyvu/find-link/wiki
+The FAQs can be found on the project's `Wiki page. Feel free to submit more questions to be answered and added to the page.
+<https://github.com/tranlyvu/find-link/wiki/>`_.
 
 License
 =======
