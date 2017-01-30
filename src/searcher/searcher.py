@@ -17,7 +17,7 @@ class Searcher:
 		self.ending_page=ending_page
 		self.my_list=[]
 		
-	def	linkSearch(self,current_page,starting_page):
+	def	link_search(self,current_page,starting_page):
 		""" Updating list
 		Parameters
 		--------------

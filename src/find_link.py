@@ -1,6 +1,6 @@
-from retrieveData.data-handle import DataHandle
+from data.data-handle import DataHandle
 from settings import my_user, my_password, my_host
-from searchEngine.searcher import Searcher
+from searcher.searcher import Searcher
 import MySQLdb
 
 
@@ -107,7 +107,7 @@ class FindLink:
 
         print ("Smallest number of separation is " + str(self.number_of_separation))
 
-    def printLinks(self):
+    def print_links(self):
         """ return the links between 2 given urls
 
         Parameters

@@ -66,7 +66,7 @@ class DataHandle:
 			
 			conn.commit()
 		
-	def	retrieveData(self,url,ending_url,number_of_separation):
+	def	retrieve_data(self,url,ending_url,number_of_separation):
 		"""Scraping the given url and updating database links found from scraping given url
 		   Return True if ending_page found
 		
