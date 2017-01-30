@@ -26,7 +26,7 @@ class FindLink:
         self.create_database(my_user, my_password, my_host)
 
         # insert starting page into 'pages' table
-        self.data = dataHandle()
+        self.data = DataHandle()
         self.data.update_pages_table(starting_url)
 
         # insert link from 'starting_url' to 'starting_url' with 0 number of separation
