@@ -1,4 +1,4 @@
-from data.data-handle import DataHandle
+from database.data-handle import DataHandle
 from settings import my_user, my_password, my_host
 from searcher.searcher import Searcher
 import MySQLdb
