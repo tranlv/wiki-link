@@ -8,15 +8,15 @@ find-link is a python web-scraping application to find the minimum number of lin
 
 Using findLink
 ===============
-Downloading a release_ .
+Downloading a release_.
 .. _release: https://github.com/tranlyvu/find-link
 
 Quickstart
-1.	Initializing class 'FindLink"
-2.	Calling "search" method
+1.	Initializing class 'FindLink".
+2.	Calling "search" method.
 	
 Sample
--  sample_
+-  sample_.
 .. _sample: https://github.com/tranlyvu/findLink/sample.py
 	
 Contribution
