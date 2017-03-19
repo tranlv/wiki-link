@@ -1,5 +1,6 @@
-from .dataHandle import dataHandle
+
 
 __all__=[
-			'dataHandle'
+			'data_handle'
+			'page'
 		]

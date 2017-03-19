@@ -1,14 +1,4 @@
-from database.data_handle import DataHandle
-from settings import my_user, my_password, my_host
-from searcher.searcher import Searcher
-import MySQLdb
 
-from sqlalchemy import creat_engine
-from sqlalchemy.orm import sessionmaker
-
-engine = creat_engine('sqlite:///:memory:')
-Session = session(bind = engine)
-session = Session()
 
 
 class FindLink:
