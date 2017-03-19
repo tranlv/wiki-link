@@ -1,11 +1,18 @@
-from database.data-handle import DataHandle
+from database.data_handle import DataHandle
 from settings import my_user, my_password, my_host
 from searcher.searcher import Searcher
 import MySQLdb
 
+from sqlalchemy import creat_engine
+from sqlalchemy.orm import sessionmaker
+
+engine = creat_engine('sqlite:///:memory:')
+Session = session(bind = engine)
+session = Session()
+
 
 class FindLink:
-    def __init__(self, starting_url, ending_url, limit=6):
+    def __init__(self, starting_url, ending_url, limit = 6):
         """ Main class of the application
 
         Parameters
@@ -23,63 +30,16 @@ class FindLink:
         self.limit = limit
         self.starting_url = starting_url
         self.ending_url = ending_url
-        self.create_database(my_user, my_password, my_host)
 
-        # insert starting page into 'pages' table
-        self.data = DataHandle()
-        self.data.update_pages_table(starting_url)
+        # insert starting page into 'page' table
+        page = Page(url = starting_url)
+        session.add(page)
+        session.commit()
 
         # insert link from 'starting_url' to 'starting_url' with 0 number of separation
         self.cur.execute("""SELECT id FROM pages WHERE url='%s' """ % (self.starting_url))
         self.starting_url_id = self.cur.fetchone()
         self.data.update_links_table(self.starting_url_id[0], self.starting_url_id[0], 0)
-
-    def create_database(self, my_user, my_password, my_host):
-        """ Generating database 'findLink' with 2 tables 'pages' and 'links'
-
-            Table 'findLink'.'pages'
-        +--------+--------------+------+
-        | Field  | Type	        | Key  |
-        +--------|--------------+------+
-        | id	 | int(11)      | pri  |
-        | url	 | varchar(255) |      |
-        +--------+---------------------+
-
-            Table 'findLink'.'links_from_starting_page'
-        +--------------    +--------------+------+
-        | Field            | Type	      | Key  |
-        +------------------|--------------+------+
-        | id	           | int(11)      | pri  |
-        | from_page_id     | int(11)      |      |
-        | to_page_id       | int(11)      |      |
-          no_of_separation | int(11)      |      |
-        +--------+-------------------------------+
-
-        """
-        # starting self.connection
-        self.conn = MySQLdb.connect(host=my_host, user=my_user, passwd=my_password)
-        self.cur = self.conn.cursor()
-
-        # creating database and tables
-        self.cur.execute("""CREATE DATABASE IF NOT EXISTS %s charset=utf8 """ % ('findLink'))
-
-        self.cur.execute("""USE %s""" % ('findLink'))
-
-        self.cur.execute("""CREATE TABLE IF NOT EXISTS %s(
-						%s INT NOT NULL AUTO_INCREMENT,
-						%s VARCHAR(255) NOT NULL,
-						PRIMARY KEY(%s))
-					""" % ('pages', 'id', 'url', 'id')
-                         )
-
-        self.cur.execute("""CREATE TABLE IF NOT EXISTS %s (
-						%s INT NOT NULL AUTO_INCREMENT,
-						%s INT NULL,
-						%s INT NULL,
-						%s INT NULL,
-						PRIMARY KEY(%s) )
-					""" % ('links_from_starting_page', 'id', 'from_page_id', 'to_page_id', 'no_of_separation', 'id')
-                         )
 
     def search(self):
         """ return out the smallest number of links between 2 given urls

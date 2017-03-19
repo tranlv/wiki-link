@@ -1,8 +1,8 @@
-"""finLink
+"""find-link
 
-finlIkn is web-scraping application to find minimum number of links between two given wiki pages
+find-link is web-scraping application to find minimum number of links between two given wiki pages
 Beautiful Soup works with Python 2.7 and up.
-For more than you ever wanted to know about finLink, see the documentation:
+For more than you ever wanted to know about find-link, see the documentation:
 
 """
 
