@@ -4,6 +4,5 @@
 
 
 beautifulsoup4
-tox
 sqlalchemy
 urllib2

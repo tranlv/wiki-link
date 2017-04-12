@@ -24,12 +24,13 @@ class DataHandle:
 		"""
 		
 		global existed_url
-		temp_variable = session.query(Page).filter(Page.url=url).first()
-		
-		if	cur.rowcount==0:
+		page_list = session.query(Page).filter(Page.url==url).all()
+
+		if page_list.len()==0:
 			existed_url.add(url)
-			cur.execute("""INSERT INTO pages(url) VALUES('%s')""" %(url) )
-			conn.commit()
+			page = Page(url = url)
+			session.add(link)
+			session.commit()
 			
 	def	update_links_table(self,from_id,to_id,current_separation):
 		"""Updating table 'links_from_starting_page' 
@@ -43,17 +44,15 @@ class DataHandle:
 		Returns
 		--------------		
 		None
-		
 		"""
-		cur.execute("""SELECT * FROM links_from_starting_page
-								WHERE from_page_id = %s AND to_page_id = %s""" %(int(from_id),int(to_id)))
-		
-		if	cur.rowcount ==0:
-			cur.execute("""INSERT INTO links_from_starting_page
-						(from_page_id, to_page_id,no_of_separation) 
-						VALUES (%s, %s,%s)""" %(int(from_id),int(to_id),int(current_separation)))
-			
-			conn.commit()
+
+		links_from_starting_page_list = session.query(Link).filter(Link.from_page_id==from_id,
+																Link.to_page_id==to_id).all()
+		if	links_from_starting_page_list.len() ==0:
+
+			link = Link(from_page_id=from_id,  to_page_id=to_id, no_of_separation=current_separation)
+			session.add(link)
+			session.commit()
 		
 	def	retrieve_data(self, url, ending_url, number_of_separation):
 		"""Scraping the given url and updating database links found from scraping given url
