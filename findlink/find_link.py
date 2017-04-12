@@ -1,6 +1,6 @@
 from database import database,data_handle
+from searcher import searcher
 from settings import session
-
 
 class FindLink:
     def __init__(self, starting_url, ending_url, limit = 6):

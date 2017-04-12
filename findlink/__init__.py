@@ -16,7 +16,4 @@ __version__ = "1.0.0"
 __copyright__ = "Copyright (c) 2016-2017 Tran Ly Vu"
 __license__ = "Apache License 2.0"
 
-__all__=[
-		'retrieveData',
-		'searchEngine'
-		]
+from findlink import find_link
