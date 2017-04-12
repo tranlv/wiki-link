@@ -4,5 +4,5 @@
 
 
 beautifulsoup4
-MySQL-python
 tox
+sqlalchemy

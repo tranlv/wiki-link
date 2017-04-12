@@ -1,16 +1,19 @@
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+from database import database,data_handle
 
-
+engine  = create_engine('sqlite:///:memory:')
+Session = sessionmaker(bind=engine)
+session = Session()
 
 class FindLink:
     def __init__(self, starting_url, ending_url, limit = 6):
         """ Main class of the application
-
         Parameters
         --------------
         starting_url: string, wiki page in the form of '/wiki/something'
 
         ending_url : string, wiki page in the form of '/wiki/something'
-
         Returns
         --------------
         self : object
@@ -22,31 +25,25 @@ class FindLink:
         self.ending_url = ending_url
 
         # insert starting page into 'page' table
-        page = Page(url = starting_url)
+        page = Page(from_pageid='starting_url',
+                    to_page_id='starting_url',
+                    no_of_separation=0)
         session.add(page)
         session.commit()
 
-        # insert link from 'starting_url' to 'starting_url' with 0 number of separation
-        self.cur.execute("""SELECT id FROM pages WHERE url='%s' """ % (self.starting_url))
-        self.starting_url_id = self.cur.fetchone()
-        self.data.update_links_table(self.starting_url_id[0], self.starting_url_id[0], 0)
-
     def search(self):
-        """ return out the smallest number of links between 2 given urls
-
+        """ return the smallest number of links between 2 given urls
         Parameters
         --------------
-
         None
 
         Returns
         --------------
-
         None
         """
 
         self.number_of_separation = 1
-        self.found = self.data.retrieveData(self.starting_url, self.ending_url, self.number_of_separation)
+        self.found = data_handle.retrieveData(self.starting_url, self.ending_url, self.number_of_separation)
 
         while self.found == False:
             self.number_of_separation += 1
