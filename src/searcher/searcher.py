@@ -1,5 +1,6 @@
 from src.settings import session
 from src.database.database import Page,Link
+from sqlalchemy import func
 
 class Searcher:
 
@@ -25,16 +26,9 @@ class Searcher:
 		while starting_page not in self.my_list:
 			current_url_id = session.query(Page.id).filter(Page.url==current_page).first()
 
-			min = sesion.query()
-			cur.execute("""SELECT from_page_id
-						FROM links_from_starting_page
-						WHERE to_page_id= %s 
-						AND no_of_separation=(SELECT min(no_of_separation) FROM links_from_starting_page
-						WHERE to_page_id=%s))
-						""" %(current_url_id[0],current_url_id[0]))
-			from_page_id = session.query(Link.from_page_id).filter(Link.to_page_id==current_url_id[0])
-			cur.execute("""SELECT url FROM pages WHERE id= %s""" %(int(from_page_id[0])))
-			url=cur.fetchone()
+			min = session.query(func.min(Link.number_of_separation)).filter(Link.to_page_id==current_url_id[0])
+			from_page_id = session.query(Link.from_page_id).filter(Link.to_page_id==current_url_id[0], Link.number_of_separation==min)
+			url = session.query(Page.url).filter(Page.id==from_page_id[0]).first()
 			if url[0] not in self.my_list:
 				self.my_list.append( url[0])	
 			self.linkSearch(url[0],starting_page)

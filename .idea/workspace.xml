@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8179b1c-451d-445a-bdc7-cf7157922c19" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/__init__.py" afterPath="$PROJECT_DIR$/src/database/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/data_handle.py" afterPath="$PROJECT_DIR$/src/database/data_handle.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/searcher/__init__.py" afterPath="$PROJECT_DIR$/src/searcher/__init__.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/searcher/searcher.py" afterPath="$PROJECT_DIR$/src/searcher/searcher.py" />
     </list>
     <ignored path=".idea/" />
@@ -28,13 +25,10 @@
       <file leaf-file-name="searcher.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/searcher/searcher.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
+            <state relative-caret-position="1666">
+              <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
-                <marker date="1492006869108" expanded="true" signature="710:908" ph="SELECT from_... links_from_starting_page" />
-                <marker date="1492006869108" expanded="true" signature="822:904" ph="SELECT min(n... links_from_starting_page" />
-                <marker date="1492006869108" expanded="true" signature="1071:1103" ph="SELECT url F... pages" />
               </folding>
             </state>
           </provider>
@@ -827,13 +821,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/searcher/searcher.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
+        <state relative-caret-position="1666">
+          <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
-            <marker date="1492006869108" expanded="true" signature="710:908" ph="SELECT from_... links_from_starting_page" />
-            <marker date="1492006869108" expanded="true" signature="822:904" ph="SELECT min(n... links_from_starting_page" />
-            <marker date="1492006869108" expanded="true" signature="1071:1103" ph="SELECT url F... pages" />
           </folding>
         </state>
       </provider>
