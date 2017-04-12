@@ -1,10 +1,6 @@
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
 from database import database,data_handle
+from settings import session
 
-engine  = create_engine('sqlite:///:memory:')
-Session = sessionmaker(bind=engine)
-session = Session()
 
 class FindLink:
     def __init__(self, starting_url, ending_url, limit = 6):
@@ -25,7 +21,7 @@ class FindLink:
         self.ending_url = ending_url
 
         # insert starting page into 'page' table
-        page = Page(from_pageid='starting_url',
+        page = database.Page(from_pageid='starting_url',
                     to_page_id='starting_url',
                     no_of_separation=0)
         session.add(page)

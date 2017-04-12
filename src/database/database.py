@@ -1,7 +1,6 @@
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+from src import settings
 
 Base = declarative_base()
 
@@ -53,8 +52,4 @@ class Page(Base) :
     def __repr__(self):
         return "Page(url = '{self.from_page_id})".format(self=self)
 
-engine = create_engine('sqlite:///:memory:')
-Session = sessionmaker(bind=engine)
-session = Session()
-
-Base.metadata.create_all(engine)
+Base.metadata.create_all(settings.engine)

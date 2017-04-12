@@ -1,19 +1,8 @@
-"""
-	The module retrieve links found from a given wiki page with a certain number of separation and store in mysql database
-"""
 from urllib2 import urlopen,HTTPError
 from bs4 import	BeautifulSoup
-from findLink.settings import my_user,my_password,my_host
-import MySQLdb
+from database import Page, Link
 import re
-
-#starting self.connection
-conn	=	MySQLdb.connect(host=my_host, user=my_user,passwd=my_password)
-cur	=	conn.cursor()
-cur.execute(""" show databases like '%s'""" %('findLink'))
-if cur.rowcount!=0:
-	cur.execute("""USE %s""" %('findLink') )
-
+from src.settings import session
 
 
 #global variable to store pages that already existed in database to avoid checking duplication
@@ -35,7 +24,7 @@ class DataHandle:
 		"""
 		
 		global existed_url
-		cur.execute("""SELECT * FROM pages WHERE url='%s' """ %(url))
+		temp_variable = session.query(Page).filter(Page.url=url).first()
 		
 		if	cur.rowcount==0:
 			existed_url.add(url)
@@ -66,7 +55,7 @@ class DataHandle:
 			
 			conn.commit()
 		
-	def	retrieve_data(self,url,ending_url,number_of_separation):
+	def	retrieve_data(self, url, ending_url, number_of_separation):
 		"""Scraping the given url and updating database links found from scraping given url
 		   Return True if ending_page found
 		
@@ -84,13 +73,13 @@ class DataHandle:
 		"""
 		
 		global existed_url
-		cur.execute("""SELECT from_page_id FROM links_from_starting_page 
-					WHERE no_of_separation=%s""" %(number_of_separation-1)) 
+		from_page_id_list = session.query(Link.from_page_id).filter(Link.number_of_separation==number_of_separation-1,
+																Link.to_page_id==ending_url).all()
 		
-		for url_id in cur.fetchall():	
-			cur.execute("""SELECT url FROM pages WHERE id=%s""" %(int(url_id[0])))
+		for url_id in from_page_id_list:
+			new_url = session.query(Page.url).filter(Page.id == url_id).all()
+
 			#handle exception where page not found or server down or url mistyped
-			new_url=cur.fetchone()
 			try:
 				html	=	urlopen('https://en.wikipedia.org'+new_url[0])
 			except HTTPError:
