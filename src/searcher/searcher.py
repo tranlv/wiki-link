@@ -1,14 +1,5 @@
-
-from findLink.settings import my_user,my_password,my_host
-import MySQLdb
-
-
-#starting self.connection
-conn	=	MySQLdb.connect(host=my_host, user=my_user,passwd=my_password)
-cur	=	conn.cursor()
-cur.execute(""" show databases like '%s'""" %('findLink'))
-if cur.rowcount!=0:
-	cur.execute("""USE %s""" %('findLink') )
+from src.settings import session
+from src.database.database import Page,Link
 
 class Searcher:
 
@@ -32,15 +23,16 @@ class Searcher:
 		"""
 		
 		while starting_page not in self.my_list:
-			cur.execute("""SELECT id FROM pages WHERE url= '%s' """ %(current_page))
-			current_url_id=cur.fetchone()
-			cur.execute("""SELECT from_page_id 
+			current_url_id = session.query(Page.id).filter(Page.url==current_page).first()
+
+			min = sesion.query()
+			cur.execute("""SELECT from_page_id
 						FROM links_from_starting_page
 						WHERE to_page_id= %s 
 						AND no_of_separation=(SELECT min(no_of_separation) FROM links_from_starting_page
 						WHERE to_page_id=%s))
 						""" %(current_url_id[0],current_url_id[0]))
-			from_page_id =cur.fetchone()			
+			from_page_id = session.query(Link.from_page_id).filter(Link.to_page_id==current_url_id[0])
 			cur.execute("""SELECT url FROM pages WHERE id= %s""" %(int(from_page_id[0])))
 			url=cur.fetchone()
 			if url[0] not in self.my_list:

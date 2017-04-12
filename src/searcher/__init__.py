@@ -1,4 +1,4 @@
-from .searcher import searcher
+import searcher
 
 __all__=[
 			'searcher'

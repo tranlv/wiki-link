@@ -4,7 +4,6 @@ from database import Page, Link
 import re
 from src.settings import session
 
-
 #global variable to store pages that already existed in database to avoid checking duplication
 existed_url	=	set() 
 
