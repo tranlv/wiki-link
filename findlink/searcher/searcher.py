@@ -1,5 +1,5 @@
-from src.settings import session
-from src.database.database import Page,Link
+from findlink.settings import session
+from findlink.database.database import Page,Link
 from sqlalchemy import func
 
 class Searcher:

@@ -1,4 +1,4 @@
-from src.findLink import my_findLink
+from findlink.findLink import my_findLink
 
 def main():
 	starting_url='/wiki/Barack_Obama'

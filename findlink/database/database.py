@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
-from src import settings
+from findlink import settings
 
 Base = declarative_base()
 

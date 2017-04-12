@@ -2,7 +2,7 @@ from urllib2 import urlopen,HTTPError
 from bs4 import	BeautifulSoup
 from database import Page, Link
 import re
-from src.settings import session
+from findlink.settings import session
 
 #global variable to store pages that already existed in database to avoid checking duplication
 existed_url	=	set() 
