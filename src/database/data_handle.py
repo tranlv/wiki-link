@@ -94,16 +94,15 @@ class DataHandle:
 			for	link in	soup.findAll("a",href=re.compile("^(/wiki/)[^:#]")):
 				
 				#only insert link starting with /wiki/
-				inserted_url=link.attrs['href']
+				inserted_url = link.attrs['href']
 				
 				if	inserted_url not in	existed_url:
 					#update page table 
 					self.update_pages_table(inserted_url)
 					
 				#update links table
-				cur.execute("""SELECT id FROM pages WHERE url='%s'""" %(inserted_url))
-				inserted_id=cur.fetchone()
-				self.update_links_table(int(url_id[0]),int(inserted_id[0]),number_of_separation)	
+				inserted_id= session.query(Page.id).filter(Page.url == inserted_url).first()
+				self.update_links_table(int(url_id[0]),int(inserted_id[0]),number_of_separation)
 
 				if inserted_url is ending_url:
 					return True
