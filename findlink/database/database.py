@@ -1,8 +1,5 @@
 from sqlalchemy import Column, Integer, String
-from sqlalchemy.ext.declarative import declarative_base
-from findlink import settings
-
-Base = declarative_base()
+from findlink.settings import Base,engine
 
 class Link(Base) :
     """ Generating database 'find_link' with table 'link'
@@ -11,14 +8,14 @@ class Link(Base) :
            +--------------    +--------------+------+
            | Field            | Type	      | Key  |
            +------------------|--------------+------+
-           | id	           | int(11)      | pri  |
+           | id	              | int(11)      | pri  |
            | from_page_id     | int(11)      |      |
            | to_page_id       | int(11)      |      |
              no_of_separation | int(11)      |      |
            +--------+-------------------------------+
-
     """
-    __tablename__ = 'link'
+
+    __tablename__ = 'links'
 
     id = Column(Integer(), primary_key=True)
     from_page_id = Column(Integer())
@@ -26,30 +23,27 @@ class Link(Base) :
     number_of_separation = Column(Integer())
 
     def __repr__(self):
-        return "Link(from_page_id = '{self.from_page_id}'," \
-                "to_page_id = '{self.to_page_id}', "\
-                "number_of_separation = '{self.number_of_separation})".format(self=self)
-
+        return "<Link(from_page_id='%s', to_page_id='%s', number_of_separation='%s')>" % (
+                     self.from_page_id, self.to_page_id, self.number_of_separation)
 
 class Page(Base) :
-    """ Generating database 'find-link' with table 'page'
+    """ Generating database 'find-link'.'pages'
 
                    Table 'find_link'.'pages'
                +--------+--------------+------+
                | Field  | Type	        | Key  |
                +--------|--------------+------+
-               | id	 | int(11)      | pri  |
-               | url	 | varchar(255) |      |
+               | id	    | int(11)      | pri  |
+               | url	| varchar(255) |      |
                +--------+---------------------+
-
     """
 
-    __tablename__ = 'page'
+    __tablename__ = 'pages'
 
     id = Column(Integer(), primary_key=True)
     url = Column(String(225))
 
     def __repr__(self):
-        return "Page(url = '{self.from_page_id})".format(self=self)
+        return "<Page(url ='%s')>" %(self.url)
 
-Base.metadata.create_all(settings.engine)
+Base.metadata.create_all(engine)
