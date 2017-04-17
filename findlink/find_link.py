@@ -20,12 +20,16 @@ class FindLink:
         self.starting_url = starting_url
         self.ending_url = ending_url
 
-        # insert starting page into 'page' table
-        page = database.Page()
+        page = database.Page(url='starting_url')
+        session.add(page)
+
+        page = database.Page(url='ending_url')
+        session.add(page)
+
         link = database.Link(from_page_id='starting_url',
                              to_page_id='starting_url',
                              no_of_separation=0)
-        session.add(page)
+        session.add(link)
         session.commit()
 
     def search(self):
