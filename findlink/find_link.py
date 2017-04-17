@@ -20,6 +20,7 @@ class FindLink:
         self.limit = limit
         self.starting_url = starting_url
         self.ending_url = ending_url
+        self.found = False
 
         page = Page(url='starting_url')
         session.add(page)
