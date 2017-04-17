@@ -1,5 +1,5 @@
 from database import database,data_handle
-from searcher import searcher
+from findlink import searcher
 from settings import session
 
 class FindLink:

@@ -1,9 +1,9 @@
-from findlink.findLink import my_findLink
+from findlink.find_link import FindLink
 
 def main():
 	starting_url='/wiki/Barack_Obama'
 	ending_url='/wiki/Bill_Clinton'
-	model=my_findLink(starting_url,ending_url)
+	model=FindLink(starting_url,ending_url)
 	model.search()
 	model.printLinks()
 
