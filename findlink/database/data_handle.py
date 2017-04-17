@@ -10,7 +10,7 @@ existed_url	= set()
 class DataHandle:
 	def __init__(self): return
 
-	def retrieve_data(self, url, ending_url, number_of_separation):
+	def retrieve_data(self, starting_url, ending_url, number_of_separation):
 
 		global existed_url
 		from_page_id_list = session.query(Link.from_page_id).filter(
@@ -52,44 +52,22 @@ class DataHandle:
 
 	
 	def	update_pages_table(self,url):
-		""" updating page table
-		Parameters
-		--------------
-		url: string, wiki page in the form of '/wiki/something'
 
-		Returns
-		--------------	
-		None
-		
-		"""
-		
 		global existed_url
 		page_list = session.query(Page).filter(Page.url==url).all()
 
 		if page_list.len()==0:
 			existed_url.add(url)
 			page = Page(url = url)
-			session.add(link)
+			session.add(page)
 			session.commit()
 			
 	def	update_links_table(self,from_id,to_id,current_separation):
-		"""Updating table 'links_from_starting_page' 
-		Parameters
-		--------------
-		from_id: int
-		
-		to_id: int
-		
-		current_separation: int
-		Returns
-		--------------		
-		None
-		"""
 
 		links_from_starting_page_list = session.query(Link).filter(Link.from_page_id==from_id,
 																Link.to_page_id==to_id).all()
-		if	links_from_starting_page_list.len() ==0:
 
+		if	links_from_starting_page_list.len() ==0:
 			link = Link(from_page_id=from_id,  to_page_id=to_id, no_of_separation=current_separation)
 			session.add(link)
 			session.commit()

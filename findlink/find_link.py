@@ -1,4 +1,5 @@
-from database import database,data_handle
+from database import data_handle
+from database.database import Page,Link
 from findlink import searcher
 from settings import session
 
@@ -20,15 +21,19 @@ class FindLink:
         self.starting_url = starting_url
         self.ending_url = ending_url
 
-        page = database.Page(url='starting_url')
+        page = Page(url='starting_url')
         session.add(page)
 
-        page = database.Page(url='ending_url')
+        page = Page(url='ending_url')
         session.add(page)
 
-        link = database.Link(from_page_id='starting_url',
-                             to_page_id='starting_url',
-                             no_of_separation=0)
+        starting_id = session.query(Page.id).filter(Page.url == 'starting_url').all()
+
+        if (starting_id.len() == 1):
+            link = Link(from_page_id = starting_id[0],
+                        to_page_id = starting_id[0],
+                        no_of_separation=0)
+
         session.add(link)
         session.commit()
 
