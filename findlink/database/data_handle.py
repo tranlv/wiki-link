@@ -51,7 +51,7 @@ class DataHandle:
 		return False
 
 	@staticmethod
-	def update_pages_table(url):
+	def update_page_if_not_exists(url):
 		global existed_url
 		page_list = session.query(Page).filter(Page.url == url).all()
 		if page_list.len() == 0:
@@ -61,10 +61,11 @@ class DataHandle:
 			session.commit()
 
 	@staticmethod
-	def update_links_table(from_id, to_id, current_separation):
-		links_from_starting_page_list = session.query(Link).filter(Link.from_page_id == from_id, Link.to_page_id == to_id).all()
-		if links_from_starting_page_list.len() == 0:
-			link = Link(from_page_id=from_id,  to_page_id=to_id, no_of_separation=current_separation)
+	def update_link_if_not_exists(from_page_id, to_page_id):
+		link_between_2_pages = session.query(Link).\
+										filter(Link.from_page_id == from_page_id, Link.to_page_id == to_page_id).all()
+		if link_between_2_pages.len() == 0:
+			link = Link(from_page_id=Link.from_page_id,  to_page_id=to_page_id, no_of_separation=1)
 			session.add(link)
 			session.commit()
 
