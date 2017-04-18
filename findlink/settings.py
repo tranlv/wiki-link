@@ -8,6 +8,7 @@ ip = "localhost"
 port = 3310
 engine = create_engine("mysql+pymysql://'%s':'%s'@'%s':'%s'" % (
                      username, password, ip, port))
-Session = sessionmaker(bind=engine)
+Session = sessionmaker()
+Session.configure(bind=engine)
 session = Session()
 Base = declarative_base()
