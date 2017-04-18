@@ -24,14 +24,14 @@ class FindLink:
         """ return the smallest number of links between 2 given urls
         """
 
-        self.found = DataHandle().retrieveData(self.starting_url, self.ending_url, self.number_of_separation)
+        self.found = DataHandle().retrieve_data(self.ending_url, self.number_of_separation)
 
         while self.found is False:
             self.number_of_separation += 1
             if self.number_of_separation > self.limit:
                 print ("Number of separation is exceeded number of limit. Stop searching!")
                 return
-            self.found = self.data.retrieveData(self.starting_url, self.ending_url, self.number_of_separation)
+            self.found = DataHandle().retrieve_data(self.ending_url, self.number_of_separation)
 
         print ("Smallest number of separation is " + str(self.number_of_separation))
 
