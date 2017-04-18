@@ -6,12 +6,13 @@ class Link(Base) :
 
                Table 'find-link'.'link
            +--------------    +--------------+------+
-           | Field            | Type	      | Key  |
+           | Field            | Type	       Key  |
            +------------------|--------------+------+
-           | id	              | int(11)      | pri  |
-           | from_page_id     | int(11)      |      |
-           | to_page_id       | int(11)      |      |
-             no_of_separation | int(11)      |      |
+           | id	              | int           | pri  |
+           | from_page_id     | int           |      |
+           | to_page_id       | int           |      |
+           | no_of_separation | int           |      |
+           | created          | timestamp
            +--------+-------------------------------+
     """
 
@@ -31,10 +32,11 @@ class Page(Base) :
 
                    Table 'find_link'.'pages'
                +--------+--------------+------+
-               | Field  | Type	        | Key  |
+               | Field  | Type	       | Key  |
                +--------|--------------+------+
-               | id	    | int(11)      | pri  |
+               | id	    | int          | pri  |
                | url	| varchar(255) |      |
+               | created | timestamp
                +--------+---------------------+
     """
 

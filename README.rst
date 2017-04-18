@@ -29,7 +29,7 @@ Sample
 	
 Contribution
 ============
-- Join our gitter_ and maillist.
+- Join our gitter_
 
 .. _gitter: https://gitter.im/find-link
 - For any feature recommendation please register a blueprint_.
