@@ -5,7 +5,8 @@ from settings import session
 
 
 class FindLink:
-    def __init__(self, starting_url, ending_url, limit = 6):
+
+    def __init__(self, starting_url, ending_url, limit=6):
         """ Main class of the application
         Parameters
         --------------

@@ -26,11 +26,11 @@ class Searcher:
         """
 
         while starting_page not in self.my_list:
-            current_url_id = session.query(Page.id).filter(Page.url==current_page).first()
+            current_url_id = session.query(Page.id).filter(Page.url == current_page).first()
 
-            min = session.query(func.min(Link.number_of_separation)).filter(Link.to_page_id==current_url_id[0])
-            from_page_id = session.query(Link.from_page_id).filter(Link.to_page_id==current_url_id[0], Link.number_of_separation==min)
-            url = session.query(Page.url).filter(Page.id==from_page_id[0]).first()
+            min_separation = session.query(func.min(Link.number_of_separation)).filter(Link.to_page_id == current_url_id[0])
+            from_page_id = session.query(Link.from_page_id).filter(Link.to_page_id == current_url_id[0], Link.number_of_separation == min_separation)
+            url = session.query(Page.url).filter(Page.id == from_page_id[0]).first()
             if url[0] not in self.my_list:
                 self.my_list.append( url[0])
             self.linkSearch(url[0],starting_page)
