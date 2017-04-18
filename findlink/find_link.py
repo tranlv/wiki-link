@@ -1,5 +1,5 @@
 from database import data_handle
-from database.database import Page,Link
+from database.database import Page, Link
 from findlink import searcher
 from settings import session
 
