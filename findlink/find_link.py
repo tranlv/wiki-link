@@ -3,6 +3,7 @@ from database.database import Page,Link
 from findlink import searcher
 from settings import session
 
+
 class FindLink:
     def __init__(self, starting_url, ending_url, limit = 6):
         """ Main class of the application
@@ -21,6 +22,7 @@ class FindLink:
         self.starting_url = starting_url
         self.ending_url = ending_url
         self.found = False
+        self.number_of_separation = 1
 
         page = Page(url='starting_url')
         session.add(page)
@@ -30,9 +32,9 @@ class FindLink:
 
         starting_id = session.query(Page.id).filter(Page.url == 'starting_url').all()
 
-        if (starting_id.len() == 1):
-            link = Link(from_page_id = starting_id[0],
-                        to_page_id = starting_id[0],
+        if starting_id.len() == 1:
+            link = Link(from_page_id=starting_id[0],
+                        to_page_id=starting_id[0],
                         no_of_separation=0)
 
         session.add(link)
@@ -49,7 +51,6 @@ class FindLink:
         None
         """
 
-        self.number_of_separation = 1
         self.found = data_handle.retrieveData(self.starting_url, self.ending_url, self.number_of_separation)
 
         while self.found == False:

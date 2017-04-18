@@ -1,7 +1,9 @@
 from sqlalchemy import Column, Integer, String, DateTime, text
-from findlink.settings import Base,engine
+from findlink.settings import Base, engine
 
-class Link(Base) :
+
+class Link(Base):
+
     """ Generating database 'find_link' with table 'link'
 
                Table 'find-link'.'link
@@ -22,11 +24,12 @@ class Link(Base) :
     from_page_id = Column(Integer())
     to_page_id = Column(Integer())
     number_of_separation = Column(Integer(),nullable=False)
-    created = Column(DateTime, nullable=False)
+    created = Column(DateTime, nullable=False, server_default=text('CURRENT_TIMESTAMP'))
 
     def __repr__(self):
         return "<Link(from_page_id='%s', to_page_id='%s', number_of_separation='%s', created='%s')>" % (
                      self.from_page_id, self.to_page_id, self.number_of_separation, self.created)
+
 
 class Page(Base) :
     """ Generating database 'find-link'.'pages'
