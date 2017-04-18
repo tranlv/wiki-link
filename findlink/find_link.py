@@ -1,23 +1,12 @@
 from database.data_handle import DataHandle
-from database.database import Page, Link
-from findlink import searcher
+from database.database import Page
+from findlink.searcher import Searcher
 from settings import session
 
 
 class FindLink:
 
     def __init__(self, starting_url, ending_url, limit=6):
-        """ Main class of the application
-        Parameters
-        --------------
-        starting_url: string, wiki page in the form of '/wiki/something'
-
-        ending_url : string, wiki page in the form of '/wiki/something'
-        Returns
-        --------------
-        self : object
-           Returns self.
-        """
 
         self.limit = limit
         self.starting_url = starting_url
@@ -33,18 +22,11 @@ class FindLink:
 
     def search(self):
         """ return the smallest number of links between 2 given urls
-        Parameters
-        --------------
-        None
-
-        Returns
-        --------------
-        None
         """
 
         self.found = DataHandle().retrieveData(self.starting_url, self.ending_url, self.number_of_separation)
 
-        while self.found == False:
+        while self.found is False:
             self.number_of_separation += 1
             if self.number_of_separation > self.limit:
                 print ("Number of separation is exceeded number of limit. Stop searching!")
@@ -55,21 +37,14 @@ class FindLink:
 
     def print_links(self):
         """ return the links between 2 given urls
-
-        Parameters
-        --------------
-
-        None
-
-        Returns
-        --------------
-        prints links between 2 given urls
         """
-        if self.number_of_separation > self.limit or self.found == False:
+
+        if self.number_of_separation > self.limit or self.found is False:
             print ("No solution within limit!")
             return
-        my_search = searcher(self.starting_url, self.ending_url)
-        my_list = [self.ending_page] + searcher.list_of_links()
+        my_search = Searcher(self.starting_url, self.ending_url)
+        my_list = [self.ending_page] + my_search.list_of_links()
         my_list.reverse()
+
         for x in my_list:
             print x
