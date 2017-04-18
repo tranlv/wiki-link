@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, DateTime, text
 from findlink.settings import Base,engine
 
 class Link(Base) :
@@ -21,11 +21,12 @@ class Link(Base) :
     id = Column(Integer(), primary_key=True)
     from_page_id = Column(Integer())
     to_page_id = Column(Integer())
-    number_of_separation = Column(Integer())
+    number_of_separation = Column(Integer(),nullable=False)
+    created = Column(DateTime, nullable=False)
 
     def __repr__(self):
-        return "<Link(from_page_id='%s', to_page_id='%s', number_of_separation='%s')>" % (
-                     self.from_page_id, self.to_page_id, self.number_of_separation)
+        return "<Link(from_page_id='%s', to_page_id='%s', number_of_separation='%s', created='%s')>" % (
+                     self.from_page_id, self.to_page_id, self.number_of_separation, self.created)
 
 class Page(Base) :
     """ Generating database 'find-link'.'pages'
@@ -44,8 +45,9 @@ class Page(Base) :
 
     id = Column(Integer(), primary_key=True)
     url = Column(String(225))
+    created = Column(DateTime, nullable=False, server_default=text('CURRENT_TIMESTAMP'))
 
     def __repr__(self):
-        return "<Page(url ='%s')>" %(self.url)
+        return "<Page(url ='%s', created='%s')>" %(self.url, self.created)
 
 Base.metadata.create_all(engine)
