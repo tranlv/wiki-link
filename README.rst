@@ -16,16 +16,16 @@ Using find-link
 
 .. _release: https://github.com/tranlyvu/find-link
 
-Quickstart
+- Quickstart
 
 1. Initializing class 'FindLink".
 2. Calling "search" method.
 	
-Sample
+- Sample
 
-- sample_.
+1. sample_.
 
-.. _sample: https://github.com/tranlyvu/find-Link/sample.py
+.. _sample: https://github.com/tranlyvu/find-Link/sample
 	
 Contribution
 ============
