@@ -34,7 +34,7 @@ setup(
 	install_requires=[
 		'bs4',
 		'sqlalchemy'
-		'urllib2'
+		'Requests'
 		]
 				
 )

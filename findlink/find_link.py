@@ -1,4 +1,4 @@
-from database import data_handle
+from database.data_handle import DataHandle
 from database.database import Page, Link
 from findlink import searcher
 from settings import session
@@ -25,21 +25,11 @@ class FindLink:
         self.found = False
         self.number_of_separation = 1
 
-        page = Page(url='starting_url')
-        session.add(page)
-
-        page = Page(url='ending_url')
-        session.add(page)
+        DataHandle().update_page_if_not_exists(starting_url)
+        DataHandle().update_page_if_not_exists(ending_url)
 
         starting_id = session.query(Page.id).filter(Page.url == 'starting_url').all()
-
-        if starting_id.len() == 1:
-            link = Link(from_page_id=starting_id[0],
-                        to_page_id=starting_id[0],
-                        no_of_separation=0)
-
-        session.add(link)
-        session.commit()
+        DataHandle.update_link(starting_id[0], starting_id[0], 0)
 
     def search(self):
         """ return the smallest number of links between 2 given urls
@@ -52,7 +42,7 @@ class FindLink:
         None
         """
 
-        self.found = data_handle.retrieveData(self.starting_url, self.ending_url, self.number_of_separation)
+        self.found = DataHandle().retrieveData(self.starting_url, self.ending_url, self.number_of_separation)
 
         while self.found == False:
             self.number_of_separation += 1

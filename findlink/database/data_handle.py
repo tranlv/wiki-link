@@ -20,11 +20,11 @@ class DataHandle:
 								Link.number_of_separation == number_of_separation - 1, Link.to_page_id == ending_url).all()
 
 		for url_id in from_page_id_list:
-			new_url = session.query(Page.url).filter(Page.id == url_id).all()
+			url = session.query(Page.url).filter(Page.id == url_id).all()
 
 			# handle exception where page not found or server down or url mistyped
 			try:
-				html = get('https://en.wikipedia.org' + new_url[0])
+				html = get('https://en.wikipedia.org' + url[0])
 			except HTTPError:
 				return
 			else:
