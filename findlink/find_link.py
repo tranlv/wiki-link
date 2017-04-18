@@ -28,7 +28,7 @@ class FindLink:
         DataHandle().update_page_if_not_exists(starting_url)
         DataHandle().update_page_if_not_exists(ending_url)
 
-        starting_id = session.query(Page.id).filter(Page.url == 'starting_url').all()
+        starting_id = session.query(Page.id).filter(Page.url == starting_url).all()
         DataHandle.update_link(starting_id[0], starting_id[0], 0)
 
     def search(self):
