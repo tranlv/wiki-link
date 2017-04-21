@@ -8,18 +8,16 @@ FindLink
 	:copyright: (c) 2017 by Tran Ly VU.
     :license: Apache License 2.0, see LICENSE for more details.
 """
-
-
 from setuptools import setup
 
 
 setup(
-    name='Findlink',
+	name='Findlink',
 	description='A web-scraping application to find the minimum number of links between 2 given wiki pages',
 	author='Tran Ly Vu',
 	author_email='vutransingapore@gmail.com',
-    license='Apache License 2.0',
-    classifiers=[
+	license='Apache License 2.0',
+	classifiers=[
 		'Development Status :: 3 - Alpha',
 		'Intended Audience :: Science/Research',
 		'Framework :: IPython'
