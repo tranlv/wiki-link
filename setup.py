@@ -18,7 +18,7 @@ setup(
 	description='A web-scraping application to find the minimum number of links between 2 given wiki pages',
 	author='Tran Ly Vu',
 	author_email='vutransingapore@gmail.com',
-    license='Apache License 2.',
+    license='Apache License 2.0',
     classifiers=[
 		'Development Status :: 3 - Alpha',
 		'Intended Audience :: Science/Research',
@@ -30,7 +30,7 @@ setup(
 		'License :: OSI Approved :: Apache License 2.0',
 	],
 	keywords='web-scraping',
-	packages=['findLink'],
+	packages=['find-link'],
 	install_requires=[
 		'bs4',
 		'sqlalchemy'
