@@ -18,14 +18,12 @@ Using find-link
 
 - Quickstart
 
-1. Initializing class 'FindLink".
-2. Calling "search" method.
+	1. Initializing class 'FindLink".
+	2. Calling "search" method.
 	
-- Sample
+- Sample_
 
-1. sample_.
-
-.. _sample: https://github.com/tranlyvu/find-Link/sample
+.. _Sample: https://github.com/tranlyvu/find-link/tree/master/sample
 	
 Contribution
 ============
