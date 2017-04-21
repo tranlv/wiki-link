@@ -1,7 +1,6 @@
 from database.data_handle import DataHandle
 from database.database import Page
 from findlink.searcher import Searcher
-from setting import Setting, session
 
 
 class FindLink:
@@ -13,8 +12,6 @@ class FindLink:
         self.ending_url = ending_url
         self.found = False
         self.number_of_separation = 1
-
-        Setting()
 
         DataHandle().update_page_if_not_exists(starting_url)
         DataHandle().update_page_if_not_exists(ending_url)

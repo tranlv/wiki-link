@@ -1,6 +1,5 @@
-from sqlalchemy import Column, Integer, String, DateTime, text
-from sqlalchemy import create_engine
-from sqlalchemy.orm import Session
+from sqlalchemy import Column, Integer, String, DateTime, text, ForeignKey, create_engine
+from sqlalchemy.orm import Session,relationship
 from sqlalchemy.ext.declarative import declarative_base
 
 
@@ -11,10 +10,10 @@ session = Session(engine)
 
 
 class Link(Base):
-    __tablename__ = 'links'
+    __tablename__ = 'link'
     id = Column(Integer, primary_key=True)
-    from_page_id = Column(Integer)
-    to_page_id = Column(Integer)
+    from_page_id = Column(Integer, ForeignKey('Page.id'))
+    to_page_id = Column(Integer, ForeignKey('Page.id'))
     number_of_separation = Column(Integer,nullable=False)
     created = Column(DateTime, nullable=False, server_default=text('CURRENT_TIMESTAMP'))
 
@@ -23,12 +22,20 @@ class Link(Base):
                      self.from_page_id, self.to_page_id, self.number_of_separation, self.created)
 
 
-class Page(Base) :
-    __tablename__ = 'pages'
+class Page(Base):
+    __tablename__ = 'page'
     id = Column(Integer(), primary_key=True)
     url = Column(String(225))
     created = Column(DateTime, nullable=False, server_default=text('CURRENT_TIMESTAMP'))
+    children = relationship("Link")
 
     def __repr__(self):
         return "<Page(url ='%s', created='%s')>" %(self.url, self.created)
 
+
+def init_db():
+    # import all modules here that might define models so that
+    # they will be registered properly on the metadata.  Otherwise
+    # you will have to import them first before calling init_db()
+    Base.metadata.drop_all(bind=engine)
+    Base.metadata.create_all(bind=engine)
