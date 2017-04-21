@@ -1,4 +1,4 @@
-from findlink.settings import session
+from findlink.setting import session
 from findlink.database.database import Page,Link
 from sqlalchemy import func
 

@@ -2,7 +2,7 @@ from Requests import get, HTTPError
 from bs4 import BeautifulSoup
 from database import Page, Link
 import re
-from findlink.settings import session
+from findlink.setting import session
 
 # global variable to store pages that already existed in database to avoid checking duplication
 existed_url = set()

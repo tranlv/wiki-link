@@ -1,29 +1,21 @@
 from sqlalchemy import Column, Integer, String, DateTime, text
-from findlink.settings import Base, engine
+from sqlalchemy import create_engine
+from sqlalchemy.orm import Session
+from sqlalchemy.ext.declarative import declarative_base
+
+
+engine = create_engine('sqlite://', echo=True)
+Base = declarative_base()
+Base.metadata.create_all(engine)
+session = Session(engine)
 
 
 class Link(Base):
-
-    """ Generating database 'find_link' with table 'link'
-
-               Table 'find-link'.'link
-           +--------------    +--------------+------+
-           | Field            | Type	       Key  |
-           +------------------|--------------+------+
-           | id	              | int           | pri  |
-           | from_page_id     | int           |      |
-           | to_page_id       | int           |      |
-           | no_of_separation | int           |      |
-           | created          | timestamp
-           +--------+-------------------------------+
-    """
-
     __tablename__ = 'links'
-
-    id = Column(Integer(), primary_key=True)
-    from_page_id = Column(Integer())
-    to_page_id = Column(Integer())
-    number_of_separation = Column(Integer(),nullable=False)
+    id = Column(Integer, primary_key=True)
+    from_page_id = Column(Integer)
+    to_page_id = Column(Integer)
+    number_of_separation = Column(Integer,nullable=False)
     created = Column(DateTime, nullable=False, server_default=text('CURRENT_TIMESTAMP'))
 
     def __repr__(self):
@@ -32,20 +24,7 @@ class Link(Base):
 
 
 class Page(Base) :
-    """ Generating database 'find-link'.'pages'
-
-                   Table 'find_link'.'pages'
-               +--------+--------------+------+
-               | Field  | Type	       | Key  |
-               +--------|--------------+------+
-               | id	    | int          | pri  |
-               | url	| varchar(255) |      |
-               | created | timestamp
-               +--------+---------------------+
-    """
-
     __tablename__ = 'pages'
-
     id = Column(Integer(), primary_key=True)
     url = Column(String(225))
     created = Column(DateTime, nullable=False, server_default=text('CURRENT_TIMESTAMP'))
@@ -53,4 +32,3 @@ class Page(Base) :
     def __repr__(self):
         return "<Page(url ='%s', created='%s')>" %(self.url, self.created)
 
-Base.metadata.create_all(engine)
