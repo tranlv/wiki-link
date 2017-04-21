@@ -33,7 +33,7 @@ setup(
 	packages=['find-link'],
 	install_requires=[
 		'bs4',
-		'sqlalchemy'
+		'SQLAlchemy'
 		'Requests'
 		]
 				
