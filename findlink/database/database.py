@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session,relationship
 from sqlalchemy.ext.declarative import declarative_base
 
 
-engine = create_engine('sqlite://', echo=True)
+engine = create_engine('sqlite:///:memory', echo=True)
 Base = declarative_base()
 Base.metadata.create_all(engine)
 session = Session(engine)

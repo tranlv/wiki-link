@@ -5,7 +5,7 @@ from findlink.searcher import Searcher
 
 class FindLink:
 
-    def __init__(self, starting_url, ending_url, limit=6):
+    def __init__(self, starting_url, ending_url, limit = 6):
 
         self.limit = limit
         self.starting_url = starting_url
@@ -21,8 +21,6 @@ class FindLink:
         DataHandle.update_link(starting_id[0], starting_id[0], 0)
 
     def search(self):
-        """ return the smallest number of links between 2 given urls
-        """
 
         self.found = DataHandle().retrieve_data(self.ending_url, self.number_of_separation)
 
@@ -36,8 +34,6 @@ class FindLink:
         print ("Smallest number of separation is " + str(self.number_of_separation))
 
     def print_links(self):
-        """ return the links between 2 given urls
-        """
 
         if self.number_of_separation > self.limit or self.found is False:
             print ("No solution within limit!")
