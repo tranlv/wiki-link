@@ -1,10 +1,14 @@
-from database.data_handle import DataHandle
-from database.database import Page
-from findlink.searcher import Searcher
+from data_handle import DataHandle
+from searcher import Searcher
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+from database import Page
 
+engine = create_engine('sqlite:///:memory', echo=True)
+Session = sessionmaker(bind=engine)
+session = Session()
 
 class FindLink:
-
     def __init__(self, starting_url, ending_url, limit = 6):
 
         self.limit = limit

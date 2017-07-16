@@ -1,6 +1,7 @@
 from findlink.setting import session
-from findlink.database.database import Page,Link
 from sqlalchemy import func
+
+from findlink.database import Page,Link
 
 
 class Searcher:
