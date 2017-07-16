@@ -55,8 +55,7 @@ class DataHandle:
 					return True
 		return False
 
-	@staticmethod
-	def update_page_if_not_exists(url):
+	def update_page_if_not_exists(self, url):
 		global existed_url
 		page_list = session.query(Page).filter(Page.url == url).all()
 		if page_list.len() == 0:
@@ -65,7 +64,6 @@ class DataHandle:
 			session.add(page)
 			session.commit()
 
-	@staticmethod
 	def update_link(from_page_id, to_page_id, separation):
 		link_between_2_pages = session.query(Link).\
 										filter(Link.from_page_id == from_page_id, Link.to_page_id == to_page_id).all()

@@ -1,5 +1,4 @@
 from sqlalchemy import Column, Integer, String, DateTime, text, ForeignKey, create_engine
-from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base() #metadata

@@ -1,8 +1,11 @@
-from findlink.setting import session
 from sqlalchemy import func
-
 from findlink.database import Page,Link
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 
+engine = create_engine('sqlite:///:memory', echo=True)
+Session = sessionmaker(bind=engine)
+session = Session()
 
 class Searcher:
 
