@@ -1,6 +1,5 @@
 from findlink.find_link import FindLink
 
-
 def main():
 	starting_url = '/wiki/Barack_Obama'
 	ending_url = '/wiki/Bill_Clinton'
