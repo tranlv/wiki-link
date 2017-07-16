@@ -1,7 +1,7 @@
 import re
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from Requests import get, HTTPError
+from requests import get, HTTPError
 from bs4 import BeautifulSoup
 from database import Page, Link
 
