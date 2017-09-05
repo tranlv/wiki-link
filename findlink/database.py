@@ -1,8 +1,9 @@
 from sqlalchemy import Column, Integer, String, DateTime, text, ForeignKey, create_engine
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy import create_engine
 
 Base = declarative_base() #metadata
-
 class Link(Base):
     __tablename__ = 'links'
     id = Column(Integer, primary_key=True)
@@ -31,5 +32,6 @@ def init_db():
     # they will be registered properly on the metadata.  Otherwise
     # you will have to import them first before calling init_db()
     engine = create_engine('sqlite:///:memory', echo=True)
-    Base.metadata.drop_all(bind=engine)
     Base.metadata.create_all(bind=engine)
+    Session = sessionmaker(bind=engine)
+

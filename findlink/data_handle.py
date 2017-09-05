@@ -1,25 +1,19 @@
 import re
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
 from requests import get, HTTPError
 from bs4 import BeautifulSoup
 from database import Page, Link
+from findlink import Session
 
 # global variable to store pages that already existed in database to avoid checking duplication
 existed_url = set()
-engine = create_engine('sqlite:///:memory', echo=True)
-Session = sessionmaker(bind=engine)
 session = Session()
 
-
 class DataHandle:
-
 	def __init__(self):
 		return
 
 	def retrieve_data(self, ending_url, number_of_separation):
 		global existed_url
-
 		from_page_id_list = session.query(Link.from_page_id).filter(
 								Link.number_of_separation == number_of_separation - 1, Link.to_page_id == ending_url).all()
 

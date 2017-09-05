@@ -1,22 +1,45 @@
 from data_handle import DataHandle
 from searcher import Searcher
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from database import Page
+from sqlalchemy import Column, Integer, String, DateTime, text, ForeignKey
+from findlink import engine,Session
+from sqlalchemy.ext.declarative import declarative_base
 
-engine = create_engine('sqlite:///:memory', echo=True)
-Session = sessionmaker(bind=engine)
-session = Session()
+Base = declarative_base() #metadata
+
+class Link(Base):
+    __tablename__ = 'links'
+    id = Column(Integer, primary_key=True)
+    from_page_id = Column(Integer, ForeignKey('Page.id'))
+    to_page_id = Column(Integer, ForeignKey('Page.id'))
+    number_of_separation = Column(Integer,nullable=False)
+    created = Column(DateTime, nullable=False, server_default=text('CURRENT_TIMESTAMP'))
+
+    def __repr__(self):
+        return "<Link(from_page_id='%s', to_page_id='%s', number_of_separation='%s', created='%s')>" % (
+                     self.from_page_id, self.to_page_id, self.number_of_separation, self.created)
+
+
+class Page(Base):
+    __tablename__ = 'pages'
+    id = Column(Integer(), primary_key=True)
+    url = Column(String(225))
+    created = Column(DateTime, nullable=False, server_default=text('CURRENT_TIMESTAMP'))
+
+    def __repr__(self):
+        return "<Page(url ='%s', created='%s')>" %(self.url, self.created)
+
+
 
 class FindLink:
     def __init__(self, starting_url, ending_url, limit = 6):
+        session = Session()
 
+        Base.metadata.create_all(bind=engine)
         self.limit = limit
         self.starting_url = starting_url
         self.ending_url = ending_url
         self.found = False
         self.number_of_separation = 1
-
         DataHandle().update_page_if_not_exists(starting_url)
         DataHandle().update_page_if_not_exists(ending_url)
 
@@ -48,3 +71,5 @@ class FindLink:
 
         for x in my_list:
             print x
+
+
