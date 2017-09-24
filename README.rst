@@ -1,7 +1,6 @@
 =========
 find-link
 =========
-find-link is a python web-scraping application to find the minimum number of links between 2 given wiki pages
 
 .. image:: https://travis-ci.org/tranlyvu/find-link.svg?branch=master
     :target: https://travis-ci.org/tranlyvu/find-link
@@ -11,6 +10,10 @@ find-link is a python web-scraping application to find the minimum number of lin
    :alt: Code Health
 
 .. image:: img/link.jpg
+
+Overview
+========
+find-link is a python web-scraping application to find the minimum number of links between 2 given wiki pages.
 
 Using find-link
 ===============
