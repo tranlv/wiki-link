@@ -10,6 +10,8 @@ find-link is a python web-scraping application to find the minimum number of lin
    :target: https://landscape.io/github/tranlyvu/find-link/master
    :alt: Code Health
 
+.. image:: img/link.jpg
+
 Using find-link
 ===============
 - Downloading a release_.
