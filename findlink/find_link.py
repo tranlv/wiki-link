@@ -124,10 +124,11 @@ class FindLink:
         self.ending_url = ending_url
         self.found = False
         self.number_of_separation = 1
-        data_handle = DataHandle()
-        data_handle.update_page_if_not_exists(starting_url)
-        data_handle.update_page_if_not_exists(ending_url)
 
+        self.data_handle = DataHandle()
+        self.data_handle.update_page_if_not_exists(starting_url)
+        self.data_handle.update_page_if_not_exists(ending_url)
+        
         # update link for starting_page
         starting_id = session.query(Page.id).filter(Page.url == starting_url).all()
         DataHandle.update_link(starting_id[0], starting_id[0], 0)
@@ -141,7 +142,7 @@ class FindLink:
             if self.number_of_separation > self.limit:
                 print ("Number of separation is exceeded number of limit. Stop searching!")
                 return
-            self.found = DataHandle().retrieve_data(self.ending_url, self.number_of_separation)
+            self.found = self.data_handle.retrieve_data(self.ending_url, self.number_of_separation)
 
         print ("Smallest number of separation is " + str(self.number_of_separation))
 
