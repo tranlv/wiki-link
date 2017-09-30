@@ -16,9 +16,3 @@ __version__ = "1.0.0"
 __copyright__ = "Copyright (c) 2016-2017 Tran Ly Vu"
 __license__ = "Apache License 2.0"
 
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy import create_engine
-
-engine = create_engine('', echo=True)
-Session = sessionmaker()
-Session.configure(bind=engine)

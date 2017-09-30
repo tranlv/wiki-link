@@ -1,20 +1,18 @@
 from sqlalchemy import Column, Integer, String, DateTime, text, ForeignKey, func,create_engine
-from findlink import engine,Session
 from sqlalchemy.ext.declarative import declarative_base
 import re
 from requests import get, HTTPError
 from bs4 import BeautifulSoup
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker,Session
 
 Base = declarative_base() #metadata
-session = Session()
-Base.metadata.create_all(bind=engine)
-engine = create_engine('sqlite:///:memory', echo=True)
-Session = sessionmaker(bind=engine)
+
 existed_url = set()
+
 
 class Link(Base):
     __tablename__ = 'links'
+
     id = Column(Integer, primary_key=True)
     from_page_id = Column(Integer, ForeignKey('Page.id'))
     to_page_id = Column(Integer, ForeignKey('Page.id'))
@@ -25,14 +23,23 @@ class Link(Base):
         return "<Link(from_page_id='%s', to_page_id='%s', number_of_separation='%s', created='%s')>" % (
                      self.from_page_id, self.to_page_id, self.number_of_separation, self.created)
 
+
 class Page(Base):
     __tablename__ = 'pages'
+
     id = Column(Integer(), primary_key=True)
     url = Column(String(225))
     created = Column(DateTime, nullable=False, server_default=text('CURRENT_TIMESTAMP'))
 
     def __repr__(self):
         return "<Page(url ='%s', created='%s')>" %(self.url, self.created)
+
+engine = create_engine('mysql://root:12345@192.168.99.100:32771', echo=True)
+# create tables
+Base.metadata.create_all(bind=engine)
+session = Session()
+Session = sessionmaker(bind=engine)
+
 
 class DataHandle:
     def __init__(self):
@@ -100,6 +107,7 @@ class DataHandle:
             session.add(link)
             session.commit()
 
+
 class Searcher:
     def __init__(self, starting_page, ending_page):
         self.starting_page = starting_page
@@ -107,20 +115,24 @@ class Searcher:
         self.my_list = []
 
     def link_search(self, current_page, starting_page):
-
         while starting_page not in self.my_list:
             current_url_id = session.query(Page.id).filter(Page.url == current_page).first()
 
             min_separation = session.query(func.min(Link.number_of_separation)).filter(Link.to_page_id == current_url_id[0])
-            from_page_id = session.query(Link.from_page_id).filter(Link.to_page_id == current_url_id[0], Link.number_of_separation == min_separation)
+
+            from_page_id = session.query(Link.from_page_id).filter(Link.to_page_id == current_url_id[0], Link.
+                                                                   number_of_separation == min_separation)
+
             url = session.query(Page.url).filter(Page.id == from_page_id[0]).first()
             if url[0] not in self.my_list:
-                self.my_list.append( url[0])
+                self.my_list.append(url[0])
+
             self.link_search(url[0],starting_page)
 
     def list_of_links(self):
         self.link_search(self.ending_page,self.starting_page)
         return self.my_list
+
 
 class FindLink:
     def __init__(self, starting_url, ending_url, limit = 6):
