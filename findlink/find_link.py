@@ -1,14 +1,16 @@
-from sqlalchemy import Column, Integer, String, DateTime, text, ForeignKey, func
+from sqlalchemy import Column, Integer, String, DateTime, text, ForeignKey, func,create_engine
 from findlink import engine,Session
 from sqlalchemy.ext.declarative import declarative_base
 import re
 from requests import get, HTTPError
 from bs4 import BeautifulSoup
-
+from sqlalchemy.orm import sessionmaker
 
 Base = declarative_base() #metadata
 session = Session()
 Base.metadata.create_all(bind=engine)
+engine = create_engine('sqlite:///:memory', echo=True)
+Session = sessionmaker(bind=engine)
 existed_url = set()
 
 class Link(Base):
@@ -23,7 +25,6 @@ class Link(Base):
         return "<Link(from_page_id='%s', to_page_id='%s', number_of_separation='%s', created='%s')>" % (
                      self.from_page_id, self.to_page_id, self.number_of_separation, self.created)
 
-
 class Page(Base):
     __tablename__ = 'pages'
     id = Column(Integer(), primary_key=True)
@@ -34,66 +35,70 @@ class Page(Base):
         return "<Page(url ='%s', created='%s')>" %(self.url, self.created)
 
 class DataHandle:
-	def __init__(self):
-		return
+    def __init__(self):
+        return
 
-	def retrieve_data(self, ending_url, number_of_separation):
-		global existed_url
-		from_page_id_list = session.query(Link.from_page_id).filter(
-								Link.number_of_separation == number_of_separation - 1,
+    def retrieve_data(self, ending_url, number_of_separation):
+        global existed_url
+
+        #query all the page where ending page is the parameter
+        from_page_id_list = session.query(Link.from_page_id).filter(
+                                Link.number_of_separation == number_of_separation - 1,
                                 Link.to_page_id == ending_url).all()
 
-		for url_id in from_page_id_list:
-			url = session.query(Page.url).filter(Page.id == url_id).all()
+        for url_id in from_page_id_list:
 
-			# handle exception where page not found or server down or url mistyped
-			try:
-				html = get('https://en.wikipedia.org' + url[0])
-			except HTTPError:
-				return
-			else:
-				if html is None:
-					return
-				else:
-					soup = BeautifulSoup(html)
+            # retrieve url from id
+            url = session.query(Page.url).filter(Page.id == url_id).all()
 
-			# update all wiki links with tag 'a' and attribute 'href' start with '/wiki/'
-			for link in soup.findAll("a", href=re.compile("^(/wiki/)[^:#]")):
+            # handle exception where page not found or server down or url mistyped
+            try:
+                html = get('https://en.wikipedia.org' + url[0])
+            except HTTPError:
+                return
+            else:
+                if html is None:
+                    return
+                else:
+                    soup = BeautifulSoup(html)
 
-				# only insert link starting with /wiki/
-				inserted_url = link.attrs['href']
+            # update all wiki links with tag 'a' and attribute 'href' start with '/wiki/'
+            for link in soup.findAll("a", href=re.compile("^(/wiki/)[^:#]")):
 
-				if inserted_url not in existed_url:
-					# update page table
-					self.update_page_if_not_exists(inserted_url)
+                # only insert link starting with /wiki/
+                inserted_url = link.attrs['href']
 
-				# update links table
-				inserted_id = session.query(Page.id).filter(Page.url == inserted_url).first()
-				self.update_link(int(url_id[0]), int(inserted_id[0]), number_of_separation)
+                # update page table
+                if inserted_url not in existed_url:
+                    self.update_page_if_not_exists(inserted_url)
 
-				if inserted_url is ending_url:
-					return True
-		return False
+                # update links table
+                inserted_id = session.query(Page.id).filter(Page.url == inserted_url).first()
+                self.update_link(int(url_id[0]), int(inserted_id[0]), number_of_separation)
 
-	def update_page_if_not_exists(self, url):
-		#global existed_url
-		page_list = session.query(Page).filter(Page.url == url).all()
-		if page_list.len() == 0:
-			existed_url.add(url)
-			page = Page(url=url)
-			session.add(page)
-			session.commit()
+                if inserted_url is ending_url:
+                    return True
+        return False
 
-	def update_link(from_page_id, to_page_id, separation):
-		link_between_2_pages = session.query(Link).\
-										filter(Link.from_page_id == from_page_id,
-                                               Link.to_page_id == to_page_id).all()
-		if link_between_2_pages.len() == 0:
-			link = Link(from_page_id=Link.from_page_id,
+    def update_page_if_not_exists(self, url):
+        #global existed_url
+        page_list = session.query(Page).filter(Page.url == url).all()
+        if page_list.len() == 0:
+            existed_url.add(url)
+            page = Page(url=url)
+            session.add(page)
+            session.commit()
+
+    def update_link(self, from_page_id, to_page_id, no_of_separation):
+        link_between_2_pages = session.query(Link).\
+                                filter(Link.from_page_id == from_page_id,
+                                       Link.to_page_id == to_page_id).all()
+        if link_between_2_pages.len() == 0:
+            link = Link(from_page_id=Link.from_page_id,
                         to_page_id=to_page_id,
-                        no_of_separation=separation)
-			session.add(link)
-			session.commit()
+                        number_of_separation = no_of_separation)
+            session.add(link)
+            session.commit()
 
 class Searcher:
     def __init__(self, starting_page, ending_page):
@@ -126,16 +131,20 @@ class FindLink:
         self.number_of_separation = 1
 
         self.data_handle = DataHandle()
+        self.search = Searcher(self.starting_url, self.ending_url)
+
+        # update page for both starting and ending url
         self.data_handle.update_page_if_not_exists(starting_url)
         self.data_handle.update_page_if_not_exists(ending_url)
 
         # update link for starting_page
         starting_id = session.query(Page.id).filter(Page.url == starting_url).all()
-        DataHandle.update_link(starting_id[0], starting_id[0], 0)
+        self.data_handle.update_link(starting_id[0], starting_id[0], 0)
 
     def search(self):
 
-        self.found = DataHandle().retrieve_data(self.ending_url, self.number_of_separation)
+        #
+        self.found = self.data_handle.retrieve_data(self.ending_url, self.number_of_separation)
 
         while self.found is False:
             self.number_of_separation += 1
@@ -151,8 +160,8 @@ class FindLink:
         if self.number_of_separation > self.limit or self.found is False:
             print ("No solution within limit!")
             return
-        my_search = Searcher(self.starting_url, self.ending_url)
-        my_list = [self.ending_page] + my_search.list_of_links()
+
+        my_list = [self.ending_url] + self.search.list_of_links()
         my_list.reverse()
 
         for x in my_list:
