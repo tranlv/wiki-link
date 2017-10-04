@@ -134,7 +134,7 @@ class Searcher:
         return self.my_list
 
 
-class FindLink:
+class WikiLink:
     def __init__(self, starting_url, ending_url, limit = 6):
         self.limit = limit
         self.starting_url = starting_url

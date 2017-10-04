@@ -1,6 +1,6 @@
 language: python
 python:
-  - "2.7"
+  - "3.6"
 script: python tests/test_all_of_the_units.py
 branches:
  only:

@@ -1,9 +1,9 @@
 """
-FindLink
+WikiLink
 -----
-	Findlink is web-scraping application to find minimum number of links between two given wiki pages. It's extensively documented
+	WikiLink is web-scraping application to find minimum number of links between two given wiki pages. It's extensively documented
     and follows best practice patterns.
-	For more than you ever wanted to know about Findlink, see the documentation:
+	For more than you ever wanted to know about WikiLink, see the documentation:
 
 	:copyright: (c) 2017 by Tran Ly VU.
     :license: Apache License 2.0, see LICENSE for more details.
@@ -12,7 +12,7 @@ from setuptools import setup
 
 
 setup(
-	name='Findlink',
+	name='WikiLink',
 	description='A web-scraping application to find the minimum number of links between 2 given wiki pages',
 	author='Tran Ly Vu',
 	author_email='vutransingapore@gmail.com',
@@ -28,7 +28,7 @@ setup(
 		'License :: OSI Approved :: Apache License 2.0',
 	],
 	keywords='web-scraping',
-	packages=['find-link'],
+	packages=['wiki-link'],
 	install_requires=[
 		'bs4',
 		'SQLAlchemy'
