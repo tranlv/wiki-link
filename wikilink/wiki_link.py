@@ -6,7 +6,6 @@ from bs4 import BeautifulSoup
 from sqlalchemy.orm import sessionmaker,Session
 
 Base = declarative_base() #metadata
-
 existed_url = set()
 
 
@@ -22,7 +21,6 @@ class Link(Base):
     def __repr__(self):
         return "<Link(from_page_id='%s', to_page_id='%s', number_of_separation='%s', created='%s')>" % (
                      self.from_page_id, self.to_page_id, self.number_of_separation, self.created)
-
 
 class Page(Base):
     __tablename__ = 'pages'
@@ -48,7 +46,7 @@ class DataHandle:
     def retrieve_data(self, ending_url, number_of_separation):
         global existed_url
 
-        #query all the page where ending page is the parameter
+        # query all the page where ending page is the parameter
         from_page_id_list = session.query(Link.from_page_id).filter(
                                 Link.number_of_separation == number_of_separation - 1,
                                 Link.to_page_id == ending_url).all()
@@ -88,7 +86,7 @@ class DataHandle:
         return False
 
     def update_page_if_not_exists(self, url):
-        #global existed_url
+        # global existed_url
         page_list = session.query(Page).filter(Page.url == url).all()
         if page_list.len() == 0:
             existed_url.add(url)
@@ -154,8 +152,10 @@ class WikiLink:
         self.data_handle.update_link(starting_id[0], starting_id[0], 0)
 
     def search(self):
+        """
+        print out number of separation
+        """
 
-        #
         self.found = self.data_handle.retrieve_data(self.ending_url, self.number_of_separation)
 
         while self.found is False:
@@ -168,6 +168,9 @@ class WikiLink:
         print ("Smallest number of separation is " + str(self.number_of_separation))
 
     def print_links(self):
+        """
+        print out the sequence of link
+        """
 
         if self.number_of_separation > self.limit or self.found is False:
             print ("No solution within limit!")
