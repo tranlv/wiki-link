@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, DateTime, text, ForeignKey, func,create_engine
+from sqlalchemy import Column, Integer, String, DateTime, text, ForeignKey, func, create_engine
 from sqlalchemy.ext.declarative import declarative_base
 import re
 from requests import get, HTTPError
@@ -121,43 +121,6 @@ class DataHandle:
             session.add(link)
             session.commit()
 
-
-class Searcher:
-    def __init__(self, starting_page, ending_page):
-        self.starting_page = starting_page
-        self.ending_page = ending_page
-        self.my_list = []
-
-    def link_search(self, current_page, starting_page):
-        """
-        :param current_page:
-        :param starting_page:
-        :return:
-        """
-
-        while starting_page not in self.my_list:
-            # retrieve entry in Page with current url
-            current_url_id = session.query(Page.id).filter(Page.url == current_page).first()
-
-            # retrieve the the shortest path to the current url using id
-            min_separation = session.query(func.min(Link.number_of_separation)).filter(Link.to_page_id == current_url_id[0])
-
-            # retrieve all the id of pages which has min no of separation to current url
-            from_page_id = session.query(Link.from_page_id).filter(Link.to_page_id == current_url_id[0], Link.
-                                                                   number_of_separation == min_separation)
-
-            #
-            url = session.query(Page.url).filter(Page.id == from_page_id[0]).first()
-            if url[0] not in self.my_list:
-                self.my_list.append(url[0])
-
-            self.link_search(url[0],starting_page)
-
-    def list_of_links(self):
-        self.link_search(self.ending_page,self.starting_page)
-        return self.my_list
-
-
 class WikiLink:
     def __init__(self, starting_url, ending_url, limit = 6):
         self.limit = limit
@@ -167,7 +130,6 @@ class WikiLink:
         self.number_of_separation = 0
 
         self.data_handle = DataHandle()
-        self.searcher = Searcher(self.starting_url, self.ending_url)
 
         # update page for both starting and ending url
         self.data_handle.update_page_if_not_exists(starting_url)
@@ -212,11 +174,28 @@ class WikiLink:
         if self.found is False:
             self.search()
 
-        list = ['https://en.wikipedia.org' + self.ending_url]
-        list.append(self.searcher.list_of_links())
-        list.reverse()
+        list_of_links = [self.ending_url]
 
-        for x in my_list:
+        while self.starting_url not in list_of_links:
+            # retrieve entry in Page with current url
+            current_url_id = session.query(Page.id).filter(Page.url == self.ending_url).first()
+
+            # retrieve the the shortest path to the current url using id
+            min_separation = session.query(func.min(Link.number_of_separation)). \
+                filter(Link.to_page_id == current_url_id[0])
+
+            # retrieve all the id of pages which has min no of separation to current url
+            from_page_id = session.query(Link.from_page_id).filter(Link.to_page_id == current_url_id[0],
+                                                                   Link.number_of_separation == min_separation)
+
+            #
+            url = session.query(Page.url).filter(Page.id == from_page_id[0]).first()
+            if url[0] not in list_of_links:
+                list_of_links.append(url[0])
+                
+        list_of_links.reverse()
+
+        for x in list_of_links:
             print(x)
 
 
