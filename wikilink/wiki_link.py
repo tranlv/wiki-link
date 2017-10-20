@@ -121,6 +121,7 @@ class DataHandle:
             session.add(link)
             session.commit()
 
+
 class WikiLink:
     def __init__(self, starting_url, ending_url, limit = 6):
         self.limit = limit
@@ -192,7 +193,7 @@ class WikiLink:
             url = session.query(Page.url).filter(Page.id == from_page_id[0]).first()
             if url[0] not in list_of_links:
                 list_of_links.append(url[0])
-                
+
         list_of_links.reverse()
 
         for x in list_of_links:
