@@ -13,7 +13,8 @@ wiki-link
 
 Overview
 ========
-wiki-link is a web-scraping application to find the minimum number of links between 2 given wiki pages.
+
+The repo containes a web-scraping application to find the minimum number of links between 2 given wiki pages.
 
 Using wiki-link
 ===============
