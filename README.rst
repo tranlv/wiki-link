@@ -32,12 +32,7 @@ Using wiki-link
 	
 Contribution
 ============
-- Join our gitter_
 
-.. _gitter: https://gitter.im/wiki-link
-- For any feature recommendation please register a blueprint_.
-
-.. _blueprint: https://blueprints.launchpad.net/wikilink
 - For bug reports or requests please submit an issue_.
 
 .. _issue: https://github.com/tranlyvu/wiki-link/issues
