@@ -1,8 +1,6 @@
 # **wiki-link**
 
-[![Build Status](https://travis-ci.org/tranlyvu/wiki-link.svg?branch=set-up-travis)](https://travis-ci.org/tranlyvu/wiki-link)
-
-[![Code Health](https://landscape.io/github/tranlyvu/wiki-link/master/landscape.svg?style=flat)](https://landscape.io/github/tranlyvu/wiki-link/master)
+[![Build Status](https://travis-ci.org/tranlyvu/wiki-link.svg?branch=set-up-travis)](https://travis-ci.org/tranlyvu/wiki-link) [![Code Health](https://landscape.io/github/tranlyvu/wiki-link/master/landscape.svg?style=flat)](https://landscape.io/github/tranlyvu/wiki-link/master)
 
 <img src="img/link.jpg" width="480" alt="Combined Image" />
 
