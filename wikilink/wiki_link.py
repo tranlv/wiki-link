@@ -7,6 +7,18 @@ from sqlalchemy.orm import sessionmaker
 import configparser
 
 Base = declarative_base() #metadata
+existed_url = set()
+
+def get_database_url():
+    config = configparser.ConfigParser()
+    config.read('wiki-link.conf')
+    return config.get('database', 'connection')
+
+
+class SolutionFound(RuntimeError):
+    def __init__(self, message):
+        self.message = message
+
 class Link(Base):
     __tablename__ = 'links'
 
@@ -29,13 +41,6 @@ class Page(Base):
 
     def __repr__(self):
         return "<Page(url ='%s', created='%s')>" %(self.url, self.created)
-
-
-def get_database_url():
-    config = configparser.ConfigParser()
-    config.read('wiki-link.conf')
-    return config.get('database', 'connection')
-
 
 class DataHandle:
     def __init__(self):
@@ -93,23 +98,22 @@ class DataHandle:
                     return True
         return False
 
-    @staticmethod
-    def update_page_if_not_exists(url):
+    def update_page_if_not_exists(self, url):
         """ insert into table Page if not exist
 
         :param url:
         :return: null
         """
 
-        page_list = session.query(Page).filter(Page.url == url).all()
+        page_list = self.session.query(Page).filter(Page.url == url).all()
         if page_list.len() == 0:
             existed_url.add(url)
             page = Page(url=url)
-            session.add(page)
-            session.commit()
+            self.session.add(page)
+            self.session.commit()
 
-    @staticmethod
-    def update_link(from_page_id, to_page_id, no_of_separation):
+
+    def update_link(self, from_page_id, to_page_id, no_of_separation):
         """ insert into table Link if link has not existed
 
         :param from_page_id:
@@ -118,16 +122,15 @@ class DataHandle:
         :return: null
         """
 
-        link_between_2_pages = session.query(Link).filter(Link.from_page_id == from_page_id,
+        link_between_2_pages = self.session.query(Link).filter(Link.from_page_id == from_page_id,
                                                           Link.to_page_id == to_page_id).all()
         if link_between_2_pages.len() == 0:
             link = Link(from_page_id=Link.from_page_id,
                         to_page_id=to_page_id,
                         number_of_separation = no_of_separation)
-            session.add(link)
-            session.commit()
+            self.session.add(link)
+            self.session.commit()
 
-existed_url = set()
 
 class WikiLink:
     def __init__(self, starting_url, ending_url, limit = 6):
@@ -157,7 +160,6 @@ class WikiLink:
         # update link for ending_url, no of separation between 1 url to itself is zero of course
         self.ending_id = self.session.query(Page.id).filter(Page.url == ending_url).all()
         self.data_handle.update_link(self.ending_id[0], self.ending_id[0], 0)
-
 
 
     def search(self):
