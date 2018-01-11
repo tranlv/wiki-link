@@ -4,6 +4,7 @@ import re
 from requests import get, HTTPError
 from bs4 import BeautifulSoup
 from sqlalchemy.orm import sessionmaker
+import configparser
 
 Base = declarative_base() #metadata
 class Link(Base):
@@ -29,11 +30,11 @@ class Page(Base):
     def __repr__(self):
         return "<Page(url ='%s', created='%s')>" %(self.url, self.created)
 
-engine = create_engine('mysql://root:12345@192.168.99.100:32771', echo=True)
-Base.metadata.create_all(engine)
-Session = sessionmaker(bind=engine)
-existed_url = set()
-session = Session() # having conversation with database
+
+def get_database_url():
+    config = configparser.ConfigParser()
+    config.read('wiki-link.conf')
+    return config.get('database', 'connection')
 
 
 class DataHandle:
@@ -124,6 +125,14 @@ class DataHandle:
 
 class WikiLink:
     def __init__(self, starting_url, ending_url, limit = 6):
+
+        connection = get_database_url()
+        engine = create_engine(connection, echo=True)
+        Base.metadata.create_all(engine)
+        Session = sessionmaker(bind=engine)
+        existed_url = set()
+        self.session = Session()  # having conversation with database
+
         self.limit = limit
         self.starting_url = starting_url
         self.ending_url = ending_url
@@ -137,12 +146,14 @@ class WikiLink:
         self.data_handle.update_page_if_not_exists(ending_url)
 
         # update link for starting_url, no of separation between 1 url to itself is zero of course
-        self.starting_id = session.query(Page.id).filter(Page.url == starting_url).all()
+        self.starting_id = self.session.query(Page.id).filter(Page.url == starting_url).all()
         self.data_handle.update_link(self.starting_id[0], self.starting_id[0], 0)
 
         # update link for ending_url, no of separation between 1 url to itself is zero of course
-        self.ending_id = session.query(Page.id).filter(Page.url == ending_url).all()
+        self.ending_id = self.session.query(Page.id).filter(Page.url == ending_url).all()
         self.data_handle.update_link(self.ending_id[0], self.ending_id[0], 0)
+
+
 
     def search(self):
         """ print smallest number of separation
@@ -150,7 +161,7 @@ class WikiLink:
         :return: null
         """
 
-        separation = session.query(Link.number_of_separation).filter(
+        separation = self.session.query(Link.number_of_separation).filter(
                                     Link.from_page_id ==  self.starting_id,
                                     Link.to_page_id == self.ending_id).first()
         if separation != 0:
@@ -179,18 +190,18 @@ class WikiLink:
 
         while self.starting_url not in list_of_links:
             # retrieve entry in Page with current url
-            current_url_id = session.query(Page.id).filter(Page.url == self.ending_url).first()
+            current_url_id = self.session.query(Page.id).filter(Page.url == self.ending_url).first()
 
             # retrieve the the shortest path to the current url using id
-            min_separation = session.query(func.min(Link.number_of_separation)). \
+            min_separation = self.session.query(func.min(Link.number_of_separation)). \
                 filter(Link.to_page_id == current_url_id[0])
 
             # retrieve all the id of pages which has min no of separation to current url
-            from_page_id = session.query(Link.from_page_id).filter(Link.to_page_id == current_url_id[0],
+            from_page_id = self.session.query(Link.from_page_id).filter(Link.to_page_id == current_url_id[0],
                                                                    Link.number_of_separation == min_separation)
 
             #
-            url = session.query(Page.url).filter(Page.id == from_page_id[0]).first()
+            url = self.session.query(Page.url).filter(Page.id == from_page_id[0]).first()
             if url[0] not in list_of_links:
                 list_of_links.append(url[0])
 
