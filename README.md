@@ -1,14 +1,10 @@
 # **wiki-link**
 
+A web-scraping application to find the minimum number of links between 2 given wiki pages.
+
 [![Build Status](https://travis-ci.org/tranlyvu/wiki-link.svg?branch=master)](https://travis-ci.org/tranlyvu/wiki-link) [![Code Health](https://landscape.io/github/tranlyvu/wiki-link/master/landscape.svg?style=flat)](https://landscape.io/github/tranlyvu/wiki-link/master)
 
 <img src="img/link.jpg" width="480" alt="Combined Image" />
-
----
-Overview
----
-
-The repo contains a web-scraping application to find the minimum number of links between 2 given wiki pages.
 
 ---
 Usage
@@ -24,12 +20,39 @@ Usage
 ```	
 
 - [Sample](https://github.com/tranlyvu/wiki-link/tree/master/sample)
-	
+
+---
+Development Setup
+---
+
+Simply run
+
+```
+pip install -r requirements.txt
+```
+
+---
+Release History
+---
+
+* 1.0.0
+    * The first proper release
+
 ---
 Contribution
 ---
 
 For bug reports or requests please submit an [issue](https://github.com/tranlyvu/wiki-link/issues).
+
+For new features contribution, please follow the following instruction:
+
+```
+1. Fork it (https://github.com/tranlyvu/wiki-link.git)
+2. Create your feature branch (`git checkout -b feature/new`)
+3. Commit your changes (`git commit -am 'Add some new feature'`)
+4. Push to the branch (`git push origin feature/new`)
+5. Create a new Pull Request
+```
 
 ---
 Contact
