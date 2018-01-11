@@ -39,6 +39,11 @@ def get_database_url():
 
 class DataHandle:
     def __init__(self):
+        connection = get_database_url()
+        engine = create_engine(connection, echo=True)
+        Base.metadata.create_all(engine)
+        Session = sessionmaker(bind=engine)
+        self.session = Session()  # having conversation with database
         return
 
     def retrieve_data(self, starting_id, ending_id, number_of_separation):
@@ -53,14 +58,14 @@ class DataHandle:
 
         # query all the page id where from_page_id is the starting url
         # when separation is 0, the starting page retrieve itself
-        to_page_id_list = session.query(Link.from_page_id).filter(
+        to_page_id_list = self.session.query(Link.from_page_id).filter(
                                           Link.number_of_separation == number_of_separation,
                                           Link.from_page_id == starting_id).all()
 
         for url_id in to_page_id_list:
 
             # retrieve url from id
-            url = session.query(Page.url).filter(Page.id == url_id).all()
+            url = self.session.query(Page.url).filter(Page.id == url_id).all()
 
             # handle exception where page not found or server down or url mistyped
             try:
@@ -81,7 +86,7 @@ class DataHandle:
                 self.update_page_if_not_exists(inserted_url)
 
                 # update links table with starting page if it not exists
-                inserted_id = session.query(Page.id).filter(Page.url == inserted_url).first()
+                inserted_id = self.session.query(Page.id).filter(Page.url == inserted_url).first()
                 self.update_link(starting_id, inserted_id[0], number_of_separation + 1)
 
                 if inserted_id is ending_id:
@@ -122,6 +127,7 @@ class DataHandle:
             session.add(link)
             session.commit()
 
+existed_url = set()
 
 class WikiLink:
     def __init__(self, starting_url, ending_url, limit = 6):
@@ -130,7 +136,6 @@ class WikiLink:
         engine = create_engine(connection, echo=True)
         Base.metadata.create_all(engine)
         Session = sessionmaker(bind=engine)
-        existed_url = set()
         self.session = Session()  # having conversation with database
 
         self.limit = limit
