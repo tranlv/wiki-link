@@ -48,9 +48,9 @@ For new features contribution, please follow the following instruction:
 
 ```
 1. Fork it (https://github.com/tranlyvu/wiki-link.git)
-2. Create your feature branch (`git checkout -b feature/new`)
+2. Create your feature branch (`git checkout -b feature`)
 3. Commit your changes (`git commit -am 'Add some new feature'`)
-4. Push to the branch (`git push origin feature/new`)
+4. Push to the branch (`git push origin feature`)
 5. Create a new Pull Request
 ```
 
