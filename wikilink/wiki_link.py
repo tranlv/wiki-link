@@ -165,7 +165,8 @@ class WikiLink:
 			print("url is " + str(url))
 			# handle exception where page not found or server down or url mistyped
 			try:
-				html = get('https://en.wikipedia.org/wiki/' + str(url[0]))
+				response = get('https://en.wikipedia.org/wiki/' + str(url[0]))
+				html = response.text
 			except HTTPError:
 				return
 			else:
@@ -184,7 +185,7 @@ class WikiLink:
 
 				# update links table with starting page if it not exists
 				inserted_id = self.session.query(Page.id).filter(Page.url == inserted_url).first()[0]
-				self.update_link(starting_id, inserted_id[0], number_of_separation + 1)
+				self.update_link(starting_id, inserted_id, number_of_separation + 1)
 
 				if inserted_id is ending_id:
 					return True
