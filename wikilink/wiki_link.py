@@ -189,7 +189,7 @@ class WikiLink:
 
 	def print_links(self):
 
-		""" Print all the links between starting and ending urls
+		""" print all the links between starting and ending urls with smallest number of links
 		:return: null
 		"""
 
