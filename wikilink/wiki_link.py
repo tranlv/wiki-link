@@ -176,7 +176,6 @@ class WikiLink:
 			for link in soup.findAll("a", href=compile("(/wiki/)((?!:).)*$")):
 				# only insert link starting with /wiki/ and update Page if not exist
 				inserted_url = link.attrs['href']
-				print("inserted_url is " + inserted_url)
 				self.update_page_if_not_exists(inserted_url)
 
 				# update links table with starting page if it not exists
