@@ -46,7 +46,7 @@ To do
 Release History
 ---
 
-* 1.0.1 - Jan 14, 2016
+* 1.0.1 - Jan 14, 2018
 	* Fix database connection bug
 
 * 1.0.0 - Nov 7, 2016 
