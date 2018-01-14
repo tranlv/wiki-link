@@ -115,6 +115,53 @@ class WikiLink:
 			self.session.add(link)
 			self.session.commit()
 
+	def retrieve_data(self, starting_id, ending_id, number_of_separation):
+
+		""" return true if one of the link with a given number of separation from starting url is ending url
+
+		:param starting_id:
+		:param ending_id:
+		:param number_of_separation:
+		:return: boolean
+		"""
+
+		# query all the page id where from_page_id is the starting url
+		# when separation is 0, the starting page retrieve itself
+		to_page_id_list = self.session.query(Link.from_page_id).filter(
+			Link.number_of_separation == number_of_separation,
+			Link.from_page_id == starting_id).all()
+
+		for url_id in to_page_id_list:
+
+			# retrieve url from id
+			url = self.session.query(Page.url).filter(Page.id == url_id).all()
+
+			# handle exception where page not found or server down or url mistyped
+			try:
+				html = get('https://en.wikipedia.org' + url[0])
+			except HTTPError:
+				return
+			else:
+				if html is None:
+					return
+				else:
+					soup = BeautifulSoup(html)
+
+			# update all wiki links with tag 'a' and attribute 'href' start with '/wiki/'
+			for link in soup.findAll("a", href=re.compile("^(/wiki/)[^:#]")):
+
+				# only insert link starting with /wiki/ and update Page if not exist
+				inserted_url = link.attrs['href']
+				self.update_page_if_not_exists(inserted_url)
+
+				# update links table with starting page if it not exists
+				inserted_id = self.session.query(Page.id).filter(Page.url == inserted_url).first()
+				self.update_link(starting_id, inserted_id[0], number_of_separation + 1)
+
+				if inserted_id is ending_id:
+					return True
+		return False
+
 	def search(self):
 
 		""" print smallest number of separation
