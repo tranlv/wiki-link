@@ -79,12 +79,10 @@ class WikiLink:
 
 		# update link for starting_url, no of separation between 1 url to itself is zero of course
 		self.starting_id = self.session.query(Page.id).filter(Page.url == starting_url).all()[0][0]
-		print("starting id is " + str(self.starting_id))
 		self.update_link(self.starting_id, self.starting_id, 0)
 
 		# update link for ending_url, no of separation between 1 url to itself is zero of course
 		self.ending_id = self.session.query(Page.id).filter(Page.url == ending_url).all()[0][0]
-		print("ending id is " + str(self.ending_id))
 		self.update_link(self.ending_id, self.ending_id, 0)
 
 	def update_page_if_not_exists(self, url):
@@ -131,7 +129,6 @@ class WikiLink:
 			self.found = True
 
 		while self.found is False:
-			print("Enter second loop")
 			self.found = self.retrieve_data(self.starting_id, self.ending_id, 0)
 			print("self.found is " + str(self.found))
 			print("self.number_of_separation is " + str(self.number_of_separation))
@@ -176,7 +173,7 @@ class WikiLink:
 					soup = BeautifulSoup(html, "html.parser")
 
 			# update all wiki links with tag 'a' and attribute 'href' start with '/wiki/'
-			for link in soup.findAll("a", href=re.compile("[^:#]")):
+			for link in soup.findAll("a", href=re.compile("(/wiki/)[^(:#)]")):
 
 				# only insert link starting with /wiki/ and update Page if not exist
 				inserted_url = link.attrs['href']
