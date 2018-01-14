@@ -157,23 +157,22 @@ class WikiLink:
 		# when separation is 0, the starting page retrieve itself
 		to_page_id_list = self.session.query(Link.to_page_id).filter(Link.number_of_separation == number_of_separation,
 																	 Link.from_page_id == starting_id).all()
-		print("to_page_id_list is " + str(to_page_id_list))
 
 		for url_id in to_page_id_list:
 
 			# retrieve url from id
-			url = self.session.query(Page.url).filter(Page.id == url_id).all()
-			print("url is " + url)
+			url = self.session.query(Page.url).filter(Page.id == url_id[0]).first()
+			print("url is " + str(url))
 			# handle exception where page not found or server down or url mistyped
 			try:
-				html = get('https://en.wikipedia.org' + url[0])
+				html = get('https://en.wikipedia.org/wiki/' + str(url[0]))
 			except HTTPError:
 				return
 			else:
 				if html is None:
 					return
 				else:
-					soup = BeautifulSoup(html)
+					soup = BeautifulSoup(html, "html.parser")
 
 			# update all wiki links with tag 'a' and attribute 'href' start with '/wiki/'
 			for link in soup.findAll("a", href=re.compile("^(/wiki/)[^:#]")):
@@ -226,8 +225,8 @@ class WikiLink:
 
 
 def main():
-	starting_url = '/wiki/Barack_Obama'
-	ending_url = '/wiki/Bill_Clinton'
+	starting_url = 'Barack_Obama'
+	ending_url = 'Bill_Clinton'
 	model = WikiLink(starting_url, ending_url)
 	print("Smallest number of separation is " + str(model.search()))
 	# model.print_links()
