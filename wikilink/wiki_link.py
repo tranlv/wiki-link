@@ -132,7 +132,7 @@ class WikiLink:
 
 		while self.found is False:
 			print("Enter second loop")
-			self.found = self.retrieve_data(self.starting_url, self.ending_url, 0)
+			self.found = self.retrieve_data(self.starting_id, self.ending_id, 0)
 			print("self.found is " + str(self.found))
 			print("self.number_of_separation is " + str(self.number_of_separation))
 
@@ -155,9 +155,10 @@ class WikiLink:
 
 		# query all the page id where from_page_id is the starting url
 		# when separation is 0, the starting page retrieve itself
-		to_page_id_list = self.session.query(Link.from_page_id).filter(Link.number_of_separation == number_of_separation,
-																		Link.from_page_id == starting_id).all()
-		print("to_page_id_list is " + to_page_id_list)
+		to_page_id_list = self.session.query(Link.to_page_id).filter(Link.number_of_separation == number_of_separation,
+																	 Link.from_page_id == starting_id).all()
+		print("to_page_id_list is " + str(to_page_id_list))
+
 		for url_id in to_page_id_list:
 
 			# retrieve url from id
