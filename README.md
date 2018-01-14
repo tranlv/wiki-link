@@ -10,33 +10,47 @@ A web-scraping application to find the minimum number of links between 2 given w
 Usage
 ---
 
-- Downloading a [release](https://github.com/tranlyvu/wiki-link/releases)
+- Set up database management, as of 14 January 2018, Wiki-link has been tested with [Mysql](https://www.mysql.com/downloads/). Alternatively, for quick development setup, I strongly recommend to setup database with [Docker](https://www.docker.com/).
 
-- Quickstart
+- Download a [release](https://github.com/tranlyvu/wiki-link/releases) or fork the source code 
 
 ```
-- Initializing class 'WikiLink".
-- Calling "search" method.
-```	
+$git clone https://github.com/tranlyvu/wiki-link.git
+```
 
-- [Sample](https://github.com/tranlyvu/wiki-link/tree/master/sample)
+- Modify the configuration file for database connection
+
+```
+$vi wiki-link/conf.ini
+```
+
+- The simplest way is to run the [Sample file](https://github.com/tranlyvu/wiki-link/tree/master/sample) with your desired wiki links.
 
 ---
 Development Setup
 ---
 
-Simply run
+Wiki-link was developed using python 3.6 ,simply run the following on your development environment
 
 ```
-pip install -r requirements.txt
+$pip install -r requirements.txt
 ```
+
+---
+Project Architecture
+---
+
+To do
 
 ---
 Release History
 ---
 
-* 1.0.0
-    * The first proper release
+* 1.0.1 - Jan 14, 2016
+	*Fix database connection bug
+
+* 1.0.0 - Nov 7, 2016 
+    * The first official release
 
 ---
 Contribution
@@ -47,11 +61,11 @@ For bug reports or requests please submit an [issue](https://github.com/tranlyvu
 For new features contribution, please follow the following instruction:
 
 ```
-1. Fork it (https://github.com/tranlyvu/wiki-link.git)
-2. Create your feature branch (`git checkout -b feature`)
-3. Commit your changes (`git commit -am 'Add some new feature'`)
-4. Push to the branch (`git push origin feature`)
-5. Create a new Pull Request
+1. Fork the source code (`$git clone https://github.com/tranlyvu/wiki-link.git`)
+2. Create your feature branch (`$git checkout -b new/your-feature`)
+3. Commit your changes (`$git commit -am 'Add some new feature'`)
+4. Push to the branch (`$git push origin new/your-feature`)
+5. Create a new [Pull Request](https://github.com/tranlyvu/wiki-link/pulls)
 ```
 
 ---
