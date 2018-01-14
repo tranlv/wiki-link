@@ -55,7 +55,7 @@ Release History
 	* Fix database connection bug
 
 * v1.0.0 - Nov 7, 2016 
-    * The first official release
+    * First official release
 
 ---
 Contribution
