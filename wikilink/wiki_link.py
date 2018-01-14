@@ -7,34 +7,35 @@ from bs4 import BeautifulSoup
 from sqlalchemy.orm import sessionmaker
 import os, sys
 
-Base = declarative_base() #metadata
+Base = declarative_base()  # metadata
 
 
 class Page(Base):
-    __tablename__ = 'page'
+	__tablename__ = 'page'
 
-    id = Column(Integer(), primary_key=True)
-    url = Column(String(225))
-    created = Column(DateTime, nullable=False, server_default=text('CURRENT_TIMESTAMP'))
+	id = Column(Integer(), primary_key=True)
+	url = Column(String(225))
+	created = Column(DateTime, nullable=False, server_default=text('CURRENT_TIMESTAMP'))
 
-    def __repr__(self):
-        return "<Page(page_id = '%s', url ='%s', created='%s')>" %(self.page_id, self.url, self.created)
+	def __repr__(self):
+		return "<Page(page_id = '%s', url ='%s', created='%s')>" % (self.page_id, self.url, self.created)
+
 
 class Link(Base):
-    __tablename__ = 'link'
+	__tablename__ = 'link'
 
-    id = Column(Integer, primary_key=True)
-    from_page_id = Column(Integer, ForeignKey('page.id'))
-    to_page_id = Column(Integer, ForeignKey('page.id'))
-    number_of_separation = Column(Integer, nullable=False)
-    created = Column(DateTime, nullable=False, server_default=text('CURRENT_TIMESTAMP'))
+	id = Column(Integer, primary_key=True)
+	from_page_id = Column(Integer, ForeignKey('page.id'))
+	to_page_id = Column(Integer, ForeignKey('page.id'))
+	number_of_separation = Column(Integer, nullable=False)
+	created = Column(DateTime, nullable=False, server_default=text('CURRENT_TIMESTAMP'))
 
-    def __repr__(self):
-        return "<Link(from_page_id='%s', to_page_id='%s', number_of_separation='%s', created='%s')>" % (
-                     self.from_page_id, self.to_page_id, self.number_of_separation, self.created)
+	def __repr__(self):
+		return "<Link(from_page_id='%s', to_page_id='%s', number_of_separation='%s', created='%s')>" % (
+			self.from_page_id, self.to_page_id, self.number_of_separation, self.created)
+
 
 def get_database_url():
-
 	config = ConfigParser()
 	try:
 		config.read(os.path.join(os.path.abspath(os.path.dirname(__file__)), 'wiki_link.ini'))
@@ -49,14 +50,15 @@ def get_database_url():
 
 	return connection
 
+
 class WikiLink:
-	def __init__(self, starting_url, ending_url, limit = 6):
+	def __init__(self, starting_url, ending_url, limit=6):
 
 		new_db_name = 'wikilink'
 		db_conn_format = get_database_url()
-		engine = create_engine(db_conn_format, echo = True)
+		engine = create_engine(db_conn_format, echo=True)
 		engine.execute("CREATE DATABASE IF NOT EXISTS %s" % new_db_name)
-		wikilink_engine =  create_engine(db_conn_format + "/" + new_db_name, echo = True)
+		wikilink_engine = create_engine(db_conn_format + "/" + new_db_name, echo=True)
 		# If table don't exist, Create.
 		if not wikilink_engine.dialect.has_table(wikilink_engine, 'link'):
 			if not wikilink_engine.dialect.has_table(wikilink_engine, 'page'):
@@ -83,32 +85,63 @@ class WikiLink:
 		self.ending_id = self.session.query(Page.id).filter(Page.url == ending_url).all()
 		self.update_link(self.ending_id[0], self.ending_id[0], 0)
 
+	def update_page_if_not_exists(self, url):
+
+		""" insert into table Page if not exist
+		:param: url
+		:return: null
+		"""
+
+		page_list = self.session.query(Page).filter(Page.url == url).all()
+		if len(page_list) == 0:
+			# self.existed_url.add(url)
+			page = Page(url=url)
+			self.session.add(page)
+			self.session.commit()
+
+	def update_link(self, from_page_id, to_page_id, no_of_separation):
+
+		""" insert entry into table link if the entry has not existed
+		:param from_page_id:
+        :param to_page_id:
+		:param no_of_separation:
+		:return: null
+		"""
+
+		link_between_2_pages = self.session.query(Link).filter(Link.from_page_id == from_page_id,
+															   Link.to_page_id == to_page_id).all()
+		if len(link_between_2_pages) == 0:
+			link = Link(from_page_id=Link.from_page_id,
+						to_page_id=to_page_id,
+						number_of_separation=no_of_separation)
+			self.session.add(link)
+			self.session.commit()
 
 	def search(self):
-		""" print smallest number of separation
 
+		""" print smallest number of separation
 		:return: null
 		"""
 
 		separation = self.session.query(Link.number_of_separation).filter(
-									Link.from_page_id ==  self.starting_id,
-									Link.to_page_id == self.ending_id).first()
+			Link.from_page_id == self.starting_id,
+			Link.to_page_id == self.ending_id).first()
 		if separation != 0:
 			self.number_of_separation = separation
 			self.found = True
 
 		while self.found is False:
-			self.found = self.retrieve_data(self.starting_url, self.ending_url, self.number_of_separation)
+			#self.found = self.retrieve_data(self.starting_url, self.ending_url, self.number_of_separation)
 			if self.number_of_separation > self.limit:
-				print ("No solution within limit! Consider to raise the limit.")
+				print("No solution within limit! Consider to raise the limit.")
 				return
 			self.number_of_separation += 1
 
-		print ("Smallest number of separation is " + str(self.number_of_separation))
+		print("Smallest number of separation is " + str(self.number_of_separation))
 
 	def print_links(self):
-		""" Print all the links between starting and ending urls
 
+		""" Print all the links between starting and ending urls
 		:return: null
 		"""
 
@@ -127,7 +160,7 @@ class WikiLink:
 
 			# retrieve all the id of pages which has min no of separation to current url
 			from_page_id = self.session.query(Link.from_page_id).filter(Link.to_page_id == current_url_id[0],
-																   Link.number_of_separation == min_separation)
+																		Link.number_of_separation == min_separation)
 
 			#
 			url = self.session.query(Page.url).filter(Page.id == from_page_id[0]).first()
@@ -139,46 +172,12 @@ class WikiLink:
 		for x in list_of_links:
 			print(x)
 
-	def update_page_if_not_exists(self, url):
-		""" insert into table Page if not exist
-
-		:param url:
-		:return: null
-		"""
-
-		page_list = self.session.query(Page).filter(Page.url == url).all()
-		if page_list.len() == 0:
-			#self.existed_url.add(url)
-			page = Page(url=url)
-			self.session.add(page)
-			self.session.commit()
-
-	def update_link(self, from_page_id, to_page_id, no_of_separation):
-		""" insert into table Link if link has not existed
-
-		:param from_page_id:
-		:param to_page_id:
-		:param no_of_separation:
-		:return: null
-		"""
-
-		link_between_2_pages = self.session.query(Link).filter(Link.from_page_id == from_page_id,
-														  Link.to_page_id == to_page_id).all()
-		if link_between_2_pages.len() == 0:
-			link = Link(from_page_id=Link.from_page_id,
-						to_page_id=to_page_id,
-						number_of_separation=no_of_separation)
-			self.session.add(link)
-			self.session.commit()
-
 
 def main():
 	starting_url = '/wiki/Barack_Obama'
 	ending_url = '/wiki/Bill_Clinton'
 	model = WikiLink(starting_url, ending_url)
-	#model.search()
-	#model.print_links()
-
+	# model.search()
+	# model.print_links()
 
 if __name__ == "__main__": main()
-
