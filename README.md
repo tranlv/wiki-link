@@ -24,7 +24,7 @@ $git clone https://github.com/tranlyvu/wiki-link.git
 $vi wiki-link/conf.ini
 ```
 
-- The simplest way is to run the [Sample file](https://github.com/tranlyvu/wiki-link/blob/master/sample.py) with your desired wiki links:
+- The simplest way is to run the [sample file](https://github.com/tranlyvu/wiki-link/blob/master/sample.py) with your desired wiki links:
 
 ```
 $vi wiki-link/sample.py
