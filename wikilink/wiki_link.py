@@ -1,11 +1,12 @@
 from sqlalchemy import Column, Integer, String, DateTime, text, ForeignKey, func, create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from configparser import ConfigParser
-import re
+from re import compile
 from requests import get, HTTPError
 from bs4 import BeautifulSoup
 from sqlalchemy.orm import sessionmaker
-import os, sys
+import os
+import sys
 
 Base = declarative_base()  # metadata
 
@@ -130,8 +131,6 @@ class WikiLink:
 
 		while self.found is False:
 			self.found = self.retrieve_data(self.starting_id, self.ending_id, 0)
-			print("self.found is " + str(self.found))
-			print("self.number_of_separation is " + str(self.number_of_separation))
 
 			if self.number_of_separation > self.limit:
 				print("No solution within limit! Consider to increase the limit.")
@@ -159,7 +158,7 @@ class WikiLink:
 
 			# retrieve url from id
 			url = self.session.query(Page.url).filter(Page.id == url_id[0]).first()
-			print("url is " + str(url))
+
 			# handle exception where page not found or server down or url mistyped
 			try:
 				response = get('https://en.wikipedia.org' + str(url[0]))
@@ -172,8 +171,10 @@ class WikiLink:
 				else:
 					soup = BeautifulSoup(html, "html.parser")
 
-			# update all wiki links with tag 'a' and attribute 'href' start with '/wiki/'
-			for link in soup.findAll("a", href=re.compile("(/wiki/)((?!:).)*$")):
+			# regular expression explain:
+			# 	 update all wiki links with tag 'a' and attribute 'href' start with '/wiki/'
+			# 	(?!...) : match if ... does not match next
+			for link in soup.findAll("a", href=compile("(/wiki/)((?!:).)*$")):
 				# only insert link starting with /wiki/ and update Page if not exist
 				inserted_url = link.attrs['href']
 				print("inserted_url is " + inserted_url)
