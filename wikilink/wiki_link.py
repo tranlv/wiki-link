@@ -39,7 +39,7 @@ class Link(Base):
 def get_database_url():
 	config = ConfigParser()
 	try:
-		config.read(os.path.join(os.path.abspath(os.path.dirname(__file__)), 'wiki_link.ini'))
+		config.read(os.path.join(os.path.abspath(os.path.dirname(__file__)), '../conf.ini'))
 	except Exception as e:
 		print(str(e))
 
