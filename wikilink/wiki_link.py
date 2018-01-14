@@ -111,9 +111,7 @@ class WikiLink:
 		link_between_2_pages = self.session.query(Link).filter(Link.from_page_id == from_page_id,
 															   Link.to_page_id == to_page_id).all()
 		if len(link_between_2_pages) == 0:
-			link = Link(from_page_id=Link.from_page_id,
-						to_page_id=to_page_id,
-						number_of_separation=no_of_separation)
+			link = Link(from_page_id=from_page_id, to_page_id=to_page_id, number_of_separation=no_of_separation)
 			self.session.add(link)
 			self.session.commit()
 
