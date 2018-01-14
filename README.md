@@ -12,7 +12,7 @@ Usage
 
 - Set up database management: as of 14 January 2018, Wiki-link has been tested with [Mysql](https://www.mysql.com/downloads/). Alternatively, for quick development setup, I strongly recommend to setup database with [Docker](https://www.docker.com/).
 
-- Download a [release](https://github.com/tranlyvu/wiki-link/releases) or fork the source code: 
+- Download a [release](https://github.com/tranlyvu/wiki-link/releases) or fork the repo: 
 
 ```
 $git clone https://github.com/tranlyvu/wiki-link.git
@@ -51,10 +51,10 @@ To do
 Release History
 ---
 
-* 1.0.1 - Jan 14, 2018
+* v1.0.1 - Jan 14, 2018
 	* Fix database connection bug
 
-* 1.0.0 - Nov 7, 2016 
+* v1.0.0 - Nov 7, 2016 
     * The first official release
 
 ---
@@ -66,11 +66,11 @@ For bug reports or requests please submit an [issue](https://github.com/tranlyvu
 For new features contribution, please follow the following instruction:
 
 ```
-1. Fork the source code (`$git clone https://github.com/tranlyvu/wiki-link.git`)
+1. Fork the repo (`$git clone https://github.com/tranlyvu/wiki-link.git`)
 2. Create your feature branch (`$git checkout -b new/your-feature`)
 3. Commit your changes (`$git commit -am 'Add some new feature'`)
 4. Push to the branch (`$git push origin new/your-feature`)
-5. Create a new [Pull Request](https://github.com/tranlyvu/wiki-link/pulls)
+5. Create a new Pull Request at https://github.com/tranlyvu/wiki-link/pulls
 ```
 
 ---
