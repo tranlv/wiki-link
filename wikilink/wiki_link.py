@@ -173,7 +173,6 @@ class WikiLink:
 					soup = BeautifulSoup(html, "html.parser")
 
 			# update all wiki links with tag 'a' and attribute 'href' start with '/wiki/'
-			#for link in soup.findAll("a", href=re.compile("(/wiki/)[^(:#)]")):
 			for link in soup.findAll("a", href=re.compile("(/wiki/)((?!:).)*$")):
 				# only insert link starting with /wiki/ and update Page if not exist
 				inserted_url = link.attrs['href']
