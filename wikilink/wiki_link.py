@@ -123,14 +123,19 @@ class WikiLink:
 		:return: null
 		"""
 
-		separation = self.session.query(Link.number_of_separation).filter(Link.from_page_id == self.starting_id,
-																		  Link.to_page_id == self.ending_id).first()
-		if separation != 0:
+		separation = self.session.query(Link.number_of_separation).filter(Link.from_page_id == self.starting_id, \
+																		  Link.to_page_id == self.ending_id).all()
+
+		if str(separation) is not None and len(separation) != 0:
 			self.number_of_separation = separation
 			self.found = True
 
 		while self.found is False:
+			print("Enter second loop")
 			self.found = self.retrieve_data(self.starting_url, self.ending_url, self.number_of_separation)
+			print("self.found is " + str(self.found))
+			print("self.number_of_separation is " + str(self.number_of_separation))
+
 			if self.number_of_separation > self.limit:
 				print("No solution within limit! Consider to increase the limit.")
 				return
@@ -157,7 +162,7 @@ class WikiLink:
 
 			# retrieve url from id
 			url = self.session.query(Page.url).filter(Page.id == url_id).all()
-
+			print("url is " + url)
 			# handle exception where page not found or server down or url mistyped
 			try:
 				html = get('https://en.wikipedia.org' + url[0])
@@ -174,10 +179,11 @@ class WikiLink:
 
 				# only insert link starting with /wiki/ and update Page if not exist
 				inserted_url = link.attrs['href']
+				print("inserted_url is " + inserted_url)
 				self.update_page_if_not_exists(inserted_url)
 
 				# update links table with starting page if it not exists
-				inserted_id = self.session.query(Page.id).filter(Page.url == inserted_url).first()
+				inserted_id = self.session.query(Page.id).filter(Page.url == inserted_url).first()[0]
 				self.update_link(starting_id, inserted_id[0], number_of_separation + 1)
 
 				if inserted_id is ending_id:
@@ -222,7 +228,7 @@ def main():
 	starting_url = '/wiki/Barack_Obama'
 	ending_url = '/wiki/Bill_Clinton'
 	model = WikiLink(starting_url, ending_url)
-	print("Smallest number of separation is " + model.search())
+	print("Smallest number of separation is " + str(model.search()))
 	# model.print_links()
 
 if __name__ == "__main__": main()
