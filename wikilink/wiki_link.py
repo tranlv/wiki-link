@@ -78,12 +78,14 @@ class WikiLink:
 		self.update_page_if_not_exists(ending_url)
 
 		# update link for starting_url, no of separation between 1 url to itself is zero of course
-		self.starting_id = self.session.query(Page.id).filter(Page.url == starting_url).all()
-		self.update_link(self.starting_id[0], self.starting_id[0], 0)
+		self.starting_id = self.session.query(Page.id).filter(Page.url == starting_url).all()[0][0]
+		print("starting id is " + str(self.starting_id))
+		self.update_link(self.starting_id, self.starting_id, 0)
 
 		# update link for ending_url, no of separation between 1 url to itself is zero of course
-		self.ending_id = self.session.query(Page.id).filter(Page.url == ending_url).all()
-		self.update_link(self.ending_id[0], self.ending_id[0], 0)
+		self.ending_id = self.session.query(Page.id).filter(Page.url == ending_url).all()[0][0]
+		print("ending id is " + str(self.ending_id))
+		self.update_link(self.ending_id, self.ending_id, 0)
 
 	def update_page_if_not_exists(self, url):
 
