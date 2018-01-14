@@ -171,9 +171,8 @@ class WikiLink:
 				else:
 					soup = BeautifulSoup(html, "html.parser")
 
-			# regular expression explain:
-			# 	 update all wiki links with tag 'a' and attribute 'href' start with '/wiki/'
-			# 	(?!...) : match if ... does not match next
+			# update all wiki links with tag 'a' and attribute 'href' start with '/wiki/'
+			# (?!...) : match if ... does not match next
 			for link in soup.findAll("a", href=compile("(/wiki/)((?!:).)*$")):
 				# only insert link starting with /wiki/ and update Page if not exist
 				inserted_url = link.attrs['href']
