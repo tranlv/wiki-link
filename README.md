@@ -12,13 +12,13 @@ Usage
 
 - Set up database management, as of 14 January 2018, Wiki-link has been tested with [Mysql](https://www.mysql.com/downloads/). Alternatively, for quick development setup, I strongly recommend to setup database with [Docker](https://www.docker.com/).
 
-- Download a [release](https://github.com/tranlyvu/wiki-link/releases) or fork the source code 
+- Download a [release](https://github.com/tranlyvu/wiki-link/releases) or fork the source code: 
 
 ```
 $git clone https://github.com/tranlyvu/wiki-link.git
 ```
 
-- Modify the configuration file for database connection
+- Modify the configuration file for database connection:
 
 ```
 $vi wiki-link/conf.ini
@@ -30,7 +30,7 @@ $vi wiki-link/conf.ini
 Development Setup
 ---
 
-Wiki-link was developed using python 3.6 ,simply run the following on your development environment
+Wiki-link was developed using python 3.6 ,simply run the following on your development environment:
 
 ```
 $pip install -r requirements.txt
