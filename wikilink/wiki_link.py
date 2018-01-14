@@ -165,7 +165,7 @@ class WikiLink:
 			print("url is " + str(url))
 			# handle exception where page not found or server down or url mistyped
 			try:
-				response = get('https://en.wikipedia.org/wiki/' + str(url[0]))
+				response = get('https://en.wikipedia.org' + str(url[0]))
 				html = response.text
 			except HTTPError:
 				return
@@ -176,7 +176,7 @@ class WikiLink:
 					soup = BeautifulSoup(html, "html.parser")
 
 			# update all wiki links with tag 'a' and attribute 'href' start with '/wiki/'
-			for link in soup.findAll("a", href=re.compile("^(/wiki/)[^:#]")):
+			for link in soup.findAll("a", href=re.compile("[^:#]")):
 
 				# only insert link starting with /wiki/ and update Page if not exist
 				inserted_url = link.attrs['href']
@@ -226,8 +226,8 @@ class WikiLink:
 
 
 def main():
-	starting_url = 'Barack_Obama'
-	ending_url = 'Bill_Clinton'
+	starting_url = '/wiki/Barack_Obama'
+	ending_url = '/wiki/Bill_Clinton'
 	model = WikiLink(starting_url, ending_url)
 	print("Smallest number of separation is " + str(model.search()))
 	# model.print_links()
