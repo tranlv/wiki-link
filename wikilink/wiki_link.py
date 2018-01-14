@@ -115,9 +115,30 @@ class WikiLink:
 			self.session.add(link)
 			self.session.commit()
 
+	def search(self):
+
+		""" print smallest number of separation
+		:return: null
+		"""
+
+		separation = self.session.query(self.number_of_separation).filter(Link.from_page_id == self.starting_id,
+																		  Link.to_page_id == self.ending_id).first()
+		if separation != 0:
+			self.number_of_separation = separation
+			self.found = True
+
+		while self.found is False:
+			self.found = self.retrieve_data(self.starting_url, self.ending_url, self.number_of_separation)
+			if self.number_of_separation > self.limit:
+				print("No solution within limit! Consider to increase the limit.")
+				return
+			self.number_of_separation += 1
+
+		return str(self.number_of_separation)
+
 	def retrieve_data(self, starting_id, ending_id, number_of_separation):
 
-		""" return true if one of the link with a given number of separation from starting url is ending url
+		""" return true if one of the link within a given number of separation from starting url is ending url
 
 		:param starting_id:
 		:param ending_id:
@@ -127,9 +148,8 @@ class WikiLink:
 
 		# query all the page id where from_page_id is the starting url
 		# when separation is 0, the starting page retrieve itself
-		to_page_id_list = self.session.query(Link.from_page_id).filter(
-			Link.number_of_separation == number_of_separation,
-			Link.from_page_id == starting_id).all()
+		to_page_id_list = self.session.query(Link.from_page_id).filter(Link.number_of_separation == number_of_separation,
+																		Link.from_page_id == starting_id).all()
 
 		for url_id in to_page_id_list:
 
@@ -161,28 +181,6 @@ class WikiLink:
 				if inserted_id is ending_id:
 					return True
 		return False
-
-	def search(self):
-
-		""" print smallest number of separation
-		:return: null
-		"""
-
-		separation = self.session.query(Link.number_of_separation).filter(
-			Link.from_page_id == self.starting_id,
-			Link.to_page_id == self.ending_id).first()
-		if separation != 0:
-			self.number_of_separation = separation
-			self.found = True
-
-		while self.found is False:
-			#self.found = self.retrieve_data(self.starting_url, self.ending_url, self.number_of_separation)
-			if self.number_of_separation > self.limit:
-				print("No solution within limit! Consider to raise the limit.")
-				return
-			self.number_of_separation += 1
-
-		print("Smallest number of separation is " + str(self.number_of_separation))
 
 	def print_links(self):
 
@@ -222,7 +220,7 @@ def main():
 	starting_url = '/wiki/Barack_Obama'
 	ending_url = '/wiki/Bill_Clinton'
 	model = WikiLink(starting_url, ending_url)
-	# model.search()
+	print("Smallest number of separation is " + model.search())
 	# model.print_links()
 
 if __name__ == "__main__": main()
