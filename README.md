@@ -24,13 +24,18 @@ $git clone https://github.com/tranlyvu/wiki-link.git
 $vi wiki-link/conf.ini
 ```
 
-- The simplest way is to run the [Sample file](https://github.com/tranlyvu/wiki-link/tree/master/sample) with your desired wiki links.
+- The simplest way is to run the [Sample file](https://github.com/tranlyvu/wiki-link/blob/master/sample.py) with your desired wiki links:
+
+```
+$vi wiki-link/sample.py
+$python wiki-link/sample.py
+```
 
 ---
 Development Setup
 ---
 
-Wiki-link was developed using python 3.6 ,simply run the following on your development environment:
+Wiki-link was developed using python 3.6, simply run the following on your development environment:
 
 ```
 $pip install -r requirements.txt
