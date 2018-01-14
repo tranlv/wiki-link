@@ -205,13 +205,12 @@ class WikiLink:
 
 			# retrieve the the shortest path to the current url using id
 			min_separation = self.session.query(func.min(Link.number_of_separation)). \
-				filter(Link.to_page_id == current_url_id[0])
+												filter(Link.to_page_id == current_url_id[0])
 
 			# retrieve all the id of pages which has min no of separation to current url
 			from_page_id = self.session.query(Link.from_page_id).filter(Link.to_page_id == current_url_id[0],
 																		Link.number_of_separation == min_separation)
 
-			#
 			url = self.session.query(Page.url).filter(Page.id == from_page_id[0]).first()
 			if url[0] not in list_of_links:
 				list_of_links.append(url[0])
