@@ -123,7 +123,7 @@ class WikiLink:
 		:return: null
 		"""
 
-		separation = self.session.query(self.number_of_separation).filter(Link.from_page_id == self.starting_id,
+		separation = self.session.query(Link.number_of_separation).filter(Link.from_page_id == self.starting_id,
 																		  Link.to_page_id == self.ending_id).first()
 		if separation != 0:
 			self.number_of_separation = separation
