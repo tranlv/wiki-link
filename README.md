@@ -1,3 +1,21 @@
+#Description:
+
+[![Join the chat at https://gitter.im/find-link/Lobby](https://badges.gitter.im/find-link/Lobby.svg)](https://gitter.im/find-link/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+The repo contains a python web-scraping application to minimum number of links between 2 given wiki pages
+
+#Usage:
+*	Sample
+	*	[sample](https://github.com/tranlyvu/findLink/sample.py)
+	
+*	Quickstart
+	1.	Initializing class 'my_findLink""
+	2.	Calling "search" method
+	
+#Contribution
+Contributions are welcome! For bug reports or requests please submit an [issue](https://github.com/tranlyvu/findLink/issues).
+
+#Contact-info
+=======
 # **wiki-link**
 
 A web-scraping application to find the minimum number of links between 2 given wiki pages.
