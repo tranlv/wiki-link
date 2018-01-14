@@ -47,7 +47,7 @@ Release History
 ---
 
 * 1.0.1 - Jan 14, 2016
-	*Fix database connection bug
+	* Fix database connection bug
 
 * 1.0.0 - Nov 7, 2016 
     * The first official release
