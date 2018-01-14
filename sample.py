@@ -1,11 +1,9 @@
-from src.findLink import my_findLink
+from wikilink.wiki_link import WikiLink
 
 def main():
-	starting_url='/wiki/Barack_Obama'
-	ending_url='/wiki/Bill_Clinton'
-	model=my_findLink(starting_url,ending_url)
-	model.search()
-	model.printLinks()
+	starting_url = '/wiki/Barack_Obama'
+	ending_url = '/wiki/Bill_Clinton'
+	model = WikiLink(starting_url, ending_url)
+	print("Smallest number of separation is " + str(model.search()))
 
-if __name__=="__main__":
-	main()
+if __name__ == "__main__": main()
