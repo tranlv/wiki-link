@@ -4,7 +4,7 @@ WikiLink
 	WikiLink is web-scraping application to find minimum number of links between two given wiki pages. It's extensively documented
     and follows best practice patterns.
     
-	:copyright: (c) 2017 by Tran Ly VU.
+	:copyright: (c) 2016 by Tran Ly VU.
     :license: Apache License 2.0, see LICENSE for more details.
 """
 from setuptools import setup
