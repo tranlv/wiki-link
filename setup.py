@@ -32,7 +32,7 @@ setup(
 		'beautifulsoup4'
 		'bs4',
 		'SQLAlchemy'
-		'Requests'
+		'requests'
 		]
 				
 )
