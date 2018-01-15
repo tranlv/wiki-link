@@ -8,5 +8,3 @@ branches:
 install:
   - pip install -r requirements.txt
 
-repo_token: HAGAyvMPzZ4ZJKPB9OnXxRilcR4bPgk1L
-
