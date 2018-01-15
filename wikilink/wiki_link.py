@@ -7,6 +7,7 @@ from bs4 import BeautifulSoup
 from sqlalchemy.orm import sessionmaker
 import os
 import sys
+from sqlalchemy_utils import functions
 
 Base = declarative_base()  # metadata
 
@@ -57,16 +58,18 @@ class WikiLink:
 
 		new_db_name = 'wikilink'
 		db_conn_format = get_database_url()
-		engine = create_engine(db_conn_format, echo=True)
-		engine.execute("CREATE DATABASE IF NOT EXISTS %s" % new_db_name)
-		wikilink_engine = create_engine(db_conn_format + "/" + new_db_name, echo=True)
-		# If table don't exist, Create.
-		if not wikilink_engine.dialect.has_table(wikilink_engine, 'link'):
-			if not wikilink_engine.dialect.has_table(wikilink_engine, 'page'):
-				Base.metadata.create_all(wikilink_engine)
+		engine = create_engine(db_conn_format + "/" + new_db_name, echo=True)
 
-		Session = sessionmaker(wikilink_engine)
-		self.session = Session()  # having conversation with database
+		self.session = sessionmaker(bind=engine)()
+
+		if not functions.database_exists(db_conn_format + "/" + new_db_name):
+			self.session.connection().connection.set_isolation_level(0)
+			self.session.execute("CREATE DATABASE %s;" % new_db_name)
+			self.session.connection().connection.set_isolation_level(1)
+
+		# If table don't exist, Create.
+		if (not engine.dialect.has_table(engine, 'link') and not engine.dialect.has_table(engine, 'page')):
+				Base.metadata.create_all(engine)
 
 		self.limit = limit
 		self.starting_url = starting_url
