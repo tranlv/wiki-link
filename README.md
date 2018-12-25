@@ -110,7 +110,7 @@ Feel free to contact me to discuss any issues, questions, or comments.
 *  Email: vutransingapore@gmail.com
 *  Linkedln: [@vutransingapore](https://www.linkedin.com/in/tranlyvu/)
 *  GitHub: [Tran Ly Vu](https://github.com/tranlyvu)
-*  Blog: [tranlyvu.github.io/](https://tranlyvu.github.io/)
+*  Blog: [tranlyvu.github.io](https://tranlyvu.github.io/)
 
 ---
 License
