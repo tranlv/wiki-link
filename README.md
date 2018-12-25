@@ -7,6 +7,18 @@ A web-scraping application to find the minimum number of links between 2 given w
 <img src="img/link.jpg" width="480" alt="Combined Image" />
 
 ---
+Table of contents
+---
+
+1. [Usage](#Usage)
+2. [Development Setup](#Development-Setup)
+3. [Project Architecture](#Project-Architecture)
+4. [Release History](#Release-History)
+5. [Contribution](#Contribution)
+6. [Contact](#Contact)
+7. [License](#License)
+
+---
 Usage
 ---
 
@@ -64,15 +76,31 @@ Contribution
 
 For bug reports or requests please submit an [issue](https://github.com/tranlyvu/wiki-link/issues).
 
-For new features contribution, please follow the following instruction:
+For new feature contribution, please follow the following instruction:
 
-```
-1. Fork the repo (`$git clone https://github.com/tranlyvu/wiki-link.git`)
-2. Create your feature branch (`$git checkout -b new/your-feature`)
-3. Commit your changes (`$git commit -am 'Add some new feature'`)
-4. Push to the branch (`$git push origin new/your-feature`)
-5. Create a new Pull Request at https://github.com/tranlyvu/wiki-link/pulls
-```
+1. Fork the repo https://github.com/tranlyvu/wiki-link.git to your own github
+
+2. Clone from your own repo
+
+`$ git clone https://github.com/<your name>/wiki-link.git`
+
+3. Make sure you are at dev branch 
+
+`$ git checkout dev && git pull`
+
+4. Create your feature/bug-fix branch
+
+`$ git checkout -b <feature/bug>/<branch-name>`
+
+5. Commit your changes 
+
+`$ git commit -am 'Add some new feature'`
+
+6. Push to the branch 
+
+`$ git push`
+
+7. Go to your own repo and create a new Pull Request against 'dev' branch
 
 ---
 Contact
@@ -80,8 +108,9 @@ Contact
 
 Feel free to contact me to discuss any issues, questions, or comments.
 *  Email: vutransingapore@gmail.com
-*  Twitter: [@vutransingapore](https://twitter.com/vutransingapore)
+*  Linkedln: [@vutransingapore](https://www.linkedin.com/in/tranlyvu/)
 *  GitHub: [Tran Ly Vu](https://github.com/tranlyvu)
+*  Blog: [tranlyvu.github.io/](https://tranlyvu.github.io/)
 
 ---
 License
