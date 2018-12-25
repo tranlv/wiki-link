@@ -27,20 +27,20 @@ Usage
 - Download a [release](https://github.com/tranlyvu/wiki-link/releases) or fork the repo: 
 
 ```
-$git clone https://github.com/tranlyvu/wiki-link.git
+$ git clone https://github.com/tranlyvu/wiki-link.git
 ```
 
 - Modify the configuration file for database connection:
 
 ```
-$vi wiki-link/conf.ini
+$ vi wiki-link/conf.ini
 ```
 
 - The simplest way is to run the [sample file](https://github.com/tranlyvu/wiki-link/blob/master/sample.py) with your desired wiki links:
 
 ```
-$vi wiki-link/sample.py
-$python wiki-link/sample.py
+$ vi wiki-link/sample.py
+$ python wiki-link/sample.py
 ```
 
 ---
@@ -50,7 +50,21 @@ Development Setup
 Wiki-link was developed using python 3.6, simply run the following on your development environment:
 
 ```
-$pip install -r requirements.txt
+$ pip install -r requirements.txt
+```
+
+Or to set up environment with virtualenv
+
+```
+$ virtualenv venv
+$ source venv/bin/activate
+$ pip install -r requirements.txt
+```
+
+If you are done working in the virtual environment for the moment, you can deactivate it:
+
+```
+$ deactivate
 ```
 
 ---
