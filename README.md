@@ -71,7 +71,7 @@ $ deactivate
 Project Architecture
 ---
 
-To do
+An overview of the project can be found [here](https://tranlyvu.github.io/BFS-and-a-simple-application/).
 
 ---
 Release History
