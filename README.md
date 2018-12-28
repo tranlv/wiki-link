@@ -39,19 +39,21 @@ $ vi wiki-link/conf.ini
 - The simplest way is to run the [sample file](https://github.com/tranlyvu/wiki-link/blob/master/sample.py) with your desired wiki links:
 
 ```
-$ vi wiki-link/sample.py
-$ python wiki-link/sample.py
+$ python wiki-link/run.py
 ```
 
 ---
 Development Setup
 ---
 
+### Packages Installation
+
 Wiki-link was developed using python 3.6, simply run the following on your development environment:
 
 ```
 $ pip install -r requirements.txt
 ```
+
 
 Or to set up environment with virtualenv
 
@@ -66,6 +68,16 @@ If you are done working in the virtual environment for the moment, you can deact
 ```
 $ deactivate
 ```
+
+### Additional Dependency 
+
+For Linux, please run:
+
+```
+$ sudo apt-get install libmysqlclient-dev
+```
+
+For window, please download and install [Microsoft Visual C++ Compiler](https://www.microsoft.com/en-us/download/details.aspx?id=44266)
 
 ---
 Project Architecture
