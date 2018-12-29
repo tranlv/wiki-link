@@ -77,8 +77,6 @@ For Linux, please run:
 $ sudo apt-get install libmysqlclient-dev
 ```
 
-For window, please download and install [Microsoft Visual C++ Compiler](https://www.microsoft.com/en-us/download/details.aspx?id=44266)
-
 ---
 Project Architecture
 ---
