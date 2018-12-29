@@ -58,7 +58,8 @@ class WikiLink:
 
 		new_db_name = 'wikilink'
 		db_conn_format = get_database_url()
-		engine = create_engine(db_conn_format + "/" + new_db_name, echo=True)
+		# Turn off echo
+		engine = create_engine(db_conn_format + "/" + new_db_name, echo=False)
 
 		self.session = sessionmaker(bind=engine)()
 
