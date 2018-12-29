@@ -59,14 +59,16 @@ class WikiLink:
 		new_db_name = 'wikilink'
 		db_conn_format = get_database_url()
 		# Turn off echo
-		engine = create_engine(db_conn_format + "/" + new_db_name, echo=False)
+		engine = create_engine(db_conn_format + "/" + new_db_name + '?charset=utf8', echo=False, encoding='utf-8')
+		if not functions.database_exists(engine.url):
+			functions.create_database(engine.url)
+
+		# if not functions.database_exists(db_conn_format + "/" + new_db_name):
+		# 	self.session.connection().connection.set_isolation_level(0)
+		# 	self.session.execute("CREATE DATABASE %s;" % new_db_name)
+		# 	self.session.connection().connection.set_isolation_level(1)
 
 		self.session = sessionmaker(bind=engine)()
-
-		if not functions.database_exists(db_conn_format + "/" + new_db_name):
-			self.session.connection().connection.set_isolation_level(0)
-			self.session.execute("CREATE DATABASE %s;" % new_db_name)
-			self.session.connection().connection.set_isolation_level(1)
 
 		# If table don't exist, Create.
 		if (not engine.dialect.has_table(engine, 'link') and not engine.dialect.has_table(engine, 'page')):
@@ -79,6 +81,8 @@ class WikiLink:
 		self.number_of_separation = 0
 
 		# update page for both starting and ending url
+		starting_url = starting_url.split("/wiki/")[-1]
+		ending_url= ending_url.split("/wiki/")[-1]
 		self.update_page_if_not_exists(starting_url)
 		self.update_page_if_not_exists(ending_url)
 
@@ -122,15 +126,15 @@ class WikiLink:
 
 	def search(self):
 
-		""" print smallest number of separation
-		:return: null
+		""" Search smallest number of separation
+		:return: int
 		"""
 
 		separation = self.session.query(Link.number_of_separation).filter(Link.from_page_id == self.starting_id, \
 																		  Link.to_page_id == self.ending_id).all()
 
 		if str(separation) is not None and len(separation) != 0:
-			self.number_of_separation = separation
+			self.number_of_separation = separation[0][0]
 			self.found = True
 
 		while self.found is False:
@@ -141,7 +145,7 @@ class WikiLink:
 				return
 			self.number_of_separation += 1
 
-		return str(self.number_of_separation)
+		return self.number_of_separation if self.number_of_separation is not None else None
 
 	def retrieve_data(self, starting_id, ending_id, number_of_separation):
 
@@ -165,7 +169,7 @@ class WikiLink:
 
 			# handle exception where page not found or server down or url mistyped
 			try:
-				response = get('https://en.wikipedia.org' + str(url[0]))
+				response = get('https://en.wikipedia.org/wiki/' + str(url[0]))
 				html = response.text
 			except HTTPError:
 				return
@@ -179,7 +183,7 @@ class WikiLink:
 			# (?!...) : match if ... does not match next
 			for link in soup.findAll("a", href=compile("(/wiki/)((?!:).)*$")):
 				# only insert link starting with /wiki/ and update Page if not exist
-				inserted_url = link.attrs['href']
+				inserted_url = link.attrs['href'].split("/wiki/")[-1]
 				self.update_page_if_not_exists(inserted_url)
 
 				# update links table with starting page if it not exists
