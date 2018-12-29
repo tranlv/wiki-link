@@ -1,7 +1,21 @@
 <!doctype html>
-<title>Hello from Flask</title>
-{% if name %}
-  <h1>Hello {{ name }}!</h1>
-{% else %}
-  <h1>Hello, World!</h1>
-{% endif %}
+<html lang="en">
+	<head>
+	    <title>Wiki-link</title>
+	</head>
+
+	<body>
+		<h1>Welcome to Wiki-link project!</h1>
+		
+		<form method="POST">
+			Enter starting wiki link: <input name="Starting wiki link">
+			<br></br>
+			Enter ending wiki link: <input name="Ending wiki link">
+	    	<br></br>
+	    	Enter limit (default=6): <input name="Limit">
+	    	<br></br>
+	    	<input type="submit">
+		</form>
+	</body>
+
+</html>
