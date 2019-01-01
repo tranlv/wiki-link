@@ -126,6 +126,14 @@ For new feature contribution, please follow the following instruction:
 
 7. Go to your own repo and create a new Pull Request against 'dev' branch
 
+8. To sync your forked repo with my repo
+
+```
+$ git remote add upstream https://github.com/tranlyvu/wiki-link.git
+$ git checkout master
+$ git merge upstream/master
+```
+
 ---
 Contact
 ---
