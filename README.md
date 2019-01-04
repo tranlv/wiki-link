@@ -3,7 +3,7 @@
 A web-scraping application to find the minimum number of links between 2 given wiki pages.
 
 
-| Build | [![Build Status](https://travis-ci.org/tranlyvu/wiki-link.svg?branch=master)](https://travis-ci.org/tranlyvu/wiki-link) | [![Code Health](https://landscape.io/github/tranlyvu/wiki-link/master/landscape.svg?style=flat)](https://landscape.io/github/tranlyvu/wiki-link/master) | [![Coverage Status](https://coveralls.io/repos/github/tranlyvu/findLink/badge.svg?branch=master)](https://coveralls.io/github/tranlyvu/findLink?branch=master) | [![codecov](https://codecov.io/gh/tranlyvu/wiki-link/branch/dev/graph/badge.svg)](https://codecov.io/gh/tranlyvu/wiki-link) |
+|Build | [![Build Status](https://travis-ci.org/tranlyvu/wiki-link.svg?branch=master)](https://travis-ci.org/tranlyvu/wiki-link) | [![Code Health](https://landscape.io/github/tranlyvu/wiki-link/master/landscape.svg?style=flat)](https://landscape.io/github/tranlyvu/wiki-link/master) | [![Coverage Status](https://coveralls.io/repos/github/tranlyvu/findLink/badge.svg?branch=master)](https://coveralls.io/github/tranlyvu/findLink?branch=master) | [![codecov](https://codecov.io/gh/tranlyvu/wiki-link/branch/dev/graph/badge.svg)](https://codecov.io/gh/tranlyvu/wiki-link) |
 |---|---|---|---|---|	
 |  **Docs**    | | | | |  
 |  **Package** | | | | |
