@@ -3,7 +3,7 @@
 A web-scraping application to find the minimum number of links between 2 given wiki pages.
 
 
-| **Build** | [![Build Status](https://travis-ci.org/tranlyvu/wiki-link.svg?branch=master)](https://travis-ci.org/tranlyvu/wiki-link) | [code health][2] | [code cov][3] | [Coverage][4] |
+| **Build** | [![Build Status](https://travis-ci.org/tranlyvu/wiki-link.svg?branch=master)](https://travis-ci.org/tranlyvu/wiki-link) |  |  |  |
 |---|---|---|---|
 | **Docs**    | | | | |  
 | **Package** | | | | |
