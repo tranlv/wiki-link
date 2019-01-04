@@ -5,9 +5,9 @@ A web-scraping application to find the minimum number of links between 2 given w
 
 | Build | [![Build Status](https://travis-ci.org/tranlyvu/wiki-link.svg?branch=master)](https://travis-ci.org/tranlyvu/wiki-link) | [![Code Health](https://landscape.io/github/tranlyvu/wiki-link/master/landscape.svg?style=flat)](https://landscape.io/github/tranlyvu/wiki-link/master) | [![Coverage Status](https://coveralls.io/repos/github/tranlyvu/findLink/badge.svg?branch=master)](https://coveralls.io/github/tranlyvu/findLink?branch=master) | [![codecov](https://codecov.io/gh/tranlyvu/wiki-link/branch/dev/graph/badge.svg)](https://codecov.io/gh/tranlyvu/wiki-link) |
 |---|---|---|---|---|	
-| **Docs**    | | | | |  
-| **Package** | | | | |
-| **Support** | [![Join the chat at https://gitter.im/find-link/Lobby](https://badges.gitter.im/find-link/Lobby.svg)](https://gitter.im/find-link/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) | | | |
+|  **Docs**    | | | | |  
+|  **Package** | | | | |
+|  **Support** | [![Join the chat at https://gitter.im/find-link/Lobby](https://badges.gitter.im/find-link/Lobby.svg)](https://gitter.im/find-link/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) | | | |
 
 
 [![Build Status](https://travis-ci.org/tranlyvu/wiki-link.svg?branch=master)](https://travis-ci.org/tranlyvu/wiki-link) [![Code Health](https://landscape.io/github/tranlyvu/wiki-link/master/landscape.svg?style=flat)](https://landscape.io/github/tranlyvu/wiki-link/master) [![Coverage Status](https://coveralls.io/repos/github/tranlyvu/findLink/badge.svg?branch=master)](https://coveralls.io/github/tranlyvu/findLink?branch=master) [![Join the chat at https://gitter.im/find-link/Lobby](https://badges.gitter.im/find-link/Lobby.svg)](https://gitter.im/find-link/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![codecov](https://codecov.io/gh/tranlyvu/wiki-link/branch/dev/graph/badge.svg)](https://codecov.io/gh/tranlyvu/wiki-link)
@@ -19,7 +19,7 @@ Table of contents
 ---
 
 1. [Usage](#Usage)
-2. [Development Setup](#Development-Setup)
+2. [Development Setup](#Development-Setup) 
 3. [Project Architecture](#Project-Architecture)
 4. [Release History](#Release-History)
 5. [Contribution](#Contribution)
