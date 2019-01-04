@@ -2,7 +2,7 @@
 
 A web-scraping application to find the minimum number of links between 2 given wiki pages.
 
-| Build | [Travis][1] | [code health][2] | [code cov][3] ||| [Coverage][4] |
+| Build | [Travis][1] | [code health][2] | [code cov][3] | [Coverage][4] |
 | --- | --- | --- | --- |
 | Docs | 
 | Package | 
