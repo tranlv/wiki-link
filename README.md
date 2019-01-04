@@ -2,10 +2,11 @@
 
 A web-scraping application to find the minimum number of links between 2 given wiki pages.
 
+| | | |
+|-|-|-|
 | Build | [Travis][1] | [code health][2] | [code cov][3] | [Coverage][4] |
-| --- | --- | --- | --- |
-| Docs | 
-| Package | 
+| Docs | 1 | 2 | 3 | 4 |
+| Package | 1 | 2 |3 | 4 |
 | Support | [![Join the chat at https://gitter.im/find-link/Lobby](https://badges.gitter.im/find-link/Lobby.svg)](https://gitter.im/find-link/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) |
 
 [1]: https://travis-ci.org/tranlyvu/wiki-link.svg?branch=master
