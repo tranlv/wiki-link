@@ -1,12 +1,12 @@
-# **wiki-link** [![wikilink][1]][2] [![HitCount][3]][4] [![ver][5]][6] [![contributions welcome][7]][8]
+# **wiki-link** [![wikilink][1]][2] [![HitCount][21]][22] [![version][23]][24] [![contributions welcome][25]][26]
 [1]: https://img.shields.io/badge/project-wikilink-brightgreen.svg
 [2]: https://tranlyvu.github.io/algorithms/BFS-and-a-simple-application/
-[3]: http://hits.dwyl.io/tranlyvu/wiki-link.svg
-[4]: http://hits.dwyl.io/tranlyvu/wiki-link
-[5]: https://img.shields.io/badge/latest%20ver-1.0.1-blue.svg
-[6]: https://github.com/tranlyvu/wiki-link/releases
-[7]: https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat
-[8]: #Contribution
+[21]: http://hits.dwyl.io/tranlyvu/wiki-link.svg
+[22]: http://hits.dwyl.io/tranlyvu/wiki-link
+[23]: https://img.shields.io/badge/latest%20ver-1.0.1-blue.svg
+[24]: https://github.com/tranlyvu/wiki-link/releases
+[25]: https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat
+[26]: #Contribution
 
 A web-scraping application to find the minimum number of links between 2 given wiki pages.
 
