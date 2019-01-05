@@ -36,8 +36,8 @@ A web-scraping application to find the minimum number of links between 2 given w
 [17]: https://badges.gitter.im/find-link/Lobby.svg
 [18]: https://gitter.im/find-link/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 
-[19]: https://requires.io/github/tranlyvu/wiki-link/requirements.svg?branch=dev
-[20]: https://requires.io/github/tranlyvu/wiki-link/requirements/?branch=dev
+[19]: https://requires.io/github/tranlyvu/wiki-link/requirements.svg?branch=master
+[20]: https://requires.io/github/tranlyvu/wiki-link/requirements/?branch=master
 
 <img src="img/link.jpg" width="480" alt="Combined Image" />
 
