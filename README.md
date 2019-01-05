@@ -1,6 +1,6 @@
-# **wiki-link** [![wikilink](1)](2)
-1. https://img.shields.io/badge/Project-wikilink-brightgreen.svg
-2. https://tranlyvu.github.io/algorithms/BFS-and-a-simple-application/
+# **wiki-link** [![wikilink][1]][2]
+[1]: https://img.shields.io/badge/Project-wikilink-brightgreen.svg
+[2]: https://tranlyvu.github.io/algorithms/BFS-and-a-simple-application/
 
 A web-scraping application to find the minimum number of links between 2 given wiki pages.
 
