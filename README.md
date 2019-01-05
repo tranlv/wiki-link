@@ -1,6 +1,4 @@
-# **wiki-link** [![wikilink][1]][2] [![HitCount][21]][22] [![version][23]][24] [![contributions welcome][25]][26]
-[1]: https://img.shields.io/badge/project-wikilink-brightgreen.svg
-[2]: https://tranlyvu.github.io/algorithms/BFS-and-a-simple-application/
+# **wiki-link** [![HitCount][21]][22] [![version][23]][24] [![contributions welcome][25]][26]
 [21]: http://hits.dwyl.io/tranlyvu/wiki-link.svg
 [22]: http://hits.dwyl.io/tranlyvu/wiki-link
 [23]: https://img.shields.io/badge/latest%20ver-1.0.1-blue.svg
@@ -15,7 +13,7 @@ A web-scraping application to find the minimum number of links between 2 given w
 | :--- | :--- | :---  | :--- | :--- |
 | **Quality** | [![Code Health][9]][10]| [![Inline docs][11]][12]| [![Maintainability][13]][14] | [![Known Vulnerabilities][15]][16]	
 | **Package** | [![Requirements Status][19]][20] | | | |
-| **Support** | [![Join the chat at https://gitter.im/find-link/Lobby][17]][18] | | | |
+| **Support** | [![Join the chat at https://gitter.im/find-link/Lobby][17]][18] | [![blog][1]][2] | | |
 
 [3]: https://travis-ci.org/tranlyvu/wiki-link.svg?branch=master
 [4]: https://travis-ci.org/tranlyvu/wiki-link 
@@ -35,9 +33,12 @@ A web-scraping application to find the minimum number of links between 2 given w
 
 [17]: https://badges.gitter.im/find-link/Lobby.svg
 [18]: https://gitter.im/find-link/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+[1]: https://img.shields.io/badge/docs-on%20blog-brightgreen.svg
+[2]: https://tranlyvu.github.io/algorithms/BFS-and-a-simple-application/
 
 [19]: https://requires.io/github/tranlyvu/wiki-link/requirements.svg?branch=master
 [20]: https://requires.io/github/tranlyvu/wiki-link/requirements/?branch=master
+
 
 <img src="img/link.jpg" width="480" alt="Combined Image" />
 
