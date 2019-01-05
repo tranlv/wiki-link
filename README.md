@@ -1,18 +1,43 @@
-# **wiki-link** [![wikilink][1]][2]
+# **wiki-link** [![wikilink][1]][2] [![HitCount][3]][4] [![ver][5]][6] [![contributions welcome][7]][8]
 [1]: https://img.shields.io/badge/project-wikilink-brightgreen.svg
 [2]: https://tranlyvu.github.io/algorithms/BFS-and-a-simple-application/
+[3]: http://hits.dwyl.io/tranlyvu/wiki-link.svg
+[4]: http://hits.dwyl.io/tranlyvu/wiki-link
+[5]: https://img.shields.io/badge/latest%20ver-1.0.1-blue.svg
+[6]: https://github.com/tranlyvu/wiki-link/releases
+[7]: https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat
+[8]: #Contribution
 
 A web-scraping application to find the minimum number of links between 2 given wiki pages.
 
-| Documentation | [![Inline docs][3]][4]| | | | 
-| :--- | :--- | :---  | :--- | :--- |	
-| **Build** | [![Build Status](https://travis-ci.org/tranlyvu/wiki-link.svg?branch=master)](https://travis-ci.org/tranlyvu/wiki-link) | [![Code Health](https://landscape.io/github/tranlyvu/wiki-link/master/landscape.svg?style=flat)](https://landscape.io/github/tranlyvu/wiki-link/master) | [![Coverage Status](https://coveralls.io/repos/github/tranlyvu/findLink/badge.svg?branch=master)](https://coveralls.io/github/tranlyvu/findLink?branch=master) | [![codecov](https://codecov.io/gh/tranlyvu/wiki-link/branch/dev/graph/badge.svg)](https://codecov.io/gh/tranlyvu/wiki-link) |
-|  **Package** | | | | |
-|  **Support** | [![Join the chat at https://gitter.im/find-link/Lobby](https://badges.gitter.im/find-link/Lobby.svg)](https://gitter.im/find-link/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) | | | |
 
-[3]: http://inch-ci.org/github/tranlyvu/wiki-link.svg?branch=master
-[4]: http://inch-ci.org/github/tranlyvu/wiki-link
+| Build | [![Build Status][3]][4] | [![Coverage Status][5]][6] | [![codecov][7]][8] | | 
+| :--- | :--- | :---  | :--- | :--- |
+| **Quality** | [![Code Health][9]][10]| [![Inline docs][11]][12]| [![Maintainability][13]][14] | [![Known Vulnerabilities][15]][16]	
+| **Package** | [![Requirements Status][19]][20] | | | |
+| **Support** | [![Join the chat at https://gitter.im/find-link/Lobby][17]][18] | | | |
 
+[3]: https://travis-ci.org/tranlyvu/wiki-link.svg?branch=master
+[4]: https://travis-ci.org/tranlyvu/wiki-link 
+[5]: https://coveralls.io/repos/github/tranlyvu/findLink/badge.svg?branch=master
+[6]: https://coveralls.io/github/tranlyvu/findLink?branch=master
+[7]: https://codecov.io/gh/tranlyvu/wiki-link/branch/dev/graph/badge.svg
+[8]: https://codecov.io/gh/tranlyvu/wiki-link
+
+[9]: https://landscape.io/github/tranlyvu/wiki-link/master/landscape.svg?style=flat
+[10]: https://landscape.io/github/tranlyvu/wiki-link/master
+[11]: http://inch-ci.org/github/tranlyvu/wiki-link.svg?branch=master
+[12]: http://inch-ci.org/github/tranlyvu/wiki-link
+[13]: https://api.codeclimate.com/v1/badges/8679cde6756683bd787d/maintainability
+[14]: https://codeclimate.com/github/tranlyvu/wiki-link/maintainability
+[15]: https://snyk.io/test/github/tranlyvu/wiki-link/badge.svg?targetFile=requirements.txt
+[16]: https://snyk.io/test/github/tranlyvu/wiki-link?targetFile=requirements.txt
+
+[17]: https://badges.gitter.im/find-link/Lobby.svg
+[18]: https://gitter.im/find-link/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+
+[19]: https://requires.io/github/tranlyvu/wiki-link/requirements.svg?branch=dev
+[20]: https://requires.io/github/tranlyvu/wiki-link/requirements/?branch=dev
 
 <img src="img/link.jpg" width="480" alt="Combined Image" />
 
