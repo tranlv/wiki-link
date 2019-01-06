@@ -8,6 +8,5 @@ def main():
 	if model.search() is not None: 
 		answer = "Smallest number of separation is " + str(model.search())		
 		print(answer)
-
 if __name__ == "__main__": 
 	main()
