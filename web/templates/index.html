@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<form method="POST" novalidate>
+		{{ form.hidden_tag() }}
+		<p>
+			{{ form.starting_link.label }} <br>
+			{{ form.starting_link }} <br>
+			{% for error in form.starting_link.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+		</p>
+	
+		<p>
+			{{ form.ending_link.label }} <br>
+			{{ form.ending_link }} <br>
+			{% for error in form.ending_link.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+    	</p>
+
+    	<p>
+			{{ form.limit.label }} <br>
+			{{ form.limit }} <br>
+			{% for error in form.limit.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+    	</p>
+
+    	<input type="submit">
+	</form>
+{% endblock %}
