@@ -1,10 +1,8 @@
-# **wiki-link** [![HitCount][21]][22] [![version][23]][24] [![contributions welcome][25]][26]
+# **wiki-link** [![version][23]][24] [![HitCount][21]][22] 
 [21]: http://hits.dwyl.io/tranlyvu/wiki-link.svg
 [22]: http://hits.dwyl.io/tranlyvu/wiki-link
 [23]: https://img.shields.io/badge/latest%20ver-1.0.1-blue.svg
 [24]: https://github.com/tranlyvu/wiki-link/releases
-[25]: https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat
-[26]: #Contribution
 
 A web-scraping application to find the minimum number of links between 2 given wiki pages.
 
@@ -12,7 +10,7 @@ A web-scraping application to find the minimum number of links between 2 given w
 | Build | [![Build Status][3]][4] | [![Coverage Status][5]][6] | [![codecov][7]][8] | | 
 | :--- | :--- | :---  | :--- | :--- |
 | **Quality** | [![Code Health][9]][10]| [![Inline docs][11]][12]| [![Maintainability][13]][14] | [![Known Vulnerabilities][15]][16]	
-| **Package** | [![Requirements Status][19]][20] | | | |
+| **Technology** | [![Requirements Status][19]][20] | | | |
 | **Support** | [![Join the chat at https://gitter.im/find-link/Lobby][17]][18] | [![blog][1]][2] | | |
 
 [3]: https://travis-ci.org/tranlyvu/wiki-link.svg?branch=master
