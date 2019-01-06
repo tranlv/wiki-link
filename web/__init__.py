@@ -1,7 +1,8 @@
 from flask import Flask
+from config import Config
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '123456789'
+app.config.from_object(Config)
 
 from web import routes
 
