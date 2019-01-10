@@ -1,5 +1,6 @@
 from sqlalchemy import Column, Integer, String, DateTime, text, ForeignKey, func, create_engine
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.dialects.mysql import LONGTEXT
 from configparser import ConfigParser
 from re import compile
 from requests import get, HTTPError
@@ -16,7 +17,7 @@ class Page(Base):
 	__tablename__ = 'page'
 
 	id = Column(Integer(), primary_key=True)
-	url = Column(String(225))
+	url = Column(LONGTEXT)
 	created = Column(DateTime, nullable=False, server_default=text('CURRENT_TIMESTAMP'))
 
 	def __repr__(self):
