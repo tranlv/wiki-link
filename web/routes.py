@@ -8,10 +8,11 @@ from wikilink.wiki_link import WikiLink
 def index():
 	form = MainForm()
 	if form.validate_on_submit():
-		model = WikiLink(form.starting_url, form.ending_url)
+		starting_url, ending_url = str(form.starting_link), str(form.ending_link)
+		model = WikiLink(starting_url, ending_url)
 		if model.search() is not None: 
 			answer = "Smallest number of separation is " + str(model.search())		
-			print(answer)
-			flash('Login requested for user {}, remember_me={}'.format(form.username.data, form.remember_me.data))
-		return redirect('index.html')
+			flash(answer)
+		else:
+			flash("no answer")
 	return render_template('index.html', form=form)

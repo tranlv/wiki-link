@@ -29,4 +29,10 @@
 
     	<input type="submit">
 	</form>
+
+	{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+	      {{ message }}
+	  {% endif %}
+	{% endwith %}
 {% endblock %}
