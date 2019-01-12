@@ -26,7 +26,7 @@ setup(
 	package_dir={'':'wikilink'},
 	license='Apache License 2.0',
 	classifiers=[
-		"Programming Language :: Python",
+		"Programming Language :: Python 3.6",
 		"License :: OSI Approved :: Apache Software License ",
 		"Operating System :: OS Independent",
 		"Development Status :: 5 - Production/Stable",
@@ -45,7 +45,7 @@ setup(
 		'bs4',
 		'SQLAlchemy',
 		"SQLAlchemy-Utils",
-		'requests',
+		"requests",
 		'Flask',
 		"mysqlclient",
 		"Jinja2"
