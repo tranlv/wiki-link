@@ -8,9 +8,9 @@
     :copyright: (c) 2018 by Tran Ly VU.
     :license: Apache License 2.0, see LICENSE for more details.
 """
-
+__all__ = ["wiki_link"]
 __author__ = "Tran Ly Vu (vutransingapore@gmail.com)"
 __version__ = "1.0.0"
-__copyright__ = "Copyright (c) 2017-2018 Tran Ly Vu"
+__copyright__ = "Copyright (c) 2016 - 2018 Tran Ly Vu. All Rights Reserved."
 __license__ = "Apache License 2.0"
 
