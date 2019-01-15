@@ -1,12 +1,11 @@
-from wikilink.wiki_link import WikiLink
+from wikilink import wiki_link
 
 def main():
-	starting_url = input("Starting url: ")
-	ending_url = input("Ending url: ")
-	limit = int(input("limit (default=6): ") or "6")
-	model = WikiLink(starting_url, ending_url)
-	if model.search() is not None: 
-		answer = "Smallest number of separation is " + str(model.search())		
-		print(answer)
-if __name__ == "__main__": 
+	starting_url = "https://en.wikipedia.org/wiki/Cristiano_Ronaldo" 
+	ending_url = "https://en.wikipedia.org/wiki/Association_football"
+	model = wiki_link.WikiLink()
+	model.setup_db("mysql", "root", "12345", "127.0.0.1", "3306")
+	print(model.search(starting_url, ending_url, 6))
+
+if __name__ == "__main__":
 	main()

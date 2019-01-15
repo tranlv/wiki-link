@@ -1,24 +1,27 @@
 from re import compile
 from requests import get, HTTPError
 from bs4 import BeautifulSoup
-from db import DB, Page, Link
+from wikilink.db import connection
+from sqlalchemy import func
 
 class WikiLink:
+	def __init__(self):
+		pass
 
-	def setup_db(self, db, name, password, ip="127.0.0.1", port):
+	def setup_db(self, db, name, password, ip, port):
 		"""Setting up database
 		Args:
 			db(str): Database engine, currently support "mysql" and "postgresql"
 			name(str): database username
 			password(str): database password
-			ip(str, optional): IP address of database. Default to "127.0.0.1"
+			ip(str): IP address of database
 			port(str): port that databse is running on
 
 		Returns: 
 			None
 		"""
 		
-		self.db = Db(db, name, password, ip, port)
+		self.db = connection.Connection(db, name, password, ip, port)
 
 	def min_link(self, starting_url, ending_url, limit=6):
 		"""return minimum number of link
@@ -40,8 +43,8 @@ class WikiLink:
 		self.number_of_separation = 0
 
 		# update page for both starting and ending url
-		self.update_page_if_not_exists(self.starting_url)
-		self.update_page_if_not_exists(self.ending_url)
+		self.insert_url_if_not_exists(self.starting_url)
+		self.insert_url_if_not_exists(self.ending_url)
 
 		self.starting_id = self.db.session.query(Page.id).filter(Page.url == self.starting_url).all()[0][0]
 		self.ending_id = self.db.session.query(Page.id).filter(Page.url == self.ending_url).all()[0][0]
@@ -67,7 +70,7 @@ class WikiLink:
 			print("There is no path from {} to {}.".format(starting_url, ending_url))
 			return 	
 
-	def update_page_if_not_exists(self, url):
+	def insert_url_if_not_exists(self, url):
 
 		""" insert into table Page if not exist
 		Args:
@@ -124,10 +127,10 @@ class WikiLink:
 			for link in soup.findAll("a", href=compile("(/wiki/)((?!:).)*$")):
 				# only insert link starting with /wiki/ and update Page if not exist
 				inserted_url = link.attrs['href'].split("/wiki/")[-1]
-				self.update_page_if_not_exists(inserted_url)
+				self.insert_url_if_not_exists(inserted_url)
 
 				# update links table with starting page if it not exists
-				inserted_id = self.session.query(Page.id).filter(Page.url == inserted_url).first()[0]
+				inserted_id = self.db.session.query(Page.id).filter(Page.url == inserted_url).first()[0]
 				self.update_link(starting_id, inserted_id, number_of_separation + 1)
 
 				if inserted_id is ending_id:
@@ -138,8 +141,8 @@ class WikiLink:
 
 		""" insert entry into table link if the entry has not existed
 		Args:
-			from_page_id:
-        	to_page_id:
+			from_page_id: id of "from" page
+        	to_page_id: id of "to" page
 			no_of_separation:
 		
 		Returns:
@@ -162,6 +165,7 @@ class WikiLink:
 			None
 
 		Returns: 
+			None
 		"""
 
 		if self.found is False:
