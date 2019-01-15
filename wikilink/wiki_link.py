@@ -1,7 +1,7 @@
 from re import compile
 from requests import get, HTTPError
 from bs4 import BeautifulSoup
-from db import db, 
+from db import DB, Page, Link
 
 class WikiLink:
 
@@ -18,7 +18,7 @@ class WikiLink:
 			None
 		"""
 		
-		self.db = db(db, name, password, ip, port)
+		self.db = Db(db, name, password, ip, port)
 
 	def min_link(self, starting_url, ending_url, limit=6):
 		"""return minimum number of link

@@ -1,37 +1,8 @@
-from sqlalchemy import Column, Integer, String, DateTime, text, ForeignKey, func
-from sqlalchemy.dialects.mysql import LONGTEXT
 from sqlalchemy import create_engine
 from sqlalchemy_utils import functions
 from sqlalchemy.orm import sessionmaker
-from sqlalchemy.ext.declarative import declarative_base
 
-Base = declarative_base()  # metadata
-
-class Page(Base):
-	__tablename__ = 'page'
-
-	id = Column(Integer(), primary_key=True)
-	url = Column(LONGTEXT)
-	created = Column(DateTime, nullable=False, server_default=text('CURRENT_TIMESTAMP'))
-
-	def __repr__(self):
-		return "<Page(page_id = '%s', url ='%s', created='%s')>" % (self.page_id, self.url, self.created)
-
-
-class Link(Base):
-	__tablename__ = 'link'
-
-	id = Column(Integer, primary_key=True)
-	from_page_id = Column(Integer, ForeignKey('page.id'))
-	to_page_id = Column(Integer, ForeignKey('page.id'))
-	number_of_separation = Column(Integer, nullable=False)
-	created = Column(DateTime, nullable=False, server_default=text('CURRENT_TIMESTAMP'))
-
-	def __repr__(self):
-		return "<Link(from_page_id='%s', to_page_id='%s', number_of_separation='%s', created='%s')>" % (
-			self.from_page_id, self.to_page_id, self.number_of_separation, self.created)
-
-class db:
+class DB:
 	def __init__(self, db, name, password, ip, port):
 		if db == 'postgresql':
 			connection = "postgresql+psycopg2://" + name + ":" + passowrd + "@" + ip + ":" + port			
