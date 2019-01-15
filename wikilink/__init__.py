@@ -1,5 +1,5 @@
 """
-	wiki-link
+	wikilink
 	~~~~~~~~
 
 	wiki-link is a web-scraping application to find minimum number 
@@ -10,7 +10,7 @@
 """
 __all__ = ["wiki_link"]
 __author__ = "Tran Ly Vu (vutransingapore@gmail.com)"
-__version__ = "1.0.0"
-__copyright__ = "Copyright (c) 2016 - 2018 Tran Ly Vu. All Rights Reserved."
+__version__ = "1.2.0"
+__copyright__ = "Copyright (c) 2016 - 2019 Tran Ly Vu. All Rights Reserved."
 __license__ = "Apache License 2.0"
 
