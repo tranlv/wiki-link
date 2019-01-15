@@ -41,14 +41,9 @@ setup(
     'Tracker': 'https://github.com/tranlyvu/wiki-link/issues',
 	},
 	install_requires=[
-		'beautifulsoup4',
 		'bs4',
 		'SQLAlchemy',
-		"SQLAlchemy-Utils",
-		"requests",
-		'Flask',
-		"mysqlclient",
-		"Jinja2"
+		"requests"
 		],
 	python_requires="~=3.6"			
 )

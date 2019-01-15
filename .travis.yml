@@ -1,10 +1,10 @@
 language: python
 python:
   - "3.6"
-script: python tests/test_all_of_the_units.py
+script: python tests/test_wiki_link.py
 branches:
  only:
-  - master
+  - dev
 install:
   - pip install -r requirements.txt
 
