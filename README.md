@@ -56,7 +56,7 @@ Table of contents
 Usage
 ---
 
-- Set up database management: as of 14 January 2018, Wiki-link has been tested with [Mysql](https://www.mysql.com/downloads/) and [PostgreSQL](https://www.postgresql.org/) (with psycopg2 adapter). Alternatively, for quick development setup, I strongly recommend to setup database with [Docker](https://www.docker.com/).
+- Set up database management: as of 14 January 2018, Wiki-link has been tested with [Mysql](https://www.mysql.com/downloads/) and [PostgreSQL](https://www.postgresql.org/). 
 
 - Download a [release](https://github.com/tranlyvu/wiki-link/releases) or fork the repo: 
 
