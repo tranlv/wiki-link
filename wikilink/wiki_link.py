@@ -171,17 +171,17 @@ class WikiLink:
 
 		while self.starting_url not in list_of_links:
 			# retrieve entry in Page with current url
-			current_url_id = self.session.query(Page.id).filter(Page.url == self.ending_url).first()
+			current_url_id = self.db.session.query(Page.id).filter(Page.url == self.ending_url).first()
 
 			# retrieve the the shortest path to the current url using id
-			min_separation = self.session.query(func.min(Link.number_of_separation)). \
+			min_separation = self.db.session.query(func.min(Link.number_of_separation)). \
 												filter(Link.to_page_id == current_url_id[0])
 
 			# retrieve all the id of pages which has min no of separation to current url
-			from_page_id = self.session.query(Link.from_page_id).filter(Link.to_page_id == current_url_id[0],
+			from_page_id = self.db.session.query(Link.from_page_id).filter(Link.to_page_id == current_url_id[0],
 																		Link.number_of_separation == min_separation)
 
-			url = self.session.query(Page.url).filter(Page.id == from_page_id[0]).first()
+			url = self.db.session.query(Page.url).filter(Page.id == from_page_id[0]).first()
 			if url[0] not in list_of_links:
 				list_of_links.append(url[0])
 
