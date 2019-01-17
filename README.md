@@ -56,24 +56,15 @@ Table of contents
 Usage
 ---
 
-- Set up database management: as of 14 January 2018, Wiki-link has been tested with [Mysql](https://www.mysql.com/downloads/) and [PostgreSQL](https://www.postgresql.org/). 
+- Database:  Wiki-link currently supports [Mysql](https://www.mysql.com/downloads/) and [PostgreSQL](https://www.postgresql.org/), please use either "mysql" or "postgresql" for setup_db().
 
-- Download a [release](https://github.com/tranlyvu/wiki-link/releases) or fork the repo: 
-
-```
-$ git clone https://github.com/tranlyvu/wiki-link.git
-```
-
-- Modify the configuration file for database connection:
+- Download a [release](https://github.com/tranlyvu/wiki-link/releases) or install with pip
 
 ```
-$ vi wiki-link/conf.ini
-```
-
-- The simplest way is to run the [sample file](https://github.com/tranlyvu/wiki-link/blob/master/sample.py) with your desired wiki links:
-
-```
-$ python wiki-link/run.py
+>>> from wikilink import wiki_link
+>>> model = wiki_link.WikiLink()
+>>> model.setup_db("mysql", "root", "12345", "127.0.0.1", "3306")
+>>> model.min_link(source_url, dest_url, 6)
 ```
 
 ---
@@ -88,12 +79,11 @@ Wiki-link was developed using python 3.6, simply run the following on your devel
 $ pip install -r requirements.txt
 ```
 
-
 Or to set up environment with virtualenv
 
 ```
-$ virtualenv venv
-$ source venv/bin/activate
+$ virtualenv -p python3 env
+$ source env/bin/activate
 $ pip install -r requirements.txt
 ```
 
@@ -101,14 +91,6 @@ If you are done working in the virtual environment for the moment, you can deact
 
 ```
 $ deactivate
-```
-
-### Additional Dependency 
-
-For Linux, please run:
-
-```
-$ sudo apt-get install libmysqlclient-dev
 ```
 
 ---
@@ -167,7 +149,7 @@ $ git remote add upstream https://github.com/tranlyvu/wiki-link.git
 $ git checkout master
 $ git merge upstream/master
 ```
-
+s
 ---
 Contact
 ---
