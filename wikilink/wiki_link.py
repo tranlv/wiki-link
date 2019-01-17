@@ -1,7 +1,9 @@
 from re import compile
 from requests import get, HTTPError
 from bs4 import BeautifulSoup
-from wikilink.db import connection
+from wikilink.db.connection import Connection
+from wikilink.db.page import Page
+from wikilink.db.link import Link
 from sqlalchemy import func
 
 class WikiLink:
@@ -21,9 +23,9 @@ class WikiLink:
 			None
 		"""
 		
-		self.db = connection.Connection(db, name, password, ip, port)
+		self.db = Connection(db, name, password, ip, port)
 
-	def min_link(self, starting_url, ending_url, limit=6):
+	def min_link(self, source_url, dest_url, limit=6):
 		"""return minimum number of link
 		Args:
 			db(str): Database engine, currently support "mysql" and "postgresql"
@@ -36,110 +38,116 @@ class WikiLink:
 			int: minimum number of sepration between startinga nd ending urls
 		"""		
 
-		self.limit = limit
-		self.starting_url = starting_url.split("/wiki/")[-1]
-		self.ending_url = ending_url.split("/wiki/")[-1]
-		self.found = False
-		self.number_of_separation = 0
-
 		# update page for both starting and ending url
-		self.insert_url_if_not_exists(self.starting_url)
-		self.insert_url_if_not_exists(self.ending_url)
+		source_id = self.insert_url(source_url.split("/wiki/")[-1])
+		dest_id = self.insert_url(dest_url.split("/wiki/")[-1])
 
-		self.starting_id = self.db.session.query(Page.id).filter(Page.url == self.starting_url).all()[0][0]
-		self.ending_id = self.db.session.query(Page.id).filter(Page.url == self.ending_url).all()[0][0]
 
-		separation = self.db.session.query(Link.number_of_separation).filter(Link.from_page_id == self.starting_id, \
-																		  Link.to_page_id == self.ending_id).all()
-
+		separation = self.db.session.query(Link.number_of_separation).filter(Link.from_page_id == source_id, \
+																		  Link.to_page_id == dest_id).all()
+		# check if the link already exists
 		if str(separation) is not None and len(separation) != 0:
-			self.number_of_separation = separation[0][0]
-			self.found = True
+			return separation[0][0]
 
-		while self.found is False:
-			self.found = self.retrieve_data(self.starting_id, self.ending_id, 0)
+		number_of_separation = 0
+		queue = [source_id]
+		already_seen = set(queue)
 
-			if self.number_of_separation > self.limit:
-				print("No solution within limit! Consider to increase the limit.")
-				return
-			self.number_of_separation += 1
+		while number_of_separation <= limit and len(queue) > 0:
+			number_of_separation += 1
+			temporary_queue = queue
+			queue = []
+			# find outbound links from current url
+			for url_id in temporary_queue:		
+				self.update_url(url_id)
 
-		if self.number_of_separation  != None:
-			return self.number_of_separation 
+				neighbors = self.db.session.query(Link).filter(Link.from_page_id == url_id, \
+											Link.number_of_separation == 1).all()
+				for n in neighbors:
+					if n.to_page_id == dest_id:
+						self.insert_link(source_id, dest_id, number_of_separation)
+						return number_of_separation
+
+					if n.to_page_id not in already_seen:
+						already_seen.add(n.to_page_id)
+						queue.append(n.to_page_id)
+			
+		if number_of_separation > limit:
+			print("No solution within limit! Consider to increase the limit.")
+			return
 		else:
-			print("There is no path from {} to {}.".format(starting_url, ending_url))
-			return 	
+			print("there is no path from {} to {}".format(starting_url, ending_url))
 
-	def insert_url_if_not_exists(self, url):
 
-		""" insert into table Page if not exist
-		Args:
-			url(str): wiki url to update
+	def update_url(self, url_id):
 
-		Returns: 
-			None
-		"""
-
-		page_list = self.db.session.query(Page).filter(Page.url == url).all()
-		if len(page_list) == 0:
-			# self.existed_url.add(url)
-			page = Page(url=url)
-			self.db.session.add(page)
-			self.db.session.commit()
-			self.update_link(url, url, 0)
-
-	def retrieve_data(self, starting_id, ending_id, number_of_separation):
-
-		""" return true if one of the link within a given number of separation from starting url is ending url
+		""" Scrap urls from given url id and insert into database
+		
 		Args:
 			starting_id: the stripped starting url
 			ending_id: the stripped ending url
 			number_of_separation:
 		
 		Returns:
-			bool:  
+			None  
+
+		Raises:
+        	HTTPError: if An HTTP error occurred
+
 		"""
 
-		# query all the page id where from_page_id is the starting url
-		# when separation is 0, the starting page retrieve itself
-		to_page_id_list = self.db.session.query(Link.to_page_id).filter(Link.number_of_separation == number_of_separation,
-																	 Link.from_page_id == starting_id).all()
+		# retrieve url from id
+		url = self.db.session.query(Page.url).filter(Page.id == url_id).first()
 
-		for url_id in to_page_id_list:
-
-			# retrieve url from id
-			url = self.db.session.query(Page.url).filter(Page.id == url_id[0]).first()
-
-			# handle exception where page not found or server down or url mistyped
-			try:
-				response = get('https://en.wikipedia.org/wiki/' + str(url[0]))
-				html = response.text
-			except HTTPError:
+		# handle exception where page not found or server down or url mistyped
+		try:
+			response = get('https://en.wikipedia.org/wiki/' + str(url[0]))
+			html = response.text
+		except HTTPError:
+			return
+		else:
+			if html is None:
 				return
 			else:
-				if html is None:
-					return
-				else:
-					soup = BeautifulSoup(html, "html.parser")
+				soup = BeautifulSoup(html, "html.parser")
 
-			# update all wiki links with tag 'a' and attribute 'href' start with '/wiki/'
-			# (?!...) : match if ... does not match next
-			for link in soup.findAll("a", href=compile("(/wiki/)((?!:).)*$")):
-				# only insert link starting with /wiki/ and update Page if not exist
-				inserted_url = link.attrs['href'].split("/wiki/")[-1]
-				self.insert_url_if_not_exists(inserted_url)
+		# update all wiki links with tag 'a' and attribute 'href' start with '/wiki/'
+		# (?!...) : match if ... does not match next
+		links = soup.findAll("a", href=compile("(/wiki/)((?!:).)*$"))
+		for link in links:
+			# only insert link starting with /wiki/ and update Page if not exist
+			inserted_url = link.attrs['href'].split("/wiki/")[-1]
+			inserted_id = self.insert_url(inserted_url)
 
-				# update links table with starting page if it not exists
-				inserted_id = self.db.session.query(Page.id).filter(Page.url == inserted_url).first()[0]
-				self.update_link(starting_id, inserted_id, number_of_separation + 1)
+			# update links table with starting page if it not exists
+			self.insert_link(url_id, inserted_id, 1)
 
-				if inserted_id is ending_id:
-					return True
-		return False
 
-	def update_link(self, from_page_id, to_page_id, no_of_separation):
+	def insert_url(self, url):
 
-		""" insert entry into table link if the entry has not existed
+		""" insert into table Page if not exist and return the url id
+		Args:
+			url(str): wiki url to update
+
+		Returns: 
+			int: url id
+		"""
+
+		page_list = self.db.session.query(Page).filter(Page.url == url).all()
+		if len(page_list) == 0:
+			page = Page(url=url)
+			self.db.session.add(page)
+			self.db.session.commit()
+			url_id = self.db.session.query(Page.id).filter(Page.url == url).all()[0][0]
+			self.insert_link(url_id, url_id, 0)
+			return url_id
+		else:
+			return self.db.session.query(Page.id).filter(Page.url == url).all()[0][0]
+
+	def insert_link(self, from_page_id, to_page_id, no_of_separation):
+
+		""" insert link into database if link is not existed
+
 		Args:
 			from_page_id: id of "from" page
         	to_page_id: id of "to" page
@@ -156,7 +164,7 @@ class WikiLink:
 			self.db.session.add(link)
 			self.db.session.commit()
 
-
+	# to do
 	def print_links(self):
 
 		""" print all the links between starting and ending urls with smallest number of links
