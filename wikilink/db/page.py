@@ -1,8 +1,10 @@
 from sqlalchemy import Column, Integer, String, DateTime, text, ForeignKey
 from sqlalchemy.dialects.mysql import LONGTEXT
-from base import Base
+from .base import Base
 
 class Page(Base):
+	"""Page table"""
+
 	__tablename__ = 'page'
 
 	id = Column(Integer(), primary_key=True)

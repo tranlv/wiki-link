@@ -1,13 +1,14 @@
 from sqlalchemy import create_engine
 from sqlalchemy_utils import functions
 from sqlalchemy.orm import sessionmaker
+from .base import Base
 
 class Connection:
 	def __init__(self, db, name, password, ip, port):
 		if db == "postgresql":
 			connection = "postgresql+psycopg2://" + name + ":" + password + "@" + ip + ":" + port			
 		elif db == "mysql":
-			connection = "mysql+pymysql://" + name + ":" + password + "@" + ip + ":" + port
+			connection = "mysql://" + name + ":" + password + "@" + ip + ":" + port
 		
 		db_name = 'wikilink'
 		# Turn off echo

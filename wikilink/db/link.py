@@ -1,7 +1,9 @@
 from sqlalchemy import Column, Integer, String, DateTime, text, ForeignKey
-from base import Base
+from .base import Base
 
 class Link(Base):
+	 """Link table"""
+
 	__tablename__ = 'link'
 
 	id = Column(Integer, primary_key=True)
