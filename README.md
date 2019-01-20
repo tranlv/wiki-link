@@ -15,8 +15,8 @@ A web-scraping application to find the minimum number of links between 2 given w
 
 [3]: https://travis-ci.org/tranlyvu/wiki-link.svg?branch=dev
 [4]: https://travis-ci.org/tranlyvu/wiki-link 
-[5]: https://coveralls.io/repos/github/tranlyvu/findLink/badge.svg?branch=dev
-[6]: https://coveralls.io/github/tranlyvu/findLink?branch=dev
+[5]: https://coveralls.io/repos/github/tranlyvu/wiki-link/badge.svg
+[6]: https://coveralls.io/github/tranlyvu/wiki-link
 [9]: https://landscape.io/github/tranlyvu/wiki-link/dev/landscape.svg?style=flat
 [10]: https://landscape.io/github/tranlyvu/wiki-link/dev
 
