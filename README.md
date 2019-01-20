@@ -53,15 +53,29 @@ Table of contents
 Usage
 ---
 
-- Database:  Wiki-link currently supports [Mysql](https://www.mysql.com/downloads/) and [PostgreSQL](https://www.postgresql.org/), please use either "mysql" or "postgresql" for setup_db().
+- Database: wikilink currently supports [Mysql](https://www.mysql.com/downloads/) and [PostgreSQL](https://www.postgresql.org/); supported either "mysql" or "postgresql" for setup_db().
 
 - Download a [release](https://github.com/tranlyvu/wiki-link/releases) or install with pip
+
+### API
+
+setup_db(db, username, password, ip, port): to set up database; supported "mysql" and postgresql" for 'db' argument.
+
+min_link(source_url, dest_url, limit = 6): find minimum number of link from source url to destination url within limit (default=6)
+
+### Examples
 
 ```
 >>> from wikilink import wiki_link
 >>> model = wiki_link.WikiLink()
 >>> model.setup_db("mysql", "root", "12345", "127.0.0.1", "3306")
 >>> model.min_link(source_url, dest_url, 6)
+```
+
+Alternatively, you can simply modify starting_url and ending_url in the script [sample](https://github.com/tranlyvu/wiki-link) and run:
+
+```
+$ python sample.py
 ```
 
 ---
