@@ -6,7 +6,7 @@ install:
   - pip install -r requirements.txt
 # command to run tests
 script: 
-  - pytest -cov=wikilink --cov-report=html
+  - pytest --cov=wikilink tests/ --cov-report=html
 branches:
  only:
   - dev
