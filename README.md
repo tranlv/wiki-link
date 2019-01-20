@@ -17,7 +17,7 @@ A web-scraping application to find the minimum number of links between 2 given w
 [4]: https://travis-ci.org/tranlyvu/wiki-link 
 [5]: https://coveralls.io/repos/github/tranlyvu/findLink/badge.svg?branch=dev
 [6]: https://coveralls.io/github/tranlyvu/findLink?branch=dev
-[9]: https://landscape.io/github/tranlyvu/wiki-link/dev/landscape.svg?style=flat)
+[9]: https://landscape.io/github/tranlyvu/wiki-link/dev/landscape.svg?style=flat
 [10]: https://landscape.io/github/tranlyvu/wiki-link/dev
 
 [13]: https://api.codeclimate.com/v1/badges/8679cde6756683bd787d/maintainability
