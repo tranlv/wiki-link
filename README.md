@@ -10,8 +10,8 @@ A web-scraping application to find the minimum number of links between 2 given w
 | Build | [![Build Status][3]][4] | [![Coverage Status][5]][6] | [![Code Health][9]][10]| 
 | :--- | :--- | :---  | :--- | :--- |
 | **Quality** | [![Maintainability][13]][14] | [![Known Vulnerabilities][15]][16]| |
-| **Technology** | [![Requirements Status][19]][20] |  |  |
-| **Support** | [![Join the chat at https://gitter.im/find-link/Lobby][17]][18] | [![blog][1]][2] |  |
+| **Technology** | [![Requirements Status][19]][20] |
+| **Support** | [![Join the chat at https://gitter.im/find-link/Lobby][17]][18] | [![blog][1]][2] | 
 
 [3]: https://travis-ci.org/tranlyvu/wiki-link.svg?branch=dev
 [4]: https://travis-ci.org/tranlyvu/wiki-link 
