@@ -160,7 +160,7 @@ $ git remote add upstream https://github.com/tranlyvu/wiki-link.git
 $ git checkout master
 $ git merge upstream/master
 ```
-s
+
 ---
 Contact
 ---
