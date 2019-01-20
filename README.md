@@ -32,7 +32,7 @@ A web-scraping application to find the minimum number of links between 2 given w
 [19]: https://requires.io/github/tranlyvu/wiki-link/requirements.svg?branch=dev
 [20]: https://requires.io/github/tranlyvu/wiki-link/requirements/?branch=dev
 
-[7]: https://www.codetriage.com/tranlyvu/wiki-link/badges/users.svg)
+[7]: https://www.codetriage.com/tranlyvu/wiki-link/badges/users.svg
 [8]: https://www.codetriage.com/tranlyvu/wiki-link
 
 <img src="img/link.jpg" width="480" alt="Combined Image" />
