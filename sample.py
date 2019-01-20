@@ -1,6 +1,4 @@
 from wikilink import wiki_link
-import sys
-#sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 def main():
 	starting_url = "https://en.wikipedia.org/wiki/Barack_Obama" 
