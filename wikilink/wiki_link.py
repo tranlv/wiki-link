@@ -4,7 +4,6 @@ from bs4 import BeautifulSoup
 from wikilink.db.connection import Connection
 from wikilink.db.page import Page
 from wikilink.db.link import Link
-from sqlalchemy import func
 
 class WikiLink:
 	def __init__(self):
@@ -41,7 +40,6 @@ class WikiLink:
 		# update page for both starting and ending url
 		source_id = self.insert_url(source_url.split("/wiki/")[-1])
 		dest_id = self.insert_url(dest_url.split("/wiki/")[-1])
-
 
 		separation = self.db.session.query(Link.number_of_separation).filter(Link.from_page_id == source_id, \
 																		  Link.to_page_id == dest_id).all()
