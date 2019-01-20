@@ -72,7 +72,7 @@ min_link(source_url, dest_url, limit = 6): find minimum number of link from sour
 >>> model.min_link(source_url, dest_url, 6)
 ```
 
-Alternatively, you can simply modify starting_url and ending_url in the script [sample](https://github.com/tranlyvu/wiki-link) and run:
+Alternatively, you can simply modify starting_url and ending_url in the script [sample.py](https://github.com/tranlyvu/wiki-link) and run:
 
 ```
 $ python sample.py
