@@ -7,9 +7,9 @@
 A web-scraping application to find the minimum number of links between 2 given wiki pages.
 
 
-| Build | [![Build Status][3]][4] | [![Coverage Status][5]][6] | [![codecov][7]][8] | | 
+| Build | [![Build Status][3]][4] | [![Coverage Status][5]][6] | [![Code Health][9]][10]| | 
 | :--- | :--- | :---  | :--- | :--- |
-| **Quality** | [![Code Health][9]][10]| [![Inline docs][11]][12]| [![Maintainability][13]][14] | [![Known Vulnerabilities][15]][16]	
+| **Quality** | [![Maintainability][13]][14] | [![Known Vulnerabilities][15]][16]	||
 | **Technology** | [![Requirements Status][19]][20] | | | |
 | **Support** | [![Join the chat at https://gitter.im/find-link/Lobby][17]][18] | [![blog][1]][2] | | |
 
@@ -17,13 +17,9 @@ A web-scraping application to find the minimum number of links between 2 given w
 [4]: https://travis-ci.org/tranlyvu/wiki-link 
 [5]: https://coveralls.io/repos/github/tranlyvu/findLink/badge.svg?branch=master
 [6]: https://coveralls.io/github/tranlyvu/findLink?branch=master
-[7]: https://codecov.io/gh/tranlyvu/wiki-link/branch/dev/graph/badge.svg
-[8]: https://codecov.io/gh/tranlyvu/wiki-link
-
 [9]: https://landscape.io/github/tranlyvu/wiki-link/master/landscape.svg?style=flat
 [10]: https://landscape.io/github/tranlyvu/wiki-link/master
-[11]: http://inch-ci.org/github/tranlyvu/wiki-link.svg?branch=master
-[12]: http://inch-ci.org/github/tranlyvu/wiki-link
+
 [13]: https://api.codeclimate.com/v1/badges/8679cde6756683bd787d/maintainability
 [14]: https://codeclimate.com/github/tranlyvu/wiki-link/maintainability
 [15]: https://snyk.io/test/github/tranlyvu/wiki-link/badge.svg
