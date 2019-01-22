@@ -1,8 +1,8 @@
 # **wikilink** [![version][23]][24] [![HitCount][21]][22] 
 [21]: http://hits.dwyl.io/tranlyvu/wiki-link.svg
 [22]: http://hits.dwyl.io/tranlyvu/wiki-link
-[23]: https://img.shields.io/badge/version-v1.2.0-brightgreen.svg
-[24]: https://github.com/tranlyvu/wiki-link/releases
+[23]: https://img.shields.io/pypi/v/wikilink.svg
+[24]: https://pypi.org/project/wikilink/
 
 A web-scraping application to find the minimum number of links between 2 given wiki pages.
 
