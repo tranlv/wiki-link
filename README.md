@@ -22,7 +22,7 @@ A web-scraping application to find the minimum number of links between 2 given w
 [13]: https://api.codeclimate.com/v1/badges/8679cde6756683bd787d/maintainability
 [14]: https://codeclimate.com/github/tranlyvu/wiki-link/maintainability
 [15]: https://snyk.io/test/github/tranlyvu/wiki-link/badge.svg
-[16]: https://snyk.io/test/github/tranlyvu/Wiki-link
+[16]: https://snyk.io/test/github/tranlyvu/wiki-link
 
 [17]: https://badges.gitter.im/find-link/Lobby.svg
 [18]: https://gitter.im/find-link/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
