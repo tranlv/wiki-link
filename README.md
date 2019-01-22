@@ -1,4 +1,4 @@
-# **wiki-link** [![version][23]][24] [![HitCount][21]][22] 
+# **wikilink** [![version][23]][24] [![HitCount][21]][22] 
 [21]: http://hits.dwyl.io/tranlyvu/wiki-link.svg
 [22]: http://hits.dwyl.io/tranlyvu/wiki-link
 [23]: https://img.shields.io/badge/latest%20ver-1.0.1-blue.svg
@@ -93,7 +93,8 @@ $ pip install -r requirements.txt
 Or to set up environment with virtualenv
 
 ```
-$ virtualenv -p python3 env
+$ cd <path to wikilink project>
+$ python3 -m venv env
 $ source env/bin/activate
 $ pip install -r requirements.txt
 ```
@@ -113,6 +114,9 @@ An overview of the project can be found [here](https://tranlyvu.github.io/BFS-an
 ---
 Release History
 ---
+* v1.2.0 - Jan 23, 2019
+	* Re-define API
+	* Publish to PyPi
 
 * v1.0.1 - Jan 14, 2018
 	* Fix database connection bug
