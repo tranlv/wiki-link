@@ -26,7 +26,7 @@ setup(
 	package_dir={'':'wikilink'},
 	license='Apache License 2.0',
 	classifiers=[
-		"Programming Language :: Python 3.6",
+		"Programming Language :: Python :: 3.6",
 		"License :: OSI Approved :: Apache Software License ",
 		"Operating System :: OS Independent",
 		"Development Status :: 5 - Production/Stable",
@@ -43,7 +43,11 @@ setup(
 	install_requires=[
 		'bs4',
 		'SQLAlchemy',
-		"requests"
+		"requests",
+		"beautifulsoup4",
+		"SQLAlchemy-Utils",
+		"urllib3",
+		"mysqlclient"
 		],
 	python_requires="~=3.6"			
 )
