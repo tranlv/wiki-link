@@ -57,6 +57,10 @@ Usage
 
 - Download a [release](https://github.com/tranlyvu/wiki-link/releases) or install with pip
 
+```
+$ pip install wikilink
+```
+
 ### API
 
 setup_db(db, username, password, ip, port): to set up database; supported "mysql" and postgresql" for 'db' argument.
