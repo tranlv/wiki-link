@@ -9,7 +9,8 @@ class Connection:
 			connection = "postgresql+psycopg2://" + name + ":" + password + "@" + ip + ":" + port			
 		elif db == "mysql":
 			connection = "mysql://" + name + ":" + password + "@" + ip + ":" + port
-		
+		else:
+			raise ValueError("db type only support \"mysql\" or \"postgresql\" argument.")
 		db_name = 'wikilink'
 		# Turn off echo
 		engine = create_engine(connection + "/" + db_name + '?charset=utf8', echo=False, encoding='utf-8')
