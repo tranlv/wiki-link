@@ -53,13 +53,15 @@ Table of contents
 Usage
 ---
 
-- Database: wikilink currently supports [Mysql](https://www.mysql.com/downloads/) and [PostgreSQL](https://www.postgresql.org/); supported either "mysql" or "postgresql" for setup_db().
-
-- Download a [release](https://github.com/tranlyvu/wiki-link/releases) or install with pip
+Download a [release](https://github.com/tranlyvu/wiki-link/releases) or install with pip
 
 ```
 $ pip install wikilink
 ```
+
+### Database support
+
+wikilink currently supports [Mysql](https://www.mysql.com/downloads/) and [PostgreSQL](https://www.postgresql.org/)
 
 ### API
 
