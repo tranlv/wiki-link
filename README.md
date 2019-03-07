@@ -1,13 +1,15 @@
-# **wikilink** [![version][23]][24] [![HitCount][21]][22] 
+# **wikilink** [![version][23]][24] [![HitCount][21]][22] [![Downloads][25]][26]
 [21]: http://hits.dwyl.io/tranlyvu/wiki-link.svg
 [22]: http://hits.dwyl.io/tranlyvu/wiki-link
 [23]: https://img.shields.io/pypi/v/wikilink.svg
 [24]: https://pypi.org/project/wikilink/
+[25]: https://pepy.tech/badge/wikilink
+[26]: https://pepy.tech/project/wikilink
 
 A web-scraping application to find the minimum number of links between 2 given wiki pages.
 
 
-| Build | [![Build Status][3]][4] | [![Coverage Status][5]][6] | [![Code Health][9]][10] | 
+| Build | [![Build Status][3]][4] | [![Coverage Status][5]][6] | | 
 | :--- | :--- | :---  | :--- |
 | **Quality** | [![Maintainability][13]][14] | [![Known Vulnerabilities][15]][16] | [![Requirements Status][19]][20] |
 | **Support** | [![Join the chat at https://gitter.im/find-link/Lobby][17]][18] | [![blog][1]][2] | [![Open Source Helpers][7]][8] | 
@@ -16,8 +18,6 @@ A web-scraping application to find the minimum number of links between 2 given w
 [4]: https://travis-ci.org/tranlyvu/wiki-link 
 [5]: https://coveralls.io/repos/github/tranlyvu/wiki-link/badge.svg
 [6]: https://coveralls.io/github/tranlyvu/wiki-link
-[9]: https://landscape.io/github/tranlyvu/wiki-link/dev/landscape.svg?style=flat
-[10]: https://landscape.io/github/tranlyvu/wiki-link/dev
 
 [13]: https://api.codeclimate.com/v1/badges/8679cde6756683bd787d/maintainability
 [14]: https://codeclimate.com/github/tranlyvu/wiki-link/maintainability
@@ -170,6 +170,12 @@ $ git remote add upstream https://github.com/tranlyvu/wiki-link.git
 $ git checkout master
 $ git merge upstream/master
 ```
+
+---
+Hall of Fame
+---
+
+[![](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/images/0)](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/links/0)[![](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/images/1)](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/links/1)[![](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/images/2)](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/links/2)[![](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/images/3)](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/links/3)[![](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/images/4)](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/links/4)[![](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/images/5)](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/links/5)[![](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/images/6)](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/links/6)[![](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/images/7)](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/links/7)
 
 ---
 Contact
