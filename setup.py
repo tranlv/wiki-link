@@ -18,6 +18,8 @@ setup(
 	version="1.2.0",
 	author='Tran Ly Vu',
 	author_email='vutransingapore@gmail.com',
+	maintainer='Tran Ly Vu <vutransingapore@gmail.com>',
+	maintainer_email='vutransingapore@gmail.com',
 	description='A web-scraping application to find the minimum number of links between 2 given wiki pages',
 	long_description=long_description,
 	long_description_content_type="text/markdown",
@@ -26,6 +28,7 @@ setup(
 	package_dir={'':'wikilink'},
 	license='Apache License 2.0',
 	classifiers=[
+		"Programming Language :: Python :: 3",
 		"Programming Language :: Python :: 3.6",
 		"License :: OSI Approved :: Apache Software License ",
 		"Operating System :: OS Independent",
@@ -39,6 +42,10 @@ setup(
 	project_urls={
     'Source': 'https://github.com/tranlyvu/wiki-link',
     'Tracker': 'https://github.com/tranlyvu/wiki-link/issues',
+    'Chat: Gitter': 'https://gitter.im/find-link/Lobby',
+    'CI: Travis': 'https://travis-ci.org/tranlyvu/wiki-link',
+    'Coverage: coveralls': 'https://coveralls.io/github/tranlyvu/wiki-link',
+
 	},
 	install_requires=[
 		'bs4',
