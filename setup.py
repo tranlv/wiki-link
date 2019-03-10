@@ -51,10 +51,7 @@ setup(
 		'bs4',
 		'SQLAlchemy',
 		"requests",
-		"beautifulsoup4",
-		"SQLAlchemy-Utils",
-		"urllib3",
-		"mysqlclient"
+		"SQLAlchemy-Utils"
 		],
 	python_requires="~=3.6"			
 )
