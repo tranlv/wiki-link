@@ -48,8 +48,7 @@ setup(
 
 	},
 	install_requires=[
-		'bs4',
-		'SQLAlchemy',
+		"beautifulsoup4",
 		"requests",
 		"SQLAlchemy-Utils"
 		],
