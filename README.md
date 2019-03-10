@@ -88,7 +88,7 @@ $ python sample.py
 Contribution
 ---
 
-### [Contribution instruction](https://github.com/tranlyvu/wiki-link/blob/dev/CONTRIBUTING.md)
+Please follow [contribution instruction](https://github.com/tranlyvu/wiki-link/blob/dev/CONTRIBUTING.md) and [code of conduct](https://github.com/tranlyvu/wiki-link/blob/dev/CODE-OF-CONDUCT.md)
 
 ### Development setup
 
