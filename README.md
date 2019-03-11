@@ -1,10 +1,14 @@
-# **wikilink** [![version][23]][24] [![HitCount][21]][22] [![Downloads][25]][26]
+# **wikilink** [![version][23]][24] [![HitCount][21]][22] [![Downloads][25]][26] [![star this repo][27]][28] [![fork this repo][29]][30]
 [21]: http://hits.dwyl.io/tranlyvu/wiki-link.svg
 [22]: http://hits.dwyl.io/tranlyvu/wiki-link
 [23]: https://img.shields.io/pypi/v/wikilink.svg
 [24]: https://pypi.org/project/wikilink/
 [25]: https://pepy.tech/badge/wikilink
 [26]: https://pepy.tech/project/wikilink
+[27]: http://githubbadges.com/star.svg?user=tranlyvu&repo=wiki-link&style=default
+[28]: https://github.com/tranlyvu/wiki-link
+[29]: http://githubbadges.com/fork.svg?user=tranlyvu&repo=wiki-link&style=default
+[30]: https://github.com/tranlyvu/wiki-link/fork
 
 A web-scraping application to find the minimum number of links between 2 given wiki pages.
 
