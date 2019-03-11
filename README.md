@@ -1,4 +1,4 @@
-# **wikilink** [![version][23]][24] [![HitCount][21]][22] [![Downloads][25]][26] [![star this repo][27]][28] [![fork this repo][29]][30]
+# **wikilink** [![version][23]][24] [![Downloads][25]][26] [![HitCount][21]][22] [![star this repo][27]][28] [![fork this repo][29]][30]
 [21]: http://hits.dwyl.io/tranlyvu/wiki-link.svg
 [22]: http://hits.dwyl.io/tranlyvu/wiki-link
 [23]: https://img.shields.io/pypi/v/wikilink.svg
