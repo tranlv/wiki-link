@@ -13,10 +13,10 @@
 A web-scraping application to find the minimum number of links between 2 given wiki pages.
 
 
-| Build | [![Build Status][3]][4] | [![Coverage Status][5]][6] | | 
-| :--- | :--- | :---  | :--- |
-| **Quality** | [![Maintainability][13]][14] | [![Requirements Status][19]][20] | |
-| **Support** | [![Join the chat at https://gitter.im/find-link/Lobby][17]][18] | [![blog][1]][2] | [![Open Source Helpers][7]][8] | 
+| Build | [![Build Status][3]][4] | [![Coverage Status][5]][6] | 
+| :--- | :--- | :---  |
+| **Quality** | [![Maintainability][13]][14] | [![Requirements Status][19]][20] |
+| **Support** | [![Join the chat][17]][18] | [![blog][1]][2] |
 
 [3]: https://travis-ci.org/tranlyvu/wiki-link.svg?branch=dev
 [4]: https://travis-ci.org/tranlyvu/wiki-link 
@@ -34,9 +34,6 @@ A web-scraping application to find the minimum number of links between 2 given w
 [19]: https://requires.io/github/tranlyvu/wiki-link/requirements.svg?branch=dev
 [20]: https://requires.io/github/tranlyvu/wiki-link/requirements/?branch=dev
 
-[7]: https://www.codetriage.com/tranlyvu/wiki-link/badges/users.svg
-[8]: https://www.codetriage.com/tranlyvu/wiki-link
-
 <img src="img/link.jpg" width="480" alt="Combined Image" />
 
 ---
@@ -44,12 +41,11 @@ Table of contents
 ---
 
 1. [Usage](#Usage)
-2. [Development Setup](#Development-Setup) 
+2. [Contribution](#Contribution) 
 3. [Project Architecture](#Project-Architecture)
 4. [Release History](#Release-History)
-5. [Contribution](#Contribution)
-6. [Contact](#Contact)
-7. [License](#License)
+5. [Contact](#Contact)
+6. [License](#License)
 
 ---
 Usage
@@ -79,13 +75,6 @@ min_link(source_url, dest_url, limit = 6): find minimum number of link from sour
 >>> model.setup_db("mysql", "root", "12345", "127.0.0.1", "3306")
 >>> model.min_link(source_url, dest_url, 6)
 ```
-
-Alternatively, you can simply modify starting_url and ending_url in the script [sample.py](https://github.com/tranlyvu/wiki-link) and run:
-
-```
-$ python sample.py
-```
-
 ---
 Contribution
 ---
@@ -115,7 +104,10 @@ If you are done working in the virtual environment for the moment, you can deact
 $ deactivate
 ```
 
-### [List of contributors](https://github.com/tranlyvu/wiki-link/blob/dev/CONTRIBUTORS.md)
+### [List of contributors](https://github.com/tranlyvu/wiki-link/blob/dev/CONTRIBUTORS.md) [![Open Source Helpers][7]][8]
+
+[7]: https://www.codetriage.com/tranlyvu/wiki-link/badges/users.svg
+[8]: https://www.codetriage.com/tranlyvu/wiki-link
 
 ### Hall of Fame
 
