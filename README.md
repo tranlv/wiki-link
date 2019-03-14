@@ -134,10 +134,8 @@ Release History
     * First official release
 
 ---
-Contact [![Say Thank][9]][10]
+Contact
 ---
-[9]: https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg
-[10]: https://saythanks.io/to/tranlyvu
 
 Feel free to contact me to discuss any issues, questions, or comments.
 
@@ -145,6 +143,8 @@ Feel free to contact me to discuss any issues, questions, or comments.
 *  Linkedln: [@vutransingapore](https://www.linkedin.com/in/tranlyvu/)
 *  GitHub: [Tran Ly Vu](https://github.com/tranlyvu)
 *  Blog: [tranlyvu.github.io](https://tranlyvu.github.io/)
+
+If you like my project, feel fee to leave a few words of appreciation here [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/tranlyvu)
 
 ---
 License
