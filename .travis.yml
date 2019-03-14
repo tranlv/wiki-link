@@ -5,9 +5,11 @@ python:
 # command to install dependencies
 install:
   - pip install -r requirements.txt
+services:
+  - mysql
 # command to run tests
 script: 
-  - pytest --cov=wikilink tests/ --cov-report=html
+  - pytest --cov=wikilink tests/integration --cov-report=html
 branches:
  only:
   - dev
