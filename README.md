@@ -92,21 +92,6 @@ To set up development environment, simply run:
 $ pip install -r requirements.txt
 ```
 
-Or to set up environment with virtualenv
-
-```
-$ cd <path to wikilink project>
-$ python3 -m venv env
-$ source env/bin/activate
-$ pip install -r requirements.txt
-```
-
-If you are done working in the virtual environment for the moment, you can deactivate it:
-
-```
-$ deactivate
-```
-
 ### List of issues
 
 1. Implement function to print path ([#16](https://github.com/tranlyvu/wiki-link/issues/16))
