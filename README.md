@@ -75,17 +75,24 @@ min_link(source_url, dest_url, limit = 6): find minimum number of link from sour
 >>> model.setup_db("mysql", "root", "12345", "127.0.0.1", "3306")
 >>> model.min_link(source_url, dest_url, 6)
 ```
+
+### Testing
+
+1. Unit test: help required ([#11](https://github.com/tranlyvu/wiki-link/issues/11))
+
+2. Integration test
+
 ---
 Contribution [![Open Source Helpers][7]][8]
 ---
 [7]: https://www.codetriage.com/tranlyvu/wiki-link/badges/users.svg
 [8]: https://www.codetriage.com/tranlyvu/wiki-link
 
-Please follow our contribution convention at [contribution instruction](https://github.com/tranlyvu/wiki-link/blob/dev/CONTRIBUTING.md) and [code of conduct](https://github.com/tranlyvu/wiki-link/blob/dev/CODE-OF-CONDUCT.md).
+### How to contribute
 
-### Development setup
+Please follow our contribution convention at [contribution instructions](https://github.com/tranlyvu/wiki-link/blob/dev/CONTRIBUTING.md) and [code of conduct](https://github.com/tranlyvu/wiki-link/blob/dev/CODE-OF-CONDUCT.md).
 
-Simply run the following on your development environment:
+To set up development environment, simply run:
 
 ```
 $ pip install -r requirements.txt
@@ -106,9 +113,16 @@ If you are done working in the virtual environment for the moment, you can deact
 $ deactivate
 ```
 
-Do remember to add your name into the [list of contributors](https://github.com/tranlyvu/wiki-link/blob/dev/CONTRIBUTORS.md). You will be inducted into Hall of Fame as a way to show my appreciation to your contribution.
+### List of issues
 
-### Hall of Fame
+1. Implement function to print path ([#16](https://github.com/tranlyvu/wiki-link/issues/16))
+2. Update unit test ([#11](https://github.com/tranlyvu/wiki-link/issues/11))
+
+### Appreciation
+
+Feel free to add your name into the [list of contributors](https://github.com/tranlyvu/wiki-link/blob/dev/CONTRIBUTORS.md). You will automatically be inducted into Hall of Fame as a way to show my appreciation for your contributions.
+
+#### Hall of Fame
 
 [![](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/images/0)](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/links/0)[![](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/images/1)](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/links/1)[![](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/images/2)](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/links/2)[![](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/images/3)](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/links/3)[![](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/images/4)](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/links/4)[![](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/images/5)](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/links/5)[![](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/images/6)](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/links/6)[![](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/images/7)](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/links/7)
 
