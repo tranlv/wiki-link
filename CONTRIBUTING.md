@@ -18,6 +18,8 @@ For new feature contribution, please follow the following instruction:
 
 `$ git checkout -b <feature/bug>/<branch-name>`
 
+Do remember to add your name into the [list of contributors](https://github.com/tranlyvu/wiki-link/blob/dev/CONTRIBUTORS.md) if you have not done so before going to step 5.
+
 5. Commit your changes 
 
 `$ git commit -am 'Add some new feature'`

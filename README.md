@@ -76,10 +76,12 @@ min_link(source_url, dest_url, limit = 6): find minimum number of link from sour
 >>> model.min_link(source_url, dest_url, 6)
 ```
 ---
-Contribution
+Contribution [![Open Source Helpers][7]][8]
 ---
+[7]: https://www.codetriage.com/tranlyvu/wiki-link/badges/users.svg
+[8]: https://www.codetriage.com/tranlyvu/wiki-link
 
-Please follow [contribution instruction](https://github.com/tranlyvu/wiki-link/blob/dev/CONTRIBUTING.md) and [code of conduct](https://github.com/tranlyvu/wiki-link/blob/dev/CODE-OF-CONDUCT.md)
+Please follow our contribution convention at [contribution instruction](https://github.com/tranlyvu/wiki-link/blob/dev/CONTRIBUTING.md) and [code of conduct](https://github.com/tranlyvu/wiki-link/blob/dev/CODE-OF-CONDUCT.md).
 
 ### Development setup
 
@@ -104,10 +106,7 @@ If you are done working in the virtual environment for the moment, you can deact
 $ deactivate
 ```
 
-### [List of contributors](https://github.com/tranlyvu/wiki-link/blob/dev/CONTRIBUTORS.md) [![Open Source Helpers][7]][8]
-
-[7]: https://www.codetriage.com/tranlyvu/wiki-link/badges/users.svg
-[8]: https://www.codetriage.com/tranlyvu/wiki-link
+Do remember to add your name into the [list of contributors](https://github.com/tranlyvu/wiki-link/blob/dev/CONTRIBUTORS.md). You will be inducted into Hall of Fame as a way to show my appreciation to your contribution.
 
 ### Hall of Fame
 
