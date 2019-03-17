@@ -111,7 +111,7 @@ Feel free to add your name into the [list of contributors](https://github.com/tr
 Project Architecture
 ---
 
-An overview of the project can be found [here](https://tranlyvu.github.io/BFS-and-a-simple-application/).
+An overview of the project can be found [here](https://tranlyvu.github.io/algorithms/BFS-and-a-simple-application/).
 
 ---
 Release History
