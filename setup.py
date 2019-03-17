@@ -15,7 +15,7 @@ with open("README.md", "r") as fh:
 
 setup(
 	name='wikilink',
-	version="1.2.0",
+	version="1.2.1",
 	author='Tran Ly Vu',
 	author_email='vutransingapore@gmail.com',
 	maintainer='Tran Ly Vu <vutransingapore@gmail.com>',
@@ -50,7 +50,8 @@ setup(
 	install_requires=[
 		"beautifulsoup4",
 		"requests",
-		"SQLAlchemy-Utils"
+		"SQLAlchemy-Utils",
+		"SQLAlchemy"
 		],
 	python_requires='>=2.6, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*, <4',
 	tests_require = [
