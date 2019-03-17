@@ -1,28 +1,33 @@
-# **wikilink** [![version][23]][24] [![HitCount][21]][22] 
+# **wikilink** [![version][23]][24] [![Downloads][25]][26] [![HitCount][21]][22] [![star this repo][27]][28] [![fork this repo][29]][30]
 [21]: http://hits.dwyl.io/tranlyvu/wiki-link.svg
 [22]: http://hits.dwyl.io/tranlyvu/wiki-link
 [23]: https://img.shields.io/pypi/v/wikilink.svg
 [24]: https://pypi.org/project/wikilink/
+[25]: https://pepy.tech/badge/wikilink
+[26]: https://pepy.tech/project/wikilink
+[27]: http://githubbadges.com/star.svg?user=tranlyvu&repo=wiki-link&style=default
+[28]: https://github.com/tranlyvu/wiki-link
+[29]: http://githubbadges.com/fork.svg?user=tranlyvu&repo=wiki-link&style=default
+[30]: https://github.com/tranlyvu/wiki-link/fork
 
 A web-scraping application to find the minimum number of links between 2 given wiki pages.
 
 
-| Build | [![Build Status][3]][4] | [![Coverage Status][5]][6] | [![Code Health][9]][10] | 
-| :--- | :--- | :---  | :--- |
-| **Quality** | [![Maintainability][13]][14] | [![Known Vulnerabilities][15]][16] | [![Requirements Status][19]][20] |
-| **Support** | [![Join the chat at https://gitter.im/find-link/Lobby][17]][18] | [![blog][1]][2] | [![Open Source Helpers][7]][8] | 
+| Build | [![Build Status][3]][4] | [![Coverage Status][5]][6] | 
+| :--- | :--- | :---  |
+| **Quality** | [![Maintainability][13]][14] | [![Requirements Status][19]][20] |
+| **Support** | [![Join the chat][17]][18] | [![blog][1]][2] |
+| **Platform** | [![python](https://img.shields.io/pypi/pyversions/wikilink.svg)](https://pypi.org/project/wikilink/)
+ | |
+
 
 [3]: https://travis-ci.org/tranlyvu/wiki-link.svg?branch=dev
 [4]: https://travis-ci.org/tranlyvu/wiki-link 
 [5]: https://coveralls.io/repos/github/tranlyvu/wiki-link/badge.svg
 [6]: https://coveralls.io/github/tranlyvu/wiki-link
-[9]: https://landscape.io/github/tranlyvu/wiki-link/dev/landscape.svg?style=flat
-[10]: https://landscape.io/github/tranlyvu/wiki-link/dev
 
 [13]: https://api.codeclimate.com/v1/badges/8679cde6756683bd787d/maintainability
 [14]: https://codeclimate.com/github/tranlyvu/wiki-link/maintainability
-[15]: https://snyk.io/test/github/tranlyvu/wiki-link/badge.svg
-[16]: https://snyk.io/test/github/tranlyvu/wiki-link
 
 [17]: https://badges.gitter.im/find-link/Lobby.svg
 [18]: https://gitter.im/find-link/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
@@ -32,9 +37,6 @@ A web-scraping application to find the minimum number of links between 2 given w
 [19]: https://requires.io/github/tranlyvu/wiki-link/requirements.svg?branch=dev
 [20]: https://requires.io/github/tranlyvu/wiki-link/requirements/?branch=dev
 
-[7]: https://www.codetriage.com/tranlyvu/wiki-link/badges/users.svg
-[8]: https://www.codetriage.com/tranlyvu/wiki-link
-
 <img src="img/link.jpg" width="480" alt="Combined Image" />
 
 ---
@@ -42,24 +44,25 @@ Table of contents
 ---
 
 1. [Usage](#Usage)
-2. [Development Setup](#Development-Setup) 
+2. [Contribution](#Contribution) 
 3. [Project Architecture](#Project-Architecture)
 4. [Release History](#Release-History)
-5. [Contribution](#Contribution)
-6. [Contact](#Contact)
-7. [License](#License)
+5. [Contact](#Contact)
+6. [License](#License)
 
 ---
 Usage
 ---
 
-- Database: wikilink currently supports [Mysql](https://www.mysql.com/downloads/) and [PostgreSQL](https://www.postgresql.org/); supported either "mysql" or "postgresql" for setup_db().
-
-- Download a [release](https://github.com/tranlyvu/wiki-link/releases) or install with pip
+Download a [release](https://github.com/tranlyvu/wiki-link/releases) or install with pip
 
 ```
 $ pip install wikilink
 ```
+
+### Database support
+
+wikilink currently supports [Mysql](https://www.mysql.com/downloads/) and [PostgreSQL](https://www.postgresql.org/)
 
 ### API
 
@@ -76,38 +79,34 @@ min_link(source_url, dest_url, limit = 6): find minimum number of link from sour
 >>> model.min_link(source_url, dest_url, 6)
 ```
 
-Alternatively, you can simply modify starting_url and ending_url in the script [sample.py](https://github.com/tranlyvu/wiki-link) and run:
-
-```
-$ python sample.py
-```
-
 ---
-Development Setup
+Contribution [![Open Source Helpers][7]][8]
 ---
+[7]: https://www.codetriage.com/tranlyvu/wiki-link/badges/users.svg
+[8]: https://www.codetriage.com/tranlyvu/wiki-link
 
-### Packages Installation
+### How to contribute
 
-Wiki-link was developed using python 3.6, simply run the following on your development environment:
+Please follow our contribution convention at [contribution instructions](https://github.com/tranlyvu/wiki-link/blob/dev/CONTRIBUTING.md) and [code of conduct](https://github.com/tranlyvu/wiki-link/blob/dev/CODE-OF-CONDUCT.md).
+
+To set up development environment, simply run:
 
 ```
 $ pip install -r requirements.txt
 ```
 
-Or to set up environment with virtualenv
+### List of issues
 
-```
-$ cd <path to wikilink project>
-$ python3 -m venv env
-$ source env/bin/activate
-$ pip install -r requirements.txt
-```
+1. Implement function to print path ([#16](https://github.com/tranlyvu/wiki-link/issues/16))
+2. Update unit test ([#11](https://github.com/tranlyvu/wiki-link/issues/11))
 
-If you are done working in the virtual environment for the moment, you can deactivate it:
+### Appreciation
 
-```
-$ deactivate
-```
+Feel free to add your name into the [list of contributors](https://github.com/tranlyvu/wiki-link/blob/dev/CONTRIBUTORS.md). You will automatically be inducted into Hall of Fame as a way to show my appreciation for your contributions.
+
+#### Hall of Fame
+
+[![](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/images/0)](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/links/0)[![](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/images/1)](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/links/1)[![](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/images/2)](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/links/2)[![](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/images/3)](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/links/3)[![](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/images/4)](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/links/4)[![](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/images/5)](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/links/5)[![](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/images/6)](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/links/6)[![](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/images/7)](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/links/7)
 
 ---
 Project Architecture
@@ -118,6 +117,11 @@ An overview of the project can be found [here](https://tranlyvu.github.io/BFS-an
 ---
 Release History
 ---
+
+* v1.2.1 
+	* Add support for python3.7
+	* Fix pypi shipping
+
 * v1.2.0 - Jan 23, 2019
 	* Re-define API
 	* Publish to PyPi
@@ -130,54 +134,17 @@ Release History
     * First official release
 
 ---
-Contribution
----
-
-For bug reports or requests please submit an [issue](https://github.com/tranlyvu/wiki-link/issues).
-
-For new feature contribution, please follow the following instruction:
-
-1. Fork the repo https://github.com/tranlyvu/wiki-link.git to your own github
-
-2. Clone from your own repo
-
-`$ git clone https://github.com/<your name>/wiki-link.git`
-
-3. Make sure you are at dev branch 
-
-`$ git checkout dev && git pull`
-
-4. Create your feature/bug-fix branch
-
-`$ git checkout -b <feature/bug>/<branch-name>`
-
-5. Commit your changes 
-
-`$ git commit -am 'Add some new feature'`
-
-6. Push to the branch 
-
-`$ git push`
-
-7. Go to your own repo and create a new Pull Request against 'dev' branch
-
-8. To sync your forked repo with my repo
-
-```
-$ git remote add upstream https://github.com/tranlyvu/wiki-link.git
-$ git checkout master
-$ git merge upstream/master
-```
-
----
 Contact
 ---
 
 Feel free to contact me to discuss any issues, questions, or comments.
+
 *  Email: vutransingapore@gmail.com
 *  Linkedln: [@vutransingapore](https://www.linkedin.com/in/tranlyvu/)
 *  GitHub: [Tran Ly Vu](https://github.com/tranlyvu)
 *  Blog: [tranlyvu.github.io](https://tranlyvu.github.io/)
+
+If you like my project, feel fee to leave a few words of appreciation here [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/tranlyvu)
 
 ---
 License
