@@ -17,8 +17,7 @@ A web-scraping application to find the minimum number of links between 2 given w
 | :--- | :--- | :---  |
 | **Quality** | [![Maintainability][13]][14] | [![Requirements Status][19]][20] |
 | **Support** | [![Join the chat][17]][18] | [![blog][1]][2] |
-| **Platform** | [![python](https://img.shields.io/pypi/pyversions/wikilink.svg)](https://pypi.org/project/wikilink/)
- | |
+| **Platform** | [![python version](https://img.shields.io/pypi/pyversions/wikilink.svg)](https://pypi.org/project/wikilink/)| [![implementation](https://img.shields.io/pypi/implementation/wikilink.svg)](https://pypi.org/project/wikilink/) |
 
 
 [3]: https://travis-ci.org/tranlyvu/wiki-link.svg?branch=dev
