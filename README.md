@@ -114,6 +114,9 @@ An overview of the project can be found [here](https://tranlyvu.github.io/BFS-an
 ---
 Release History
 ---
+* v1.2.1 
+	* Add support for python3.7
+
 * v1.2.0 - Jan 23, 2019
 	* Re-define API
 	* Publish to PyPi
