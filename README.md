@@ -1,5 +1,5 @@
 <p align="center">
-	<a href="https://vibora.io"><img src="https://github.com/tranlyvu/wiki-link/tree/dev/img/logo.png"></a>	
+	<a href="https://vibora.io"><img src="https://github.com/tranlyvu/wiki-link/img/logo.png"></a>	
 </p>
 
 <p align="center">
@@ -11,7 +11,7 @@
 </p>
 
 ---
-wikilink is a A web-scraping application to find the minimum number of links between 2 given wiki pages.
+wikilink is a web-scraping application which purpose is to find the minimum number of links between 2 given wiki pages; subsequently to examine if “Six degrees of separation” idea can be observed, i.e. the pages can be reached within 6 links.
 
 | Build | [![Build Status][3]][4] | [![Coverage Status][5]][6] | 
 | :--- | :--- | :---  |
