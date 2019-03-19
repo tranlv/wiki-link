@@ -1,5 +1,5 @@
 <p align="center">
-	<a href="https://github.com/tranlyvu/wiki-link"><img src="https://github.com/tranlyvu/wiki-link/blob/dev/img/logo.png"  width="200" height="200"></a>	
+	<a href="https://github.com/tranlyvu/wiki-link"><img src="https://github.com/tranlyvu/wiki-link/blob/dev/img/logo.png"  width="400" height="400"></a>	
 </p>
 
 <p align="center">
