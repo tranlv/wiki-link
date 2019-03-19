@@ -1,24 +1,23 @@
-# **wikilink** [![version][23]][24] [![Downloads][25]][26] [![HitCount][21]][22] [![star this repo][27]][28] [![fork this repo][29]][30]
-[21]: http://hits.dwyl.io/tranlyvu/wiki-link.svg
-[22]: http://hits.dwyl.io/tranlyvu/wiki-link
-[23]: https://img.shields.io/pypi/v/wikilink.svg
-[24]: https://pypi.org/project/wikilink/
-[25]: https://pepy.tech/badge/wikilink
-[26]: https://pepy.tech/project/wikilink
-[27]: http://githubbadges.com/star.svg?user=tranlyvu&repo=wiki-link&style=default
-[28]: https://github.com/tranlyvu/wiki-link
-[29]: http://githubbadges.com/fork.svg?user=tranlyvu&repo=wiki-link&style=default
-[30]: https://github.com/tranlyvu/wiki-link/fork
+<p align="center">
+	<a href="https://vibora.io"><img src="https://github.com/tranlyvu/wiki-link/tree/dev/img/logo.png"></a>	
+</p>
 
-A web-scraping application to find the minimum number of links between 2 given wiki pages.
+<p align="center">
+	<a href="https://pypi.org/project/wikilink/"><img src="https://img.shields.io/pypi/v/wikilink.svg"></a>
+	<a href="https://pepy.tech/project/wikilink"><img src="https://pepy.tech/badge/wikilink"></a>
+	<a href="https://github.com/tranlyvu/wiki-link"><img src="http://hits.dwyl.io/tranlyvu/wiki-link.svg"></a>
+    <a href="https://github.com/tranlyvu/wiki-link"><img src="http://githubbadges.com/star.svg?user=tranlyvu&repo=wiki-link&style=default"></a>
+    <a href="https://github.com/tranlyvu/wiki-link/fork"><img src="http://githubbadges.com/fork.svg?user=tranlyvu&repo=wiki-link&style=default"></a>
+</p>
 
+---
+wikilink is a A web-scraping application to find the minimum number of links between 2 given wiki pages.
 
 | Build | [![Build Status][3]][4] | [![Coverage Status][5]][6] | 
 | :--- | :--- | :---  |
 | **Quality** | [![Maintainability][13]][14] | [![Requirements Status][19]][20] |
 | **Support** | [![Join the chat][17]][18] | [![blog][1]][2] |
 | **Platform** | [![python version](https://img.shields.io/pypi/pyversions/wikilink.svg)](https://pypi.org/project/wikilink/)| [![implementation](https://img.shields.io/pypi/implementation/wikilink.svg)](https://pypi.org/project/wikilink/) |
-
 
 [3]: https://travis-ci.org/tranlyvu/wiki-link.svg?branch=dev
 [4]: https://travis-ci.org/tranlyvu/wiki-link 
@@ -35,8 +34,6 @@ A web-scraping application to find the minimum number of links between 2 given w
 
 [19]: https://requires.io/github/tranlyvu/wiki-link/requirements.svg?branch=dev
 [20]: https://requires.io/github/tranlyvu/wiki-link/requirements/?branch=dev
-
-<img src="img/link.jpg" width="480" alt="Combined Image" />
 
 ---
 Table of contents
