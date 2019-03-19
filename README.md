@@ -1,5 +1,5 @@
 <p align="center">
-	<a href="https://vibora.io"><img src="https://github.com/tranlyvu/wiki-link/img/logo.png"></a>	
+	<a href="https://github.com/tranlyvu/wiki-link"><img src="https://github.com/tranlyvu/wiki-link/blob/dev/img/logo.png"></a>	
 </p>
 
 <p align="center">
