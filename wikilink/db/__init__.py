@@ -5,7 +5,7 @@
 	wiki-link is a web-scraping application to find minimum number 
 	of links between two given wiki pages. 
 
-    :copyright: (c) 2016 - 2018 by Tran Ly VU. All Rights Reserved.
+    :copyright: (c) 2016 - 2019 by Tran Ly VU. All Rights Reserved.
     :license: Apache License 2.0.
 """
 __author__ = "Tran Ly Vu (vutransingapore@gmail.com)"
