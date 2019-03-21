@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""Initialize Page table"""
+"""Provide Page - the main calss to initialize page table"""
 
 # third party modules
 from sqlalchemy import Column, Integer, String, DateTime, text, ForeignKey
