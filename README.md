@@ -13,6 +13,11 @@
 ---
 wikilink is a web-scraping application which purpose is to find the minimum number of links between 2 given wiki pages; subsequently to examine if “Six degrees of separation” idea can be observed, i.e. the pages can be reached within 6 links.
 
+I discussed brief the motivation and an overview of the project in [my blog](https://tranlyvu.github.io/algorithms/BFS-and-a-simple-application/).
+
+The project is currently at production stage - [v1.2.1](https://github.com/tranlyvu/wiki-link/releases), also see [change log](https://github.com/tranlyvu/wiki-link/blob/dev/CHANGELOG.md) for more details on release history.
+
+
 | Build | [![Build Status][3]][4] | [![Coverage Status][5]][6] | 
 | :--- | :--- | :---  |
 | **Quality** | [![Maintainability][13]][14] | [![Requirements Status][19]][20] |
@@ -41,16 +46,14 @@ Table of contents
 
 1. [Usage](#Usage)
 2. [Contribution](#Contribution) 
-3. [Project Architecture](#Project-Architecture)
-4. [Release History](#Release-History)
-5. [Contact](#Contact)
-6. [License](#License)
+3. [Contact](#Contact)
+4. [License](#License)
 
 ---
 Usage
 ---
 
-Download a [release](https://github.com/tranlyvu/wiki-link/releases) or install with pip
+Install with pip
 
 ```
 $ pip install wikilink
@@ -103,31 +106,6 @@ Feel free to add your name into the [list of contributors](https://github.com/tr
 #### Hall of Fame
 
 [![](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/images/0)](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/links/0)[![](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/images/1)](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/links/1)[![](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/images/2)](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/links/2)[![](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/images/3)](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/links/3)[![](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/images/4)](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/links/4)[![](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/images/5)](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/links/5)[![](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/images/6)](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/links/6)[![](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/images/7)](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/links/7)
-
----
-Project Architecture
----
-
-An overview of the project can be found [here](https://tranlyvu.github.io/algorithms/BFS-and-a-simple-application/).
-
----
-Release History
----
-
-* v1.2.1 
-	* Add support for python3.7
-	* Fix pypi shipping
-
-* v1.2.0 - Jan 23, 2019
-	* Re-define API
-	* Publish to PyPi
-
-* v1.0.1 - Jan 14, 2018
-	* Fix database connection bug
-	* Test PostgreSQL database
-
-* v1.0.0 - Nov 7, 2016 
-    * First official release
 
 ---
 Contact
