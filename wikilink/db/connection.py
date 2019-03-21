@@ -1,7 +1,24 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+"""Provide Connection - the main gateway to access db"""
+
+#third-party modules
 from sqlalchemy import create_engine
 from sqlalchemy_utils import functions
 from sqlalchemy.orm import sessionmaker
+
+#own modules
 from .base import Base
+
+__author__ = "Tran Ly Vu (vutransingapore@gmail.com)"
+__copyright__ = "Copyright (c) 2016 - 2019 Tran Ly Vu. All Rights Reserved."
+__credits__ = ["Tranlyvu"]
+__license__ = "Apache License 2.0"
+__version__ = "1.2.0"
+__maintainer__ = "Tran Ly Vu"
+__email__ = "vutransingapore@gmail.com"
+__status__ = "Production"
 
 class Connection:
 	def __init__(self, db, name, password, ip, port):

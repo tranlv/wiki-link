@@ -1,9 +1,29 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+"""Provide Wikilink- Main class of the project"""
+
+# built-in modules
 from re import compile
+
+#third-party modules
 from requests import get, HTTPError
 from bs4 import BeautifulSoup
+
+# own modules
 from wikilink.db.connection import Connection
 from wikilink.db.page import Page
 from wikilink.db.link import Link
+
+__author__ = "Tran Ly Vu (vutransingapore@gmail.com)"
+__copyright__ = "Copyright (c) 2016 - 2019 Tran Ly Vu. All Rights Reserved."
+__credits__ = ["Tranlyvu"]
+__license__ = "Apache License 2.0"
+__version__ = "1.2.0"
+__maintainer__ = "Tran Ly Vu"
+__email__ = "vutransingapore@gmail.com"
+__status__ = "Production"
+
 
 class WikiLink:
 	def __init__(self):
@@ -38,8 +58,8 @@ class WikiLink:
 		"""		
 
 		# update page for both starting and ending url
-		source_id = self.insert_url(source_url.split("/wiki/")[-1])
-		dest_id = self.insert_url(dest_url.split("/wiki/")[-1])
+		source_id = self._insert_url(source_url.split("/wiki/")[-1])
+		dest_id = self._insert_url(dest_url.split("/wiki/")[-1])
 
 		separation = self.db.session.query(Link.number_of_separation).filter(Link.from_page_id == source_id, \
 																		  Link.to_page_id == dest_id).all()
@@ -57,13 +77,13 @@ class WikiLink:
 			queue = []
 			# find outbound links from current url
 			for url_id in temporary_queue:		
-				self.update_url(url_id)
+				self._update_url(url_id)
 
 				neighbors = self.db.session.query(Link).filter(Link.from_page_id == url_id, \
 											Link.number_of_separation == 1).all()
 				for n in neighbors:
 					if n.to_page_id == dest_id:
-						self.insert_link(source_id, dest_id, number_of_separation)
+						self._insert_link(source_id, dest_id, number_of_separation)
 						return number_of_separation
 
 					if n.to_page_id not in already_seen:
@@ -77,7 +97,7 @@ class WikiLink:
 			print("there is no path from {} to {}".format(starting_url, ending_url))
 
 
-	def update_url(self, url_id):
+	def _update_url(self, url_id):
 
 		""" Scrap urls from given url id and insert into database
 		
@@ -115,13 +135,13 @@ class WikiLink:
 		for link in links:
 			# only insert link starting with /wiki/ and update Page if not exist
 			inserted_url = link.attrs['href'].split("/wiki/")[-1]
-			inserted_id = self.insert_url(inserted_url)
+			inserted_id = self._insert_url(inserted_url)
 
 			# update links table with starting page if it not exists
-			self.insert_link(url_id, inserted_id, 1)
+			self._insert_link(url_id, inserted_id, 1)
 
 
-	def insert_url(self, url):
+	def _insert_url(self, url):
 
 		""" insert into table Page if not exist and return the url id
 		Args:
@@ -137,12 +157,12 @@ class WikiLink:
 			self.db.session.add(page)
 			self.db.session.commit()
 			url_id = self.db.session.query(Page.id).filter(Page.url == url).all()[0][0]
-			self.insert_link(url_id, url_id, 0)
+			self._insert_link(url_id, url_id, 0)
 			return url_id
 		else:
 			return self.db.session.query(Page.id).filter(Page.url == url).all()[0][0]
 
-	def insert_link(self, from_page_id, to_page_id, no_of_separation):
+	def _insert_link(self, from_page_id, to_page_id, no_of_separation):
 
 		""" insert link into database if link is not existed
 

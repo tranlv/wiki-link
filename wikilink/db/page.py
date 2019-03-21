@@ -1,6 +1,24 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+"""Initialize Page table"""
+
+# third party modules
 from sqlalchemy import Column, Integer, String, DateTime, text, ForeignKey
 from sqlalchemy.dialects.mysql import LONGTEXT
+
+# own modules
 from .base import Base
+
+__author__ = "Tran Ly Vu (vutransingapore@gmail.com)"
+__copyright__ = "Copyright (c) 2016 - 2019 Tran Ly Vu. All Rights Reserved."
+__credits__ = ["Tranlyvu"]
+__license__ = "Apache License 2.0"
+__version__ = "1.2.0"
+__maintainer__ = "Tran Ly Vu"
+__email__ = "vutransingapore@gmail.com"
+__status__ = "Production"
+
 
 class Page(Base):
 	"""Page table"""
