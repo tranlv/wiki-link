@@ -1,16 +1,36 @@
 # **Change log**
 
-* v1.2.1 
-	* Add support for python3.7
-	* Fix pypi shipping
+All notable changes to this project will be documented in this file.
 
-* v1.2.0 - Jan 23, 2019
-	* Re-define API
-	* Publish to PyPi
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-* v1.0.1 - Jan 14, 2018
-	* Fix database connection bug
-	* Test PostgreSQL database
+Changes are group into "Added", "Changed", "Deprecated", "Removed", "Fixed", "Security"
 
-* v1.0.0 - Nov 7, 2016 
-    * First official release
+## [Unreleased]
+## Added
+- Added log, changelog and issue files.
+
+## [v1.2.1] - 2019-03-17
+### Added
+- Add support for python3.7
+
+### Fixed
+- Fix pypi shipping
+	
+## [v1.2.0] - 2019-01-23 
+### Added
+- Added setup to publish to PyPi
+
+### Changed
+- Re-define API naming.
+
+## [v1.0.1] - 2018-01-14
+### Added
+- Add PostgreSQL database support
+
+### Fixed
+- Fix database connection bug
+
+## [v1.0.0] - 2016-11-07
+### Changed
+- First official release
