@@ -12,24 +12,24 @@ Changes are grouped into "Added", "Changed", "Deprecated", "Removed", "Fixed", "
 
 ## [v1.2.1] - 2019-03-17
 ### Added
-- Add support for python3.7
+- Added support for python3.7
 
 ### Fixed
-- Fix pypi shipping
+- Fixed pypi shipping
 	
 ## [v1.2.0] - 2019-01-23 
 ### Added
 - Added setup to publish to PyPi
 
 ### Changed
-- Re-define API naming.
+- Re-defined API naming.
 
 ## [v1.0.1] - 2018-01-14
 ### Added
-- Add PostgreSQL database support
+- Added PostgreSQL database support
 
 ### Fixed
-- Fix database connection bug
+- Fixed database connection bug
 
 ## [v1.0.0] - 2016-11-07
 ### Changed
