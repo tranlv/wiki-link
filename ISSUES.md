@@ -1,4 +1,4 @@
-# **Release Note**
+# **Issues**
 
 # New Features/ Enhancement
 - Implement function to print path [#16](https://github.com/tranlyvu/wiki-link/issues/16)
