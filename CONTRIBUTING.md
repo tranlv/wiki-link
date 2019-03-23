@@ -1,6 +1,6 @@
 # **Instructions for contributors**
 
-For bug reports or requests please submit an [issue](https://github.com/tranlyvu/wiki-link/issues).
+For bug reports or requests please submit an [issue](https://github.com/tranlyvu/wiki-link/issues) and briefly add the issue into the [release notes]
 
 For new feature contribution, please follow the following instruction:
 
