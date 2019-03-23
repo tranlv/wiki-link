@@ -94,10 +94,8 @@ To set up development environment, simply run:
 $ pip install -r requirements.txt
 ```
 
-### List of issues
+Please check out the [realease notes](https://github.com/tranlyvu/wiki-link/blob/dev/RELEASENOTES.md) for list of issues that required helps.
 
-1. Implement function to print path ([#16](https://github.com/tranlyvu/wiki-link/issues/16))
-2. Update unit test ([#11](https://github.com/tranlyvu/wiki-link/issues/11))
 
 ### Appreciation
 
