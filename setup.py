@@ -9,12 +9,13 @@
     :license: Apache License 2.0.
 """
 from setuptools import setup, find_packages
+from re import search, MULTILINE
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
 with open('wikilink/__init__.py', 'r') as f:
-    version = re.search(r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]', f.read(), re.MULTILINE).group(1)
+    version = search(r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]', f.read(), MULTILINE).group(1)
 
 setup(
 	name='wikilink',
@@ -63,8 +64,9 @@ setup(
 	install_requires=[
 		"beautifulsoup4>=4.7.1",
 		"requests>=2.21.0",
-		"SQLAlchemy-Utils>=0.33.11"
-		],
+		"SQLAlchemy-Utils>=0.33.11",
+		"mysqlclient>=1.4.2.post1"
+	],
 	python_requires='>=3.0, <4',
 	tests_require = [
     	'pytest',
