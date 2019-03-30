@@ -66,7 +66,7 @@ wikilink currently supports [Mysql](https://www.mysql.com/downloads/) and [Postg
 ### API
 
 ```
-setup_db(db, username, password, ip="127.0.0.1", port=3306): set up database; supported "mysql" and postgresql" for 'db' argument.
+setup_db(db, username, password, ip="127.0.0.1", port=3306): set up database
 
 Args:
 	db(str): Database engine, currently support "mysql" and "postgresql"
