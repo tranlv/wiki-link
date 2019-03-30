@@ -11,11 +11,11 @@
 </p>
 
 ---
-wikilink is a web-scraping application which purpose is to find the minimum number of links between 2 given wiki pages; subsequently to examine if “Six degrees of separation” idea can be observed, i.e. the pages can be reached within 6 links.
+wikilink is a multiprocessing web-scraping application to scrape the wiki pages, extract urls and find the minimum number of links between 2 given wiki pages.
 
 I discussed brief the motivation and an overview of the project in [my blog](https://tranlyvu.github.io/algorithms/BFS-and-a-simple-application/).
 
-The project is currently at version [v0.3.0](https://github.com/tranlyvu/wiki-link/releases), also see [change log](https://github.com/tranlyvu/wiki-link/blob/dev/CHANGELOG.md) for more details on release history.
+The project is currently at version [v0.3.0.post1](https://github.com/tranlyvu/wiki-link/releases), also see [change log](https://github.com/tranlyvu/wiki-link/blob/dev/CHANGELOG.md) for more details on release history.
 
 If you like this project, feel fee to leave a few words of appreciation here [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/tranlyvu)
 
@@ -65,9 +65,36 @@ wikilink currently supports [Mysql](https://www.mysql.com/downloads/) and [Postg
 
 ### API
 
-setup_db(db, username, password, ip="127.0.0.1", port=3306): to set up database; supported "mysql" and postgresql" for 'db' argument.
+```
+setup_db(db, username, password, ip="127.0.0.1", port=3306): set up database
 
-min_link(source, destination, limit=6, multiprocessing=False): find minimum number of link from source url to destination url within limit (default=6)
+Args:
+	db(str): Database engine, currently support "mysql" and "postgresql"
+	name(str): database username
+	password(str): database password
+	ip(str): IP address of database (Default = "127.0.0.1")
+	port(str): port that databse is running on (default=3306)
+
+Returns:
+	None
+```
+
+```
+min_link(source, destination, limit=6, multiprocessing=False): find minimum number of link from source url to destination url within limit 
+
+Args:
+	source(str): source wiki url, i.e. "https://en.wikipedia.org/wiki/Cristiano_Ronaldo"
+	destination(str): Destination wiki url, i.e. "https://en.wikipedia.org/wiki/Cristiano_Ronaldo"
+	limit(int): max number of links from the source that will be considered (default=6)
+	multiprocessing(boolean): enable/disable multiprocessing mode (default=False)
+
+Returns:
+	(int) minimum number of sepration between source and destination urls
+	return None and print messages if exceeding limits or no path found
+
+Raises:
+	DisconnectionError: error connecting to DB
+```
 
 ### Examples
 

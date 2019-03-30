@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 Changes are grouped into "Added", "Changed", "Deprecated", "Removed", "Fixed", "Security"
 
+## [v0.3.0.post1] - 2019-03-30
+### Fixed
+- Fixed sub-package db import
+
 ## [v0.3.0] - 2019-03-30
 ### Added
 - Added log, changelog and issue files.
