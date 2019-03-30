@@ -16,7 +16,7 @@ with open("README.md", "r") as fh:
 
 setup(
 	name="wikilink",
-	version="0.3.0",
+	version="0.3.0.post1",
 	author="Tran Ly Vu",
 	author_email="vutransingapore@gmail.com",
 	maintainer="Tran Ly Vu <vutransingapore@gmail.com>",
