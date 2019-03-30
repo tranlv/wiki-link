@@ -2,8 +2,8 @@
 	wikilink
 	~~~~~~~~
 
-	wikilink is a web-scraping application to find minimum number 
-	of links between two given wiki pages. 
+	wikilink is a multiprocessing web-scraping application to scrape wiki pages and 
+	find minimum number of links between two given wiki pages.
     
     :copyright: (c) 2016 - 2019 by Tran Ly VU. All Rights Reserved.
     :license: Apache License 2.0.
@@ -14,24 +14,21 @@ from re import search, MULTILINE
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-with open('wikilink/__init__.py', 'r') as f:
-    version = search(r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]', f.read(), MULTILINE).group(1)
-
 setup(
 	name="wikilink",
-	version=version,
+	version="0.3.0",
 	author="Tran Ly Vu",
 	author_email="vutransingapore@gmail.com",
 	maintainer="Tran Ly Vu <vutransingapore@gmail.com>",
 	maintainer_email="vutransingapore@gmail.com",
-	description="A web-scraping application to find the minimum number of links between 2 given wiki pages",
+	description="A multiprocessing web-scraping application to scrape wiki pages and find minimum number of links between two given wiki pages.",
 	long_description=long_description,
 	long_description_content_type="text/markdown",
 	url="https://github.com/tranlyvu/wiki-link",
-	packages=find_packages(where="wikilink", exclude=["docs", "tests*"]),
-	package_dir={"":"wikilink"},
+	packages=find_packages(),
 	license="Apache License 2.0",
 	zip_safe=False,
+	include_package_data=True,
 	platforms="any",
 	classifiers=[
 		"Programming Language :: Python :: 3",
