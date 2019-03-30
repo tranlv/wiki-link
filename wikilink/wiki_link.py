@@ -21,9 +21,9 @@ from sqlalchemy.orm import scoped_session
 from sqlalchemy.orm import sessionmaker
 
 # own modules
-from db import Connection
-from db import Page
-from db import Link
+from .db import Connection
+from .db import Page
+from .db import Link
 
 __author__ = "Tran Ly Vu (vutransingapore@gmail.com)"
 __copyright__ = "Copyright (c) 2016 - 2019 Tran Ly Vu. All Rights Reserved."
