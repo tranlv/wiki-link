@@ -4,7 +4,7 @@
 """Provide Page - the main calss to initialize page table"""
 
 # third party modules
-from sqlalchemy import Column, Integer, String, DateTime, text, ForeignKey
+from sqlalchemy import Column, Integer, DateTime, text
 from sqlalchemy.dialects.mysql import LONGTEXT
 
 # own modules
@@ -26,7 +26,10 @@ class Page(Base):
 
 	id = Column(Integer(), primary_key=True)
 	url = Column(LONGTEXT)
-	created = Column(DateTime, nullable=False, server_default=text('CURRENT_TIMESTAMP'))
+	created = Column(DateTime, nullable=False, 
+		             server_default=text('CURRENT_TIMESTAMP'))
 
 	def __repr__(self):
-		return "<Page(page_id = '%s', url ='%s', created='%s')>" % (self.page_id, self.url, self.created)
+		return "<Page(page_id = '%s', url ='%s', created='%s')>" %(self.page_id, 
+			                                                       self.url, 
+			                                                       self.created)
