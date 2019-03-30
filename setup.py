@@ -25,7 +25,7 @@ setup(
 	long_description=long_description,
 	long_description_content_type="text/markdown",
 	url="https://github.com/tranlyvu/wiki-link",
-	packages=find_packages(),
+	packages=find_packages(exclude=("*.tests", "*.tests.*", "tests.*", "tests", "docs")),
 	license="Apache License 2.0",
 	zip_safe=False,
 	include_package_data=True,
