@@ -15,7 +15,7 @@ wikilink is a web-scraping application which purpose is to find the minimum numb
 
 I discussed brief the motivation and an overview of the project in [my blog](https://tranlyvu.github.io/algorithms/BFS-and-a-simple-application/).
 
-The project is currently at version [v0.2.1](https://github.com/tranlyvu/wiki-link/releases), also see [change log](https://github.com/tranlyvu/wiki-link/blob/dev/CHANGELOG.md) for more details on release history.
+The project is currently at version [v0.3.0](https://github.com/tranlyvu/wiki-link/releases), also see [change log](https://github.com/tranlyvu/wiki-link/blob/dev/CHANGELOG.md) for more details on release history.
 
 If you like this project, feel fee to leave a few words of appreciation here [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/tranlyvu)
 
