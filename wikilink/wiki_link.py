@@ -20,11 +20,10 @@ from sqlalchemy.orm.exc import NoResultFound, MultipleResultsFound
 from sqlalchemy.orm import scoped_session
 from sqlalchemy.orm import sessionmaker
 
-
 # own modules
-from .db import Connection
-from .db import Page
-from .db import Link
+from db import Connection
+from db import Page
+from db import Link
 
 __author__ = "Tran Ly Vu (vutransingapore@gmail.com)"
 __copyright__ = "Copyright (c) 2016 - 2019 Tran Ly Vu. All Rights Reserved."
@@ -32,7 +31,7 @@ __credits__ = ["Tranlyvu"]
 __license__ = "Apache License 2.0"
 __maintainer__ = "Tran Ly Vu"
 __email__ = "vutransingapore@gmail.com"
-__status__ = "Production"
+__status__ = "Beta"
 
 
 class WikiLink:
