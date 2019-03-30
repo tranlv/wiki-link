@@ -3,12 +3,11 @@
 
 """Provide Connection - the main gateway to access db"""
 
-#third-party modules
+# third-party modules
 from sqlalchemy import create_engine
 from sqlalchemy_utils import functions
-from sqlalchemy.orm import sessionmaker
 
-#own modules
+# own modules
 from .base import Base
 
 __author__ = "Tran Ly Vu (vutransingapore@gmail.com)"
@@ -21,19 +20,29 @@ __status__ = "Production"
 
 class Connection:
 	def __init__(self, db, name, password, ip, port):
+		
 		if db == "postgresql":
-			connection = "postgresql+psycopg2://" + name + ":" + password + "@" + ip + ":" + port			
+			connection = "postgresql+psycopg2://" + name + ":" \
+			              + password + "@" + ip + ":" + port			
 		elif db == "mysql":
-			connection = "mysql://" + name + ":" + password + "@" + ip + ":" + port
+			connection = "mysql://" + name + ":" + password \
+			              + "@" + ip + ":" + port
 		else:
-			raise ValueError("db type only support \"mysql\" or \"postgresql\" argument.")
+			raise ValueError("db type only \
+				support \"mysql\" or \"postgresql\" argument.")
+		
 		db_name = 'wikilink'
 		# Turn off echo
-		engine = create_engine(connection + "/" + db_name + '?charset=utf8', echo=False, encoding='utf-8')
-		if not functions.database_exists(engine.url):
-			functions.create_database(engine.url)
+		self.engine = create_engine(connection + "/" + db_name + '?charset=utf8'
+									,echo=False, encoding='utf-8' 
+									,pool_pre_ping=True 
+									,pool_size=10)
 
-		self.session = sessionmaker(bind=engine)()
+		if not functions.database_exists(self.engine.url):
+			functions.create_database(self.engine.url)
+
 		# If table don't exist, Create.
-		if (not engine.dialect.has_table(engine, 'link') and not engine.dialect.has_table(engine, 'page')):
-			Base.metadata.create_all(engine)
+		if (not self.engine.dialect.has_table(self.engine, 'link')\
+			and not self.engine.dialect.has_table(self.engine, 'page')):
+			
+			Base.metadata.create_all(self.engine)
