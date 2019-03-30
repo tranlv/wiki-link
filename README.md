@@ -15,8 +15,9 @@ wikilink is a web-scraping application which purpose is to find the minimum numb
 
 I discussed brief the motivation and an overview of the project in [my blog](https://tranlyvu.github.io/algorithms/BFS-and-a-simple-application/).
 
-The project is currently at production stage - [v1.2.1](https://github.com/tranlyvu/wiki-link/releases), also see [change log](https://github.com/tranlyvu/wiki-link/blob/dev/CHANGELOG.md) for more details on release history.
+The project is currently at version [v0.2.1](https://github.com/tranlyvu/wiki-link/releases), also see [change log](https://github.com/tranlyvu/wiki-link/blob/dev/CHANGELOG.md) for more details on release history.
 
+If you like this project, feel fee to leave a few words of appreciation here [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/tranlyvu)
 
 | Build | [![Build Status][3]][4] | [![Coverage Status][5]][6] | 
 | :--- | :--- | :---  |
@@ -46,8 +47,7 @@ Table of contents
 
 1. [Usage](#Usage)
 2. [Contribution](#Contribution) 
-3. [Contact](#Contact)
-4. [License](#License)
+3. [License](#License)
 
 ---
 Usage
@@ -65,17 +65,20 @@ wikilink currently supports [Mysql](https://www.mysql.com/downloads/) and [Postg
 
 ### API
 
-setup_db(db, username, password, ip, port): to set up database; supported "mysql" and postgresql" for 'db' argument.
+setup_db(db, username, password, ip="127.0.0.1", port=3306): to set up database; supported "mysql" and postgresql" for 'db' argument.
 
-min_link(source_url, dest_url, limit = 6): find minimum number of link from source url to destination url within limit (default=6)
+min_link(source, destination, limit=6, multiprocessing=False): find minimum number of link from source url to destination url within limit (default=6)
 
 ### Examples
 
 ```
->>> from wikilink import wiki_link
->>> model = wiki_link.WikiLink()
->>> model.setup_db("mysql", "root", "12345", "127.0.0.1", "3306")
->>> model.min_link(source_url, dest_url, 6)
+>>> from wikilink import WikiLink
+>>> app = WikiLink()
+>>> app.setup_db("mysql", "root", "12345", "127.0.0.1", "3306")
+>>> source = "https://en.wikipedia.org/wiki/Cristiano_Ronaldo"
+>>> destination = "https://en.wikipedia.org/wiki/Lionel_Messi"
+>>> app.min_link(source, destination, 6)
+1
 ```
 
 ---
@@ -104,19 +107,6 @@ Feel free to add your name into the [list of contributors](https://github.com/tr
 #### Hall of Fame
 
 [![](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/images/0)](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/links/0)[![](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/images/1)](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/links/1)[![](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/images/2)](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/links/2)[![](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/images/3)](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/links/3)[![](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/images/4)](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/links/4)[![](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/images/5)](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/links/5)[![](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/images/6)](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/links/6)[![](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/images/7)](https://sourcerer.io/fame/tranlyvu/tranlyvu/wiki-link/links/7)
-
----
-Contact
----
-
-Feel free to contact me to discuss any issues, questions, or comments.
-
-*  Email: vutransingapore@gmail.com
-*  Linkedln: [@vutransingapore](https://www.linkedin.com/in/tranlyvu/)
-*  GitHub: [Tran Ly Vu](https://github.com/tranlyvu)
-*  Blog: [tranlyvu.github.io](https://tranlyvu.github.io/)
-
-If you like my project, feel fee to leave a few words of appreciation here [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/tranlyvu)
 
 ---
 License
