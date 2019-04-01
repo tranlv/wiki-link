@@ -5,7 +5,6 @@
 <p align="center">
 	<a href="https://pypi.org/project/wikilink/"><img src="https://img.shields.io/pypi/v/wikilink.svg"></a>
 	<a href="https://pepy.tech/project/wikilink"><img src="https://pepy.tech/badge/wikilink"></a>
-	<a href="https://github.com/tranlyvu/wiki-link"><img src="http://hits.dwyl.io/tranlyvu/wiki-link.svg"></a>
     <a href="https://github.com/tranlyvu/wiki-link"><img src="http://githubbadges.com/star.svg?user=tranlyvu&repo=wiki-link&style=default"></a>
     <a href="https://github.com/tranlyvu/wiki-link/fork"><img src="http://githubbadges.com/fork.svg?user=tranlyvu&repo=wiki-link&style=default"></a>
 </p>
@@ -22,7 +21,7 @@ If you like this project, feel fee to leave a few words of appreciation here [![
 | Build | [![Build Status][3]][4] | [![Coverage Status][5]][6] | 
 | :--- | :--- | :---  |
 | **Quality** | [![Maintainability][13]][14] | [![Requirements Status][19]][20] |
-| **Support** | [![Join the chat][17]][18] | [![blog][1]][2] |
+| **Support** | [![Join the chat][17]][18] | |
 | **Platform** | [![python version](https://img.shields.io/pypi/pyversions/wikilink.svg)](https://pypi.org/project/wikilink/)| [![implementation](https://img.shields.io/pypi/implementation/wikilink.svg)](https://pypi.org/project/wikilink/) |
 
 [3]: https://travis-ci.org/tranlyvu/wiki-link.svg?branch=dev
@@ -35,8 +34,6 @@ If you like this project, feel fee to leave a few words of appreciation here [![
 
 [17]: https://badges.gitter.im/find-link/Lobby.svg
 [18]: https://gitter.im/find-link/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
-[1]: https://img.shields.io/badge/docs-on%20blog-brightgreen.svg
-[2]: https://tranlyvu.github.io/algorithms/BFS-and-a-simple-application/
 
 [19]: https://requires.io/github/tranlyvu/wiki-link/requirements.svg?branch=dev
 [20]: https://requires.io/github/tranlyvu/wiki-link/requirements/?branch=dev
@@ -124,7 +121,7 @@ To set up development environment, simply run:
 $ pip install -r requirements.txt
 ```
 
-Please check out the [issue file](https://github.com/tranlyvu/wiki-link/blob/dev/RELEASENOTES.md) for list of issues that required helps.
+Please check out the [issue file](https://github.com/tranlyvu/wiki-link/blob/dev/ISSUES.md) for list of issues that required helps.
 
 
 ### Appreciation
