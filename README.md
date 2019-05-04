@@ -1,12 +1,12 @@
 <p align="center">
-	<a href="https://github.com/tranlyvu/wiki-link"><img src="https://github.com/tranlyvu/wiki-link/blob/dev/img/logo.png"  width="400" height="400"></a>	
+	<a href="https://github.com/tranlyvu/wiki-link"><img src="https://github.com/tranlyvu/wiki-link/blob/master/img/logo.png"  width="400" height="400"></a>	
 </p>
 
 <p align="center">
 	<a href="https://pypi.org/project/wikilink/"><img src="https://img.shields.io/pypi/v/wikilink.svg"></a>
 	<a href="https://pepy.tech/project/wikilink"><img src="https://pepy.tech/badge/wikilink"></a>
-    <a href="https://github.com/tranlyvu/wiki-link"><img src="http://githubbadges.com/star.svg?user=tranlyvu&repo=wiki-link&style=default"></a>
-    <a href="https://github.com/tranlyvu/wiki-link/fork"><img src="http://githubbadges.com/fork.svg?user=tranlyvu&repo=wiki-link&style=default"></a>
+	<a href="https://github.com/tranlyvu/wiki-link"><img src="http://githubbadges.com/star.svg?user=tranlyvu&repo=wiki-link&style=default"></a>
+	<a href="https://github.com/tranlyvu/wiki-link/fork"><img src="http://githubbadges.com/fork.svg?user=tranlyvu&repo=wiki-link&style=default"></a>
 </p>
 
 ---
@@ -14,17 +14,16 @@ wikilink is a multiprocessing web-scraping application to scrape the wiki pages,
 
 I discussed brief the motivation and an overview of the project in [my blog](https://tranlyvu.github.io/algorithms/BFS-and-a-simple-application/).
 
-The project is currently at version [v0.3.0.post1](https://github.com/tranlyvu/wiki-link/releases), also see [change log](https://github.com/tranlyvu/wiki-link/blob/dev/CHANGELOG.md) for more details on release history.
+The project is currently at version [v0.3.0.post1](https://github.com/tranlyvu/wiki-link/releases), also see [change log](https://github.com/tranlyvu/wiki-link/blob/master/CHANGELOG.md) for more details on release history.
 
 If you like this project, feel fee to leave a few words of appreciation here [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/tranlyvu)
 
 | Build | [![Build Status][3]][4] | [![Coverage Status][5]][6] | 
 | :--- | :--- | :---  |
 | **Quality** | [![Maintainability][13]][14] | [![Requirements Status][19]][20] |
-| **Support** | [![Join the chat][17]][18] | |
 | **Platform** | [![python version](https://img.shields.io/pypi/pyversions/wikilink.svg)](https://pypi.org/project/wikilink/)| [![implementation](https://img.shields.io/pypi/implementation/wikilink.svg)](https://pypi.org/project/wikilink/) |
 
-[3]: https://travis-ci.org/tranlyvu/wiki-link.svg?branch=dev
+[3]: https://travis-ci.org/tranlyvu/wiki-link.svg?branch=master
 [4]: https://travis-ci.org/tranlyvu/wiki-link 
 [5]: https://coveralls.io/repos/github/tranlyvu/wiki-link/badge.svg
 [6]: https://coveralls.io/github/tranlyvu/wiki-link
@@ -35,8 +34,8 @@ If you like this project, feel fee to leave a few words of appreciation here [![
 [17]: https://badges.gitter.im/find-link/Lobby.svg
 [18]: https://gitter.im/find-link/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 
-[19]: https://requires.io/github/tranlyvu/wiki-link/requirements.svg?branch=dev
-[20]: https://requires.io/github/tranlyvu/wiki-link/requirements/?branch=dev
+[19]: https://requires.io/github/tranlyvu/wiki-link/requirements.svg?branch=master
+[20]: https://requires.io/github/tranlyvu/wiki-link/requirements/?branch=master
 
 ---
 Table of contents
@@ -113,7 +112,7 @@ Contribution [![Open Source Helpers][7]][8]
 
 ### How to contribute
 
-Please follow our contribution convention at [contribution instructions](https://github.com/tranlyvu/wiki-link/blob/dev/CONTRIBUTING.md) and [code of conduct](https://github.com/tranlyvu/wiki-link/blob/dev/CODE-OF-CONDUCT.md).
+Please follow our contribution convention at [contribution instructions](https://github.com/tranlyvu/wiki-link/blob/master/CONTRIBUTING.md) and [code of conduct](https://github.com/tranlyvu/wiki-link/blob/master/CODE-OF-CONDUCT.md).
 
 To set up development environment, simply run:
 
@@ -121,12 +120,12 @@ To set up development environment, simply run:
 $ pip install -r requirements.txt
 ```
 
-Please check out the [issue file](https://github.com/tranlyvu/wiki-link/blob/dev/ISSUES.md) for list of issues that required helps.
+Please check out the [issues](https://github.com/tranlyvu/wiki-link/issues) for list of issues that required helps.
 
 
 ### Appreciation
 
-Feel free to add your name into the [list of contributors](https://github.com/tranlyvu/wiki-link/blob/dev/CONTRIBUTORS.md). You will automatically be inducted into Hall of Fame as a way to show my appreciation for your contributions.
+Feel free to add your name into the [list of contributors](https://github.com/tranlyvu/wiki-link/blob/master/CONTRIBUTORS.md). You will automatically be inducted into Hall of Fame as a way to show my appreciation for your contributions.
 
 #### Hall of Fame
 
