@@ -25,6 +25,15 @@ from .db import Connection
 from .db import Page
 from .db import Link
 
+'''
+from ..wikilink import LinkNode
+from ..wikilink import get_all_my_parents
+from ..wikilink import get_parent_id_list
+from ..wikilink import get_url_path_from_page_ids
+'''
+
+from .wikilink import utils
+
 __author__ = "Tran Ly Vu (vutransingapore@gmail.com)"
 __copyright__ = "Copyright (c) 2016 - 2019 Tran Ly Vu. All Rights Reserved."
 __credits__ = ["Tranlyvu"]
@@ -396,6 +405,48 @@ class WikiLink:
 						storage_queue.put(n)
 						separation_queue.put(number_of_sep + 1)
 
+	def _print_path(self):
+		""" 
+			Function prints the sequence of paths from source to destination 
+			with the shortest number of link.
+		Args:
+			None
+		Returns:
+			None
+		"""
+		dest_node = LinkNode(self.dest_id)
+
+		successful_paths = []
+
+		with self._session_scope() as session:
+			def find_route_to_parent(node, source_root_id, depth=0, session=session):
+				parents = get_all_my_parents(node.node_id, session)
+				parent_ids = get_parent_id_list(parents)
+				depth += 1
+				if source_root_id in parent_ids and depth < self.limit:
+					node.path.append(node.node_id)
+					node.path.append(source_root_id) 
+					successful_paths.append(node.path)
+					return True
+
+				if depth > self.limit:
+					return
+
+				for every_parent in parents:
+					every_parent.path.extend(node.path)
+					every_parent.path.append(node.node_id)
+					if find_route_to_parent(every_parent, source_root_id, depth):
+						break
+
+			#recursively backtrack from dest id to source id
+			find_route_to_parent(dest_node, self.source_id)
+
+			success_path_url = [] #store url paths from page id
+			if successful_paths:
+				success_path_url = get_url_path_from_page_ids(session,min(successful_paths, key=len))
+				print("{}".format("=>".join(success_path_url)))
+
+			return
 
 def _scraper(session, url_id):
 
