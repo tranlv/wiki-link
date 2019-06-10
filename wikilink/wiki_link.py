@@ -38,7 +38,7 @@ class WikiLink:
 	def __init__(self):
 		pass
 
-	def setup_db(self, db, name, password, ip="127.0.0.1", port=3306):
+	def setup_db(self, db, name, password, ip="127.0.0.1", port="3306"):
 
 		""" Setting up database
 		Args:
