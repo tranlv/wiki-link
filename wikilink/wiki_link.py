@@ -20,19 +20,14 @@ from sqlalchemy.orm.exc import NoResultFound, MultipleResultsFound
 from sqlalchemy.orm import scoped_session
 from sqlalchemy.orm import sessionmaker
 
+
+
 # own modules
 from .db import Connection
 from .db import Page
 from .db import Link
 
-'''
-from ..wikilink import LinkNode
-from ..wikilink import get_all_my_parents
-from ..wikilink import get_parent_id_list
-from ..wikilink import get_url_path_from_page_ids
-'''
-
-from .wikilink import utils
+from utils import *
 
 __author__ = "Tran Ly Vu (vutransingapore@gmail.com)"
 __copyright__ = "Copyright (c) 2016 - 2019 Tran Ly Vu. All Rights Reserved."

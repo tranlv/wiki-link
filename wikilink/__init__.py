@@ -9,9 +9,10 @@
     :license: Apache License 2.0.
 """
 from .wiki_link import WikiLink
+from .wiki_link import utils
 
 name = "wikilink"
-__all__ = ["WikiLink"]
+__all__ = ["WikiLink", "utils"]
 __author__ = "Tran Ly Vu (vutransingapore@gmail.com)"
 __copyright__ = "Copyright (c) 2016 - 2019 Tran Ly Vu. All Rights Reserved."
 __credits__ = ["Tranlyvu"]
