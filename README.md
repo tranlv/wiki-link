@@ -1,8 +1,4 @@
 <p align="center">
-	<a href="https://github.com/tranlyvu/wiki-link"><img src="https://github.com/tranlyvu/wiki-link/blob/master/img/logo.png"  width="400" height="400"></a>	
-</p>
-
-<p align="center">
 	<a href="https://pypi.org/project/wikilink/"><img src="https://img.shields.io/pypi/v/wikilink.svg"></a>
 	<a href="https://pepy.tech/project/wikilink"><img src="https://pepy.tech/badge/wikilink"></a>
 	<a href="https://github.com/tranlyvu/wiki-link"><img src="http://githubbadges.com/star.svg?user=tranlyvu&repo=wiki-link&style=default"></a>
