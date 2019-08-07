@@ -1,6 +1,4 @@
-<p align="center">
-	<a href="https://github.com/tranlyvu/wiki-link"><img src="https://github.com/tranlyvu/wiki-link/blob/master/img/logo.png"  width="400" height="400"></a>	
-</p>
+# **wikilink**
 
 <p align="center">
 	<a href="https://pypi.org/project/wikilink/"><img src="https://img.shields.io/pypi/v/wikilink.svg"></a>

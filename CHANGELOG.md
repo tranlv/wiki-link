@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 Changes are grouped into "Added", "Changed", "Deprecated", "Removed", "Fixed", "Security"
 
+## [v0.4.0]
+### Fixed
+- Fixed "Type Error" when port parameter is not passed while calling setup_db #28
+
+### Changed
+- Removed project image
+- Added Pradeep Nayak<pradeepjnayak7@gmail.com> into list of contributors
+
+
 ## [v0.3.0.post1] - 2019-03-30
 ### Fixed
 - Fixed sub-package db import
