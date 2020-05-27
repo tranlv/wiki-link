@@ -20,15 +20,13 @@ from sqlalchemy.orm.exc import NoResultFound, MultipleResultsFound
 from sqlalchemy.orm import scoped_session
 from sqlalchemy.orm import sessionmaker
 
-
-
 # own modules
 from .db import Connection
 from .db import Page
 from .db import Link
 
 
-__author__ = "Tran Ly Vu (vutransingapore@gmail.com)"
+__author__ = "Tran Ly Vu (vutransingapore@gmail.com), Pradeep Nayak (pradeepjnayak7@gmail.com"
 __copyright__ = "Copyright (c) 2016 - 2019 Tran Ly Vu. All Rights Reserved."
 __credits__ = ["Tranlyvu"]
 __license__ = "Apache License 2.0"
@@ -399,7 +397,7 @@ class WikiLink:
 						storage_queue.put(n)
 						separation_queue.put(number_of_sep + 1)
 
-	def _print_path(self):
+	def print_path(self):
 		""" 
 			Function prints the sequence of paths from source to destination 
 			with the shortest number of link.
@@ -571,6 +569,7 @@ def _insert_link(session, from_page_id, to_page_id, no_of_separation):
 			 with number of seperation {}".format(from_page_id, to_page_id,
 		 								          no_of_separation))
 
+
 class LinkNode(object):
     def __init__(self, node_id):
         self.node_id = node_id
@@ -578,13 +577,18 @@ class LinkNode(object):
 
 def get_all_my_parents(node_id, session):
     parent_list = []
-    for every_parent in session.query(Link).filter(Link.to_page_id==node_id,Link.number_of_separation==1):
-        parent_node = LinkNode(every_parent.from_page_id)
-        parent_list.append(parent_node)
+	try:
+		for every_parent in session.query(Link).filter(Link.to_page_id==node_id,Link.number_of_separation==1):
+			parent_node = LinkNode(every_parent.from_page_id)
+			parent_list.append(parent_node)
+	except DisconnectionError:
+		raise DisconnectionError("There is error with DB connection")
     return parent_list
+
 
 def get_parent_id_list(parent_list):
     return [parent_node.node_id for parent_node in parent_list]
+
 
 def get_url_path_from_page_ids(session, page_ids_list):
     path_url = []
