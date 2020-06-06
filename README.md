@@ -3,18 +3,14 @@
 <p align="center">
 	<a href="https://pypi.org/project/wikilink/"><img src="https://img.shields.io/pypi/v/wikilink.svg"></a>
 	<a href="https://pepy.tech/project/wikilink"><img src="https://pepy.tech/badge/wikilink"></a>
-	<a href="https://github.com/tranlyvu/wiki-link"><img src="http://githubbadges.com/star.svg?user=tranlyvu&repo=wiki-link&style=default"></a>
-	<a href="https://github.com/tranlyvu/wiki-link/fork"><img src="http://githubbadges.com/fork.svg?user=tranlyvu&repo=wiki-link&style=default"></a>
 </p>
 
 ---
-wikilink is a multiprocessing web-scraping application to scrape the wiki pages, extract urls and find the minimum number of links between 2 given wiki pages.
+wikilink is a multiprocessing web-scraping *application* to scrape the wiki pages, extract urls and find the minimum number of links between 2 given wiki pages.
 
-I discussed brief the motivation and an overview of the project in [my blog](https://tranlyvu.github.io/algorithms/BFS-and-a-simple-application/).
+The project is an implementation of 6-degree of separation in wikipedia that mentioned in [Web Scraping with Python](https://www.amazon.com/Web-Scraping-Python-Collecting-Modern/dp/1491985577/ref=pd_sbs_14_1/142-3292117-4986818?_encoding=UTF8&pd_rd_i=1491985577&pd_rd_r=49ea33a0-0484-4844-bab3-9685cf433745&pd_rd_w=2Pza3&pd_rd_wg=GQY3c&pf_rd_p=e20a7044-dca9-4b2c-8da8-05b176efe6fb&pf_rd_r=J1KTRH8PTY7EMB7XYY7B&psc=1&refRID=J1KTRH8PTY7EMB7XYY7B), you can find more details of the project in [my blog](https://distributedsystemsblog.com/posts/shortest-path-problem-unweighted-graph/).
 
-The project is currently at version [v0.3.0.post1](https://github.com/tranlyvu/wiki-link/releases), also see [change log](https://github.com/tranlyvu/wiki-link/blob/master/CHANGELOG.md) for more details on release history.
-
-If you like this project, feel fee to leave a few words of appreciation here [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/vutransingapore%40gmail.com)
+The project is currently at version [v0.3.0.post1](https://github.com/tranlyvu/wiki-link/releases), also see [change log](https://github.com/tranlyvu/wiki-link/blob/master/CHANGELOG.md) for more details on release history. If you like this project, feel fee to leave a few words of appreciation here [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/vutransingapore%40gmail.com)
 
 | Build | [![Build Status][3]][4] | [![Coverage Status][5]][6] | 
 | :--- | :--- | :---  |
@@ -28,9 +24,6 @@ If you like this project, feel fee to leave a few words of appreciation here [![
 
 [13]: https://api.codeclimate.com/v1/badges/8679cde6756683bd787d/maintainability
 [14]: https://codeclimate.com/github/tranlyvu/wiki-link/maintainability
-
-[17]: https://badges.gitter.im/find-link/Lobby.svg
-[18]: https://gitter.im/find-link/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 
 [19]: https://requires.io/github/tranlyvu/wiki-link/requirements.svg?branch=master
 [20]: https://requires.io/github/tranlyvu/wiki-link/requirements/?branch=master
@@ -55,7 +48,7 @@ $ pip install wikilink
 
 ### Database support
 
-wikilink currently supports [Mysql](https://www.mysql.com/downloads/) and [PostgreSQL](https://www.postgresql.org/)
+wikilink needs to access to database to store the extracted urls, it currently supports [Mysql](https://www.mysql.com/downloads/) and [PostgreSQL](https://www.postgresql.org/)
 
 ### API
 
