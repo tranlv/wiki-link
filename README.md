@@ -107,12 +107,9 @@ To set up development environment, simply run:
 $ pip install -r requirements.txt
 ```
 
-Please check out the [issues](https://github.com/tranlyvu/wiki-link/issues) for list of issues that required helps.
-
+Please check out the [issues](https://github.com/tranlyvu/wiki-link/issues) for list of issues that required helps. Also, feel free to add your name into the [list of contributors](https://github.com/tranlyvu/wiki-link/blob/master/CONTRIBUTORS.md). 
 
 ### Appreciation
-
-Feel free to add your name into the [list of contributors](https://github.com/tranlyvu/wiki-link/blob/master/CONTRIBUTORS.md). 
 
 If you like this project, you can buy buy me a [pizza](https://www.buymeacoffee.com/tranlv) to motivate me improve on the project.
 
